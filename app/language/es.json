@@ -1,0 +1,457 @@
+{
+  "game_list": {
+    "tonkori":
+    {
+      "subtitle": "¿Prefieres salvar el mundo... o salvarte a ti?",
+      "description": "La gran estrella de Rhon.",
+      "description2": "Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges vivir.",
+      "status": "En Desarrollo",
+      "genre": "RPG narrativo",
+      "year": "Próximamente",
+      "pitch": "Tus decisiones cambiaran el mundo",
+      "mechanics": [
+        {
+          "title": "Sistema de Decisiones",
+          "description": "Las decisiones son un elemento clave en el mundo de Arceon, en Tonkori no solo decides la historia, si no quien eres, como eres y quien quieres ser."
+        },
+        {
+          "title": "Tus Compañeros",
+          "description": "Cada compañero tiene su personalidad y actuará en función de la tuya. Dependiendo de tus decisiones y de cómo te comportes, tus compañeros pueden convertirse en tus mejor amigos, tus amantes o incluso tus enemigos."
+        },
+        { "title": "Mundo Reactivo",
+          "description": "Cada acción del jugador tiene consecuencias permanentes en el mundo del juego."
+        }
+      ],
+      "market": [
+        {
+          "title": "Audiencia Objetivo",
+          "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
+        },
+        {
+          "title": "Tamaño del Mercado",
+          "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
+        },
+        {
+          "title": "Ventaja Competitiva",
+          "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
+        }
+      ],
+      "technic": [
+        { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
+        { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
+        { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
+        { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
+        { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
+        { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
+      ],
+      "development": {
+        "current_phase": "Pre-producción avanzada / Producción temprana",
+        "team_size": "12 desarrolladores core + 8 colaboradores externos",
+        "timeline": "Q4 2025 - Alpha cerrada | Q2 2026 - Beta pública | Q4 2026 - Lanzamiento"
+      },
+      "roadmap": [
+        {
+          "phase": "Concepto y Pre-producción",
+          "status": "completed",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Vertical Slice",
+          "status": "in-progress",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Producción Principal",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Beta y Marketing",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Lanzamiento",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        }
+      ],
+      "investment":
+      {
+        "monetization": "Monetization Model",
+        "roi": "Return Potential",
+        "keys": [
+          "",
+          ""
+        ]
+      }
+    },
+    "afterlight":
+    {
+      "subtitle": "¿Encontraras la luz en la oscuridad?",
+      "description": "En un mundo post-apocalíptico, la luz es vida. Explora, construye y sobrevive en un entorno hostil donde cada decisión cuenta y la oscuridad acecha en cada esquina.",
+      "description2": "",
+      "status": "En Desarrollo",
+      "genre": "Metroidvania de plataformas",
+      "year": "2026 / 2027",
+      "pitch": "Un survival horror que revoluciona el género combinando mecánicas de gestión de luz con terror psicológico, apuntando al creciente mercado de juegos de supervivencia premium.",
+      "mechanics": [
+        {
+          "title": "Física de Luz Dinámica",
+          "description": "Sistema propietario de física de luz donde cada fuente de luz tiene propiedades únicas que afectan gameplay, combate y narrativa."
+        },
+        {
+          "title": "Ecosistema de Oscuridad",
+          "description": "Las criaturas evolucionan y se adaptan a las estrategias del jugador, creando una experiencia de horror emergente única en cada partida."
+        },
+        {
+          "title": "Base Building Asimétrico",
+          "description": "Construcción de refugios con sistemas eléctricos funcionales donde cada decisión arquitectónica tiene impacto en supervivencia."
+        }
+      ],
+      "market": [
+        {
+          "title": "Audiencia Objetivo",
+          "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
+        },
+        {
+          "title": "Tamaño del Mercado",
+          "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
+        },
+        {
+          "title": "Ventaja Competitiva",
+          "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
+        }
+      ],
+      "technic": [
+        { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
+        { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
+        { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
+        { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
+        { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
+        { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
+      ],
+      "development": {
+        "current_phase": "Pre-producción / Prototipado avanzado",
+        "team_size": "8 desarrolladores core + 5 especialistas",
+        "timeline": "Q1 2026 - Vertical slice | Q3 2026 - Alpha | Q2 2027 - Early Access | Q4 2027 - Full Launch"
+      },
+      "roadmap": [
+        {
+          "phase": "Concepto y R&D",
+          "status": "completed",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Prototipo Técnico",
+          "status": "in-progress",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Vertical Slice",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Early Access",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        },
+        {
+          "phase": "Full Launch",
+          "status": "planned",
+          "items": [
+            "ASDSA",
+            "skadhaskl"
+          ]
+        }
+      ],
+      "investment":
+      {
+        "monetization": "Monetization Model",
+        "roi": "Return Potential",
+        "keys": [
+          "",
+          ""
+        ]
+      }
+    }
+  },
+  "menu": {
+    "home": "Inicio",
+    "highlight": "Destacado",
+    "games": "Juegos",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "game_menu": {
+    "home": "Inicio",
+    "vision": "Juego",
+    "gallery": "Galería",
+    "investment": "Inversión",
+    "roadmap": "Roadmap",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "subtitle": "Desde 2025",
+    "description":
+    {
+      "p1": "Creando mundos",
+      "p2": "que se quedan contigo"
+    },
+    "button": "Explora Nuestros Mundos",
+    "soul_products":
+    {
+      "p1": "Productos",
+      "p2": "con alma"
+    }
+  },
+  "highlight": {
+    "game_header": "Explora el mundo de:",
+    "button": "Saber Más"
+  },
+  "games": {
+    "top_title": "Nuestros mundos",
+    "title": "Juegos",
+    "subtitle": "Descubre",
+    "more_projects": "Más proyectos en desarrollo...",
+    "game_card":
+    {
+      "no_image": "Próximamente",
+      "state": "Estado:",
+      "year": "Año:",
+      "genre": "Género",
+      "know_more": "Saber más"
+    }
+  },
+  "ourvision": {
+    "top_title": "Nuestro estudio",
+    "title": "Nuestra visión",
+    "subtitle": "Nuestra ambición",
+    "description": {
+      "p1": "Rhon Studios está construyendo no solo una empresa sino una idea creativa a largo plazo enfocada en el crecimiento sostenible, la propiedad intelectual sólida y la ejecución disciplinada",
+      "p2": "Nuestra ambición no es solo ruido",
+      "p3": "es nuestro legado"
+    },
+    "commitment": "Nuestro Compromiso",
+    "com_description": "En Rhon Studios, abordamos cada proyecto con claridad estratégica y disciplina de producción. Operamos de manera eficiente, priorizamos el desarrollo de alto impacto y construimos con escalabilidad en mente. Nuestro compromiso es crear propiedad intelectual valiosa, mantener estándares de producción éticos y crecer de manera deliberada.",
+    "boxes": [
+      { "id": 1, "num": "2+", "text": "IPs propias" },
+      { "id": 2, "num": "2026", "text": "Debut Comercial" },
+      { "id": 3, "num": "100%", "text": "Propiedad de los fundadores" }
+    ]
+  },
+  "about": {
+    "top_title": "Nuestra Historia",
+    "title": "Nosotros",
+    "section_1" :
+    {
+      "title": "Quiénes Somos",
+      "text" :
+      {
+        "p1": "Rhon Studios es un estudio de desarrollo de videojuegos independiente fundado en 2025.",
+        "p2": "Cada mundo que creamos está diseñado para quedarse contigo mucho después de que termines de jugar, con experiencias inmersivas que combinan narrativa, emoción y estilo."
+      }
+    },
+    "section_2":
+    {
+      "title": "Nuestro Código",
+      "text":
+      {
+        "p1":
+        {
+          "p1": "Rhon Studios opera bajo un código de excelencia:",
+          "p2": "creatividad, disciplina y responsabilidad ética."
+        },
+        "p2": "Cada acción que emprendemos refleja nuestros principios, manteniéndonos independientes, relevantes y valiosos."
+      }
+    },
+    "creativity":
+    {
+      "title": "Creatividad",
+      "text": "Innovación en cada detalle"
+    },
+    "passion":
+    {
+      "title": "Pasión",
+      "text": "Amor por lo que hacemos"
+    },
+    "quality":
+    {
+      "title": "Calidad",
+      "text": "Excelencia sin compromisos"
+    }
+  },
+  "team": {
+    "top_title": "Conoce a los fundadores",
+    "title": "Nuestro Equipo",
+    "subtitle": "Dirigido por nuevas caras de la industria con una pasión compartida por la narración emocionante.",
+    "team": [
+      {
+        "id": 1,
+        "name": "Rashri Amorós",
+        "img": "",
+        "role": "C.E.O y Diseñadora Principal",
+        "bioShort": "",
+        "bio": "",
+        "linkedin": "https://www.linkedin.com/in/rashriamoros/",
+        "github": "https://github.com/rashxx-exe",
+        "twitter": "https://x.com/arcisax",
+        "email": "rashriamoros@gmail.com"
+      },
+      {
+        "id": 2,
+        "name": "Camilo Jumelle",
+        "img": "",
+        "role": "C.E.O y Programador Líder",
+        "bioShort": "No solo desarrollo, creo soluciones",
+        "bio": "Soy un desarrollador web apasionado por crear experiencias digitales innovadoras, fluidas y centradas en el usuario. Disfruto enfrentar desafíos, optimizar el rendimiento y aprender constantemente para estar al día en el mundo tecnológico en constante evolución. Mi objetivo es desarrollar soluciones escalables, eficientes e impactantes que mejoren la interacción del usuario y contribuyan al éxito de cada proyecto.",
+        "linkedin": "https://www.linkedin.com/in/jumelle-camilo/",
+        "github": "https://github.com/jumelleCL",
+        "twitter": "https://x.com/Kaios_LK",
+        "email": "jumellecamilo@gmail.com"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "type_contact": "Particular / Empresa",
+    "name": "Nombre",
+    "company": "Empresa",
+    "message": {
+      "title": "Mensaje",
+      "placeholder": "Hola os amo sois los mejores jiji."
+    },
+    "button":
+    {
+      "idle": "ENVIAR MENSAJE",
+      "invalid": "Mensaje invalido, rellena todos los campos",
+      "sending": "ENVIANDO...",
+      "sent": "MENSAJE ENVIADO",
+      "alreadySent": "UN MENSAJE YA HA SIDO ENVIADO",
+      "error": "ERROR - INTENTELO OTRA VEZ"
+    },
+    "messageSend": "Mensaje enviado correctamente.",
+    "openhours": "Horas operativas:",
+    "days": "LUNES - VIERNES",
+    "hours": "12:00h - 20:00",
+    "weekend": "FINES DE SEMANA",
+    "appointment": "SOLO CON RESERVA",
+    "button_appointment": "RESERVA TU HORA",
+    "thankscard":
+    {
+      "title": "GRACIAS DE CORAZÓN",
+      "text":
+      {
+        "p1": "Desde Rhon Studios apreciamos a todos los que nos visitan.",
+        "p2": "Hacemos esto no solo por nosotros, sino para que puedas ver el mundo y su belleza tal como lo vemos nosotros.",
+        "p3": "No olvides contactarnos."
+      }
+    },
+    "follow": "Siguenos",
+    "newsLetter": "Nuestro Newsletter"
+  },
+  "newsLetter": {
+    "title": "Newsletter",
+    "subtitle": "Suscríbete para recibir las últimas noticias sobre nuestros juegos.",
+    "subscribe": "Suscribirse"
+  },
+  "footer": {
+    "links": "Enlazes Rápidos",
+    "follow": "Siguenos",
+    "rights": "Todos los derechos reservados."
+  },
+  "gamePage": {
+    "notfound": 
+    {
+      "game": "Juego no encontrado",
+      "button": "Volver al inicio"
+    },
+    "mechanics":
+    {
+      "title": "Propuesta de Valor",
+      "subtitle": "Innovación y Oportunidad",
+      "mechanics":
+      {
+        "title": "Mecánicas Innovadoras"
+      },
+      "market":
+      {
+        "title" : "Oportunidad de Mercado"
+      },
+      "technics":
+      {
+        "title": "Especificaciones Técnicas"
+      }
+    },
+    "roadmap":
+    {
+      "title": "Roadmap",
+      "subtitle": "Visión y Ejecución",
+      "vision":
+      {
+        "title": "Visión General",
+        "progress": "Progreso",
+        "completed": "Completado"
+      },
+      "roadmap": {
+        "title": "Roadmap",
+        "completed": "Completado",
+        "inProgress": "En Progreso",
+        "planned": "Planeado"
+      }
+    },
+    "investment":
+    {
+      "title": "Oportunidad de Inversión",
+      "subtitle": "Crecimiento y Oportunidad",
+      "monetization": "Modelo de Monetización",
+      "roi": "Proyección de Retorno",
+      "keys": "Puntos Destacados para Inversores"
+    },
+    "contact":
+    {
+      "title": "¿Interesado en Colaborar?",
+      "description": "Estamos buscando etc",
+      "button": "Contactar",
+      "pressKit": "Descargar Press Kit"
+    }
+  },
+  "gameGallery": {
+    "screenshot": "Captura",
+    "conceptArt": "Arte Conceptual",
+    "gameplay": "Gameplay",
+    "characters": "Personajes",
+    "environment": "Entornos",
+    "all": "Todos",
+    "title": "Galería",
+    "subtitle": "Arte & Capturas"
+  }
+}

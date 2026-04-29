@@ -1,0 +1,234 @@
+﻿"use client"
+
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useLanguage } from "@/app/language/LanguageProvider";
+import { useRouter } from "next/navigation";
+import { GameData, gamesData } from "@/app/games/gamesData";
+
+export function Games(){
+    
+    const router = useRouter();
+    const [selectedGame, setSelectedGame] = useState<GameData | null>(null);
+    const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const { t } = useLanguage();
+    
+    return (
+        <section
+            id="games"
+            className="snap-center scroll-mt-[100px] relative bg-black text-white pt-32 overflow-hidden"
+            style={{
+                minHeight: '100vh',
+            }}
+        >
+            <div className="container mx-auto px-8 lg:px-16">
+                <div className="text-center">
+                    <div className="inline-block border-2 border-white px-10 py-3 mb-8">
+                        <p
+                            className="text-xs tracking-[0.3em] uppercase"
+                            style={{ fontFamily: "Cinzel" }}
+                        >
+                            {t.games.top_title}
+                        </p>
+                    </div>
+                    <h2
+                        className="text-6xl lg:text-7xl mb-8 tracking-wider"
+                        style={{ fontFamily: "Rye" }}
+                    >
+                        {t.games.title}
+                    </h2>
+                    <div className="flex items-center justify-center gap-6 mb-12">
+                        <div className="w-100 h-[2px] bg-white"/>
+                        <p
+                            className="text-sm tracking-[0.3em] uppercase"
+                            style={{ fontFamily: "Cinzel" }}
+                        >
+                            {t.games.subtitle}
+                        </p>
+                        <div className="w-100 h-[2px] bg-white"/>
+                    </div>
+                </div>
+                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+                    {gamesData.map((game, index) => {
+                        const gameT = t.game_list[game.id];
+                        return (
+                            <div
+                                onMouseEnter={() => {
+                                    hoverTimeout.current = setTimeout(() => {
+                                        setSelectedGame(game);
+                                    }, 500);
+                                }}
+                                onMouseLeave={() => {
+                                    if (hoverTimeout.current) {
+                                        clearTimeout(hoverTimeout.current);
+                                        hoverTimeout.current = null;
+                                    }
+                                }}
+                                onClick={() => setSelectedGame(game)}
+                                key={game.id}
+                                className="relative border-2 border-white p-8 overflow-hidden group h-[350px] flex flex-col justify-center cursor-pointer hover:bg-white/5 transition-all duration-300"
+                            >
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center opacity-40"
+                                    style={{
+                                        backgroundImage: `url(${game.heroImage})`,
+                                        filter: "greyscale(100%)"
+                                    }}
+                                />
+                                <div className="relative z-10 pl-10">
+                                    <h3
+                                        className="text-5xl tracking-wide mb-3"
+                                        style={{ fontFamily: game.font, fontWeight: "bold" }}                                >
+                                        {game.title}
+                                    </h3>
+                                </div>
+                                <p
+                                    className="text-lg tracking-wide opacity-70 pl-5"
+                                    style={{ fontFamily: "Cinzel" }}
+                                >
+                                    {gameT.subtitle}
+                                </p>
+                                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white/50 opacity-100"></div>
+                                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-white/50 opacity-100"></div>
+                                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-white/50 opacity-100"></div>
+                                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white/50 opacity-100"></div>
+                            </div>
+                        )
+                    })}
+                </div>
+                <div className="text-center mt-20">
+                    <p
+                        className="text-lg tracking-wide opacity-60"
+                        style={{ fontFamily: "Cinzel" }}
+                    >
+                        {t.games.more_projects}
+                    </p>
+                </div>
+            </div>
+            <AnimatePresence>
+                {selectedGame && (() => {
+                    const selectedGameT = t.game_list[selectedGame.id];
+                    return (
+                        <div
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6"
+                            onClick={() => setSelectedGame(null)}
+                            onMouseLeave={() => setSelectedGame(null)}
+                        >
+                            <div
+                                className="relative max-w-6xl w-full bg-black border-2 border-white/20 p-10 grid md:grid-cols-2 gap-12 items-center"
+                            >
+                                <div>
+                                    <motion.div 
+                                        whileHover={{ scale: 1.05 }}
+                                        className="group relative aspect-video bg-black border-2 border-white/20 flex items-center justify-center overflow-hidden">
+                                        {selectedGame.heroImage ? (
+                                            <img
+                                                src={selectedGame.heroImage}
+                                                alt={selectedGame.title}
+                                                className="opacity-60"
+                                            />
+                                        ) : (
+                                            <div className="text-center">
+                                                <div
+                                                    className="text-4xl mb-2 text-white/40"
+                                                    style={{ fontFamily: selectedGame.font }}
+                                                >
+                                                    {selectedGame.title}
+                                                </div>
+                                                <div
+                                                    className="text-sm text-white/3' tracking-wider"
+                                                    style={{ fontFamily: "Cinzel"}}
+                                                >
+                                                    {t.games.game_card.no_image}
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className="absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-white/40 group-hover:border-white/80"></div>
+                                        <div className="absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-white/40 group-hover:border-white/80"></div>
+                                    </motion.div>
+                                </div>
+                                <div>
+                                    <div className="mb-6">
+                                        <h3
+                                            className="text-5xl lg:text-6xl mb-3 tracking-wider text-white/80"
+                                            style={{ fontFamily: selectedGame.font, fontWeight: 200}}
+                                        >
+                                            {selectedGame.title}
+                                        </h3>
+                                        <p
+                                            className="text-xl text-white/70 tracking-wide"
+                                            style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                                        >
+                                            {selectedGameT.subtitle}
+                                        </p>
+                                    </div>
+                                    <p
+                                        className="text-lg leading-relaxed tracking-wide text-white/70 mb-8"
+                                        style={{ fontFamily: "Cinzel"}}
+                                    >
+                                        {selectedGameT.description}<br/>{selectedGameT.description2}
+                                    </p>
+                                    <div className="space-y-3 mb-8">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-2 h-2 bg-white"/>
+                                            <span
+                                                className="text-sm tracking-wider text-white/60"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                {t.games.game_card.state}
+                                            </span>
+                                            <span
+                                                className="text-sm tracking-wider"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                {selectedGameT.status}
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-2 h-2 bg-white"></div>
+                                            <span
+                                                className="text-sm tracking-wider text-white/60"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                    {t.games.game_card.year}
+                                                </span>
+                                            <span
+                                                className="text-sm tracking-wider"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                    {selectedGameT.year}
+                                                </span>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-2 h-2 bg-white"></div>
+                                            <span
+                                                className="text-sm tracking-wider text-white/60"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                 {t.games.game_card.genre}
+                                            </span>
+                                            <span
+                                                className="text-sm tracking-wider"
+                                                style={{ fontFamily: "Cinzel" }}
+                                            >
+                                                {selectedGameT.genre}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button
+                                        onClick={() => router.push(`/${selectedGame.id}`)}
+                                        className="border-2 border-white px-12 py-3 text-sm tracking-[0.2em] uppercase
+                                                       hover:bg-white hover:text-black transition-all duration-300"
+                                        style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                                    >
+                                        {t.games.game_card.know_more}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })()}
+            </AnimatePresence>
+        </section>
+    )
+}
