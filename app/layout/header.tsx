@@ -15,17 +15,31 @@ export function Header() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isInHero, setIsInHero] = useState(true);
     const { language, setLanguage, t } = useLanguage();
     const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            const scrollY = window.scrollY;
+            setIsScrolled(scrollY > 50);
+
+            if (isIdPage) {
+                const heroEl = document.getElementById("hero");
+                if (heroEl) {
+                    const heroBottom = heroEl.getBoundingClientRect().bottom;
+                    setIsInHero(heroBottom > 80);
+                } else {
+                    setIsInHero(false);
+                }
+            } else {
+                setIsInHero(false);
+            }
         };
         handleScroll();
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [isIdPage]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -38,12 +52,9 @@ export function Header() {
         } else {
             document.removeEventListener("mousedown", handleClickOutside);
         }
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        }
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isMenuOpen]);
 
-    // Lock body scroll when mobile menu is open
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -131,6 +142,7 @@ export function Header() {
             <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
         </button>
     );
+
     const MobileMenuOverlay = ({ items, onHome }: { items: typeof menuItems; onHome?: () => void }) => (
         <div className="fixed inset-0 z-[200] bg-black/98 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
             <button
@@ -171,24 +183,26 @@ export function Header() {
             </div>
         </div>
     );
+
     if (isIdPage) {
         return (
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-                    isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2x1" : "bg-transparent"
+                    isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"
                 }`}
             >
                 <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10"}`}>
                     {isScrolled ? (
                         <>
-                            {/* Mobile scrolled bar */}
+                            
                             <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios Header" className="h-12 w-auto" />
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                                 <div className="flex items-center gap-3">
                                     <LangSwitcherMobile />
                                     <HamburgerBtn />
                                 </div>
                             </div>
+                            
                             <nav className="hidden lg:flex container mx-auto py-4 items-center justify-between relative">
                                 <LangSwitcherDesktop />
                                 <div className="hidden xl:flex items-center gap-4 absolute left-[32%] -translate-x-full">
@@ -196,7 +210,7 @@ export function Header() {
                                 </div>
                                 <div className="absolute left-1/2 transform -translate-x-1/2">
                                     <a href="#">
-                                        <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios Header" className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
+                                        <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
                                     </a>
                                 </div>
                                 <div className="hidden xl:flex items-center gap-4 absolute right-[32%] translate-x-full">
@@ -209,14 +223,17 @@ export function Header() {
                         </>
                     ) : (
                         <>
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios Header" className="h-12 w-auto" />
+                            
+                            <div
+                                className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}
+                            >
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                                 <div className="flex items-center gap-3">
                                     <LangSwitcherMobile />
                                     <HamburgerBtn />
                                 </div>
                             </div>
-                            {/* Desktop non-scrolled: 3-col layout */}
+                            
                             <div className="hidden lg:grid grid-cols-3 items-center">
                                 <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
                                     <li>
@@ -236,7 +253,7 @@ export function Header() {
                                     </li>
                                 </ul>
                                 <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-                                    <img src="/logos/IconHeader.png" alt="Rhon Studios Header" className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
+                                    <img src="/logos/IconHeader.png" alt="Rhon Studios" className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
                                     <LangSwitcherDesktop />
                                 </div>
                                 <ul className="flex gap-5 xl:gap-8 items-center text-white justify-end">
@@ -251,7 +268,7 @@ export function Header() {
                                         </button>
                                     </li>
                                     <li>
-                                        <button onClick={() => scrollTo("contact")} style={{ fontFamily: "Cinzel", fontSize: 22 }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        <button onClick={() => scrollTo("contact")} style={{ fontFamily: "Cinzel" }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
                                             {t.game_menu.contact}
                                         </button>
                                     </li>
@@ -289,34 +306,32 @@ export function Header() {
                 <AnimatePresence>
                     {isMenuOpen && (
                         <div className="lg:hidden">
-                            <MobileMenuOverlay
-                                items={game_menuItems}
-                                onHome={() => router.push("/#games")}
-                            />
+                            <MobileMenuOverlay items={game_menuItems} onHome={() => router.push("/#games")} />
                         </div>
                     )}
                 </AnimatePresence>
             </header>
         );
     }
+
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-                isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2x1" : "bg-transparent"
+                isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"
             }`}
         >
             <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10 px-4 sm:px-8 lg:px-16"}`}>
                 {isScrolled ? (
                     <>
-                        {/* Mobile scrolled bar */}
+                        
                         <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                            <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios Header" className="h-12 w-auto" />
+                            <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                             <div className="flex items-center gap-3">
                                 <LangSwitcherMobile />
                                 <HamburgerBtn />
                             </div>
                         </div>
-                        {/* Desktop scrolled bar */}
+                        
                         <nav className="hidden lg:flex container mx-auto py-4 items-center justify-between relative">
                             <LangSwitcherDesktop />
                             <div className="hidden xl:flex items-center gap-4 absolute left-[32%] -translate-x-full">
@@ -324,7 +339,7 @@ export function Header() {
                             </div>
                             <div className="absolute left-1/2 transform -translate-x-1/2">
                                 <a href="#">
-                                    <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios Header" className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
+                                    <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
                                 </a>
                             </div>
                             <div className="hidden xl:flex items-center gap-4 absolute right-[32%] translate-x-full">
@@ -337,15 +352,18 @@ export function Header() {
                     </>
                 ) : (
                     <>
-                        {/* ── Mobile non-scrolled top bar ── */}
-                        <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                        <div
+                            className={`lg:hidden flex items-center justify-between px-4 py-2
+                                transition-all duration-500
+                                ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}
+                            `}
+                        >
                             <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                             <div className="flex items-center gap-3">
                                 <LangSwitcherMobile />
                                 <HamburgerBtn />
                             </div>
                         </div>
-                        {/* ── Desktop non-scrolled 3-col layout ── */}
                         <div className="hidden lg:grid grid-cols-3 items-center">
                             <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
                                 <li>
