@@ -111,7 +111,7 @@ export function Join() {
                                             }`}
                                             style={{fontFamily: "Cinzel"}}
                                         >
-                                            {openRoles > 0 ? `${openRoles} rol${openRoles !== 1 ? "es" : ""} ${tt.card.open}${openRoles !== 1 ? tt.card.open_p : ""}` : tt.card.no_offers}
+                                            {openRoles > 0 ? `${openRoles} rol${openRoles !== 1 ? "es" : ""} ${openRoles !== 1 ? tt.card.open_p : tt.card.open}` : tt.card.no_offers}
                                         </span>
                                     </div>
                                 </motion.div>
