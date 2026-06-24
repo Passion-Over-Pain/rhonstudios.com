@@ -1,223 +1,275 @@
 {
-  "tonkori":
-  {
-    "subtitle": "¿Prefieres salvar el mundo... o salvarte a ti?",
-    "description": "Tonkori es la gran estrella de Rhon, un juego que llevamos desarrollando desde 2024. Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-    "description2": "Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-    "status": "En Desarrollo",
-    "genre": "RPG Narrativo",
-    "year": "Próximamente",
-    "pitch": "Tus decisiones cambian el mundo y las relaciones con tus compañeros.",
+  "tonkori": {
+    "subtitle": "Would You Rather Save the World... or Save Yourself?",
+    "description": "Tonkori is Rhon's flagship title, a game we have been developing since 2024. Your choices shape the story, your relationships with companions, and the way the world reacts to you. No two stories are alike—only the one you choose.",
+    "description2": "Your choices shape the story, your relationships with companions, and the way the world reacts to you. No two stories are alike—only the one you choose.",
+    "status": "In Development",
+    "genre": "Narrative RPG",
+    "year": "Coming Soon",
+    "pitch": "Your decisions change the world and your relationships with your companions.",
     "mechanics": [
       {
-        "title": "Sistema de Decisiones Temporales",
-        "description": "Las decisiones del jugador afectan no solo el presente, sino también eventos pasados y futuros del mundo. Este sistema crea una narrativa no-lineal que aumenta significativamente la rejugabilidad."
+        "title": "Meaningful Decisions",
+        "description": "Every choice, who you are, and how you behave redefine the story, relationships, and the world of Arceon around you."
       },
       {
-        "title": "Magia Adaptativa",
-        "description": "El sistema de magia evoluciona basándose en las acciones y elecciones del jugador, creando builds únicos que no pueden replicarse en múltiples partidas."
+        "title": "Companions with Memory",
+        "description": "Companions remember everything. They can become allies, lovers, or enemies depending on how you treat them."
       },
-      { "title": "Mundo Reactivo Persistente",
-        "description": "Cada acción del jugador tiene consecuencias permanentes en el mundo del juego, desde cambios en el clima hasta la evolución de civilizaciones enteras."
+      {
+        "title": "No Right Answers",
+        "description": "A three-act narrative with freedom of progression. Every question has an answer; the path is yours to choose."
       }
     ],
     "market": [
-      {
-        "title": "Audiencia Objetivo",
-        "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
-      },
-      {
-        "title": "Tamaño del Mercado",
-        "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
-      },
-      {
-        "title": "Ventaja Competitiva",
-        "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
-      }
+        {
+          "title": "Metrics",
+          "description": "16–35 · $28.7B USD · 12% · NA · EU · APAC"
+        },
+        {
+          "title": "Competitive Advantage",
+          "description": "Tonkori does not compete through fast-paced action. It targets players seeking immersion in a story that remembers them. The combination of emotionally impactful decisions, dynamic companions, and carefully crafted storytelling sets it apart from generic indie RPGs."
+        },
+        {
+          "title": "Tags",
+          "description": "Meaningful Choices · No Predetermined Endings · Dynamic Companions · Developed in Spanish · Passionate Indie Studio"
+        }
     ],
     "technic": [
-      { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
-      { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
-      { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
-      { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
-      { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
-      { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
-    ],
-    "development": {
-      "current_phase": "Pre-producción avanzada / Producción temprana",
-      "team_size": "12 desarrolladores core + 8 colaboradores externos",
-      "timeline": "Q4 2025 - Alpha cerrada | Q2 2026 - Beta pública | Q4 2026 - Lanzamiento"
-    },
-    "vision": "",
-    "roadmap": [
       {
-        "phase": "Concepto y Pre-producción",
-        "status": "completed",
-        "items": [
-          "ASDSA",
-          "skadhaskl"
-        ]
+        "title": "Engine",
+        "description": "To be determined - Started in Godot; scaling to a powerful 3D engine or proprietary engine depending on project growth"
       },
       {
+        "title": "Platforms",
+        "description": "PC · PlayStation · Xbox Series"
+      },
+      {
+        "title": "Genre",
+        "description": "Narrative RPG"
+      },
+      {
+        "title": "Players",
+        "description": "Single-player"
+      },
+      {
+        "title": "Status",
+        "description": "Concept / Pre-Production (~8% completed)"
+      },
+      {
+        "title": "Release",
+        "description": "Date to be determined"
+      },
+      {
+        "title": "Languages",
+        "description": "Spanish (native language) + English confirmed. Voice acting planned primarily in Spanish"
+      },
+      {
+        "title": "Monetization",
+        "description": "Premium one-time purchase with or without Early Access, followed by full release"
+      },
+      {
+        "title": "Tools",
+        "description": "Affinity · Krita · Aseprite · Notion"
+      }
+    ],
+    "development": {
+      "current_phase": "Concept / Pre-Production (~8% completed)",
+      "team_size": "2-person team",
+      "timeline": "Q4 2022 - Project started"
+    },
+    "vision": "An RPG where every decision matters, companions remember, and the story you experience is uniquely yours. There are no correct paths—only consequences.",
+    "roadmap": [
+        {
+        "phase": "Concept and Design",
+        "status": "completed",
+        "items": [
+          "Definition of the world of Arceon",
+          "Main characters",
+          "Core mechanics",
+          "Base narrative",
+          "Game aesthetic"
+        ]
+        },
+        {
+        "phase": "Pre-Production",
+        "status": "in-progress",
+        "items": [
+          "Technical documentation",
+          "Concept art",
+          "Final engine selection",
+          "Production planning"
+        ]
+        },
+        {
+        "phase": "Technical Prototype",
+        "status": "planned",
+        "items": [
+          "Functional decision-making system",
+          "First companions implemented",
+          "Playable combat prototype"
+        ]
+        },
+        {
+        "phase": "Voice Acting",
+        "status": "to-decide",
+        "items": [
+          "Add voice acting",
+          "English localization"
+        ]
+        },
+        {
         "phase": "Vertical Slice",
-        "status": "in-progress",
-        "items": [
-          "ASDSA",
-          "skadhaskl"
-        ]
-      },
-      {
-        "phase": "Producción Principal",
         "status": "planned",
         "items": [
-          "ASDSA",
-          "skadhaskl"
+          "Playable demo of the first act showcasing the complete experience: narrative, companions, combat, and decisions"
         ]
-      },
-      {
-        "phase": "Beta y Marketing",
-        "status": "planned",
+        },
+        {
+        "phase": "Early Access (Possible)",
+        "status": "to-decide",
         "items": [
-          "ASDSA",
-          "skadhaskl"
+          "Evaluate launching in Early Access to gather community feedback before the full release."
         ]
-      },
-      {
-        "phase": "Lanzamiento",
-        "status": "planned",
+        },
+        {
+        "phase": "Full Release",
+        "status": "to-decide",
         "items": [
-          "ASDSA",
-          "skadhaskl"
-        ]
-      }
-    ],
-    "investment":
-    {
-      "monetization": "Monetization Model",
-      "roi": "Return Potential",
-      "keys": [
-        "",
-        ""
-      ]
-    }
-  },
-  "afterlight": {
-    "subtitle": "Una historia sin palabras entre la luz y la oscuridad",
-    "description": "AfterLight narra la historia de Lumen, un ser de luz que rescata a Umbra, un ser de oscuridad atrapado y debilitado en la zona media del mundo. Lumen decide acompañarlo de vuelta a su territorio, aun sabiendo que el viaje lo debilitará a él mismo.",
-    "description2": "Un juego de plataformas y exploración que transmite calma y tristeza sin usar diálogos, dejando que la música y los cambios visuales narren cómo dos seres opuestos aprenden a ayudarse mutuamente a lo largo del viaje.",
-    "status": "En preproducción",
-    "genre": "Plataformas / Aventura / Exploración",
-    "year": "Por definir",
-    "pitch": "Una bola de luz y una bola de oscuridad cruzan juntas el mundo: cuanto más fuerte se vuelve uno, más débil se vuelve el otro.",
-    "mechanics": [
-      {
-        "title": "Movimiento y combate fluido",
-        "description": "Lumen dispone de salto, dash direccional y un ataque/interacción contextual, permitiendo combinaciones para esquivar y golpear con precisión a los Apagados y a la fauna enemiga."
-      },
-      {
-        "title": "Puzles de luz y oscuridad",
-        "description": "El entorno incluye faroles, llamas portátiles y ramas rompibles que el jugador debe activar, apagar o transportar para revelar caminos ocultos y abrir el paso a la siguiente zona."
-      },
-      {
-        "title": "Inversión narrativa por zonas",
-        "description": "A lo largo de las cinco zonas del mapa, Lumen pierde progresivamente agilidad y fuerza mientras Umbra las recupera, traduciendo en jugabilidad la relación de ayuda mutua entre ambos personajes."
-      }
-    ],
-    "market": [
-      {
-        "title": "Audiencia Objetivo",
-        "description": "Jóvenes y adultos de 14 a 35 años interesados en experiencias narrativas pausadas, sin diálogos ni violencia explícita."
-      },
-      {
-        "title": "Tamaño del Mercado",
-        "description": "Nicho de plataformas narrativas y metroidvania en PC (Steam), un segmento con público fiel demostrado por títulos como Hollow Knight, Neva y MIO: Memories in Orbit."
-      },
-      {
-        "title": "Ventaja Competitiva",
-        "description": "Mecánica de inversión de fuerza entre dos personajes directamente ligada a la narrativa, combinada con una identidad visual pintada a mano inspirada en MIO: Memories in Orbit."
-      }
-    ],
-    "technic": [
-      {
-        "title": "Sistema Operativo",
-        "description": "Microsoft Windows 8.1 o superior"
-      },
-      {
-        "title": "Procesador",
-        "description": "Intel N4100 (o similar) o mejor"
-      },
-      {
-        "title": "Memoria",
-        "description": "8 GB de RAM"
-      },
-      {
-        "title": "Gráficos",
-        "description": "GPU compatible con DirectX 9 / OpenGL 4.1"
-      },
-      {
-        "title": "DirectX",
-        "description": "Versión 9.0c"
-      },
-      {
-        "title": "Almacenamiento",
-        "description": "2 GB de espacio disponible"
-      }
-    ],
-    "development": {
-      "current_phase": "Documentación de diseño (GDD) y arte conceptual",
-      "team_size": "Por definir",
-      "timeline": "Por definir"
-    },
-    "vision": "AfterLight busca transmitir, sin usar palabras, una historia íntima sobre sacrificio y amistad entre dos seres opuestos. Apoyándose en la música, el arte pintado a mano y el cambio progresivo del estado físico de los personajes, el jugador siente en sus propias manos cómo se invierte el equilibrio entre fuerza y debilidad a lo largo del viaje.",
-    "roadmap": [
-      {
-        "phase": "Concepto y Documentación",
-        "status": "completed",
-        "items": [
-          "Game Design Document (GDD) completo",
-          "Definición de mecánicas core y arco narrativo"
-        ]
-      },
-      {
-        "phase": "Preproducción",
-        "status": "in-progress",
-        "items": [
-          "Arte conceptual de personajes y enemigos",
-          "Prototipo de movimiento, dash y combate"
-        ]
-      },
-      {
-        "phase": "Producción - Sistemas Core",
-        "status": "planned",
-        "items": [
-          "Implementación de IA de enemigos y de Umbra",
-          "Sistema de puzles basados en luz y oscuridad"
-        ]
-      },
-      {
-        "phase": "Producción - Contenido y Niveles",
-        "status": "planned",
-        "items": [
-          "Construcción de las cinco zonas narrativas (Blanca a Negra)",
-          "Integración de banda sonora y diseño de sonido"
-        ]
-      },
-      {
-        "phase": "Pulido y Lanzamiento",
-        "status": "planned",
-        "items": [
-          "Testing, balanceo y optimización",
-          "Lanzamiento en Steam"
+          "Official release on PC (Steam) and console platforms."
         ]
       }
     ],
     "investment": {
-      "monetization": "Pago único (premium) en PC vía Steam",
-      "roi": "Mercado nicho narrativo con potencial comparable al de éxitos indie como Hollow Knight y Neva",
-      "keys": [
-        "Identidad visual distintiva pintada a mano, inspirada en MIO: Memories in Orbit",
-        "Narrativa sin diálogos transmitida a través de mecánicas, música y arte"
+    "monetization": "Premium one-time purchase or Early Access followed by full release. Final decision will be made after evaluating community feedback once the prototype is available.",
+    "roi": "Narrative RPG market growing steadily at 12% annually. Indie successes such as Hades and Disco Elysium demonstrate strong demand for games with a unique identity.",
+    "keys": [
+      "Strong concept with clear differentiation in the indie narrative RPG market.",
+      "Small and committed team with complementary skills (narrative + programming/art).",
+      "Studio's first project: greater agility and no accumulated technical debt.",
+      "Active target audience willing to pay for high-quality narrative experiences.",
+      "Developed in Spanish, the native language of a massive and underrepresented player market."
+    ]
+    }
+},
+"afterlight": {
+  "subtitle": "A Wordless Story Between Light and Darkness",
+  "description": "AfterLight tells the story of Lumen, a being of light who rescues Umbra, a being of darkness trapped and weakened in the middle region of the world. Lumen decides to accompany Umbra back to his homeland, even knowing the journey will weaken him in return.",
+  "description2": "A platforming and exploration game that conveys calmness and melancholy without dialogue, allowing music and visual changes to tell the story of two opposing beings learning to help one another throughout their journey.",
+  "status": "In Pre-Production",
+  "genre": "Platformer / Adventure / Exploration",
+  "year": "To Be Determined",
+  "pitch": "Light and shadow cross the world together: the stronger one becomes, the weaker the other grows.",
+  "mechanics": [
+    {
+      "title": "Fluid Movement and Combat",
+      "description": "Lumen can jump, perform directional dashes, and use a contextual attack/interaction, allowing players to combine abilities to dodge and strike the Forsaken and hostile wildlife with precision."
+    },
+    {
+      "title": "Light and Darkness Puzzles",
+      "description": "The environment features lanterns, portable flames, and breakable branches that players must activate, extinguish, or carry to reveal hidden paths and progress through each area."
+    },
+    {
+      "title": "Narrative Inversion Across Zones",
+      "description": "Throughout the game's five regions, Lumen gradually loses agility and strength while Umbra regains them, translating their relationship of mutual support directly into gameplay."
+    }
+  ],
+  "market": [
+    {
+      "title": "Target Audience",
+      "description": "Players aged 14–35 interested in slow-paced narrative experiences without dialogue or explicit violence."
+    },
+    {
+      "title": "Market Size",
+      "description": "Narrative platformer and metroidvania niche on PC (Steam), a segment with a proven loyal audience."
+    },
+    {
+      "title": "Competitive Advantage",
+      "description": "A strength-transfer mechanic directly tied to the narrative, combined with a hand-painted visual identity inspired by MIO: Memories in Orbit."
+    }
+  ],
+  "technic": [
+    {
+    "title": "Operating System",
+    "description": "Microsoft Windows 8.1 or later"
+    },
+    {
+      "title": "Processor",
+      "description": "Intel N4100 (or equivalent) or better"
+    },
+    {
+      "title": "Memory",
+      "description": "8 GB RAM"
+    },
+    {
+      "title": "Graphics",
+      "description": "GPU compatible with DirectX 9 / OpenGL 4.1"
+    },
+    {
+      "title": "DirectX",
+      "description": "Version 9.0c"
+    },
+    {
+      "title": "Storage",
+      "description": "2 GB available space"
+    }
+  ],
+  "development": {
+    "current_phase": "Game Design Documentation (GDD) and Concept Art",
+    "team_size": "To Be Determined",
+    "timeline": "To Be Determined"
+  },
+  "vision": "AfterLight aims to tell an intimate story about sacrifice and friendship between two opposing beings without using words. Through music, hand-painted art, and the gradual physical transformation of the characters, players experience firsthand how the balance between strength and weakness shifts throughout the journey.",
+  "roadmap": [
+    {
+      "phase": "Concept and Documentation",
+      "status": "completed",
+      "items": [
+        "Complete Game Design Document (GDD)",
+        "Definition of core mechanics and narrative arc"
+    ]
+    },
+    {
+      "phase": "Pre-Production",
+      "status": "in-progress",
+      "items": [
+        "Concept art for characters and enemies",
+        "Movement, dash, and combat prototype"
       ]
+    },
+    {
+      "phase": "Production - Core Systems",
+      "status": "planned",
+      "items": [
+        "Enemy AI and Umbra AI implementation",
+        "Puzzle systems based on light and darkness"
+      ]
+    },
+    {
+      "phase": "Production - Content and Levels",
+      "status": "planned",
+      "items": [
+        "Creation of the five narrative regions (White to Black)",
+        "Soundtrack and sound design integration"
+      ]
+    },
+    {
+      "phase": "Polish and Release",
+      "status": "planned",
+      "items": [
+        "Testing, balancing, and optimization",
+        "Steam release"
+      ]
+    }
+  ],
+  "investment": {
+    "monetization": "Premium one-time purchase on PC via Steam",
+    "roi": "Narrative indie niche with potential comparable to successes such as Hollow Knight and Neva",
+    "keys": [
+      "Distinctive hand-painted visual identity inspired by MIO: Memories in Orbit",
+      "Dialogue-free storytelling conveyed through mechanics, music, and art"
+    ]
     }
   }
 }
+
