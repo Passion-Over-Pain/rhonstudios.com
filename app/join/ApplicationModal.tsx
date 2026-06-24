@@ -174,7 +174,7 @@ export function ApplicationModal({ initial, onClose }: { initial: ModalState; on
                         </label>
 
                         <select
-                            name="role"
+                            name="Role"
                             value={formData.Role}
                             onChange={handleProjectChange}
                             required
