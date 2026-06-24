@@ -11,7 +11,7 @@ import projectsEs from "./join/es.json"
 type Language = "en" | "es";
 
 const translations = {
-    en: {...en, game_list: gamesEs, join: projectsEn},
+    en: {...en, game_list: gamesEn, join: projectsEn},
     es: {...es, game_list: gamesEs, join: projectsEs},
 }
 
