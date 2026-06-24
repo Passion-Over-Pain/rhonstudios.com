@@ -1,10 +1,10 @@
 ﻿"use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { getGameById } from "@/app/games/gamesData";
+import { getGameById } from "@/app/DataBases/gamesData";
 import { ArrowLeft, CheckCircle2, Circle, CircleQuestionMark, Clock, ExternalLink, FileText, Github, Play, TrendingUp } from "lucide-react";
 import {useLanguage} from "@/app/language/LanguageProvider";
-import {GameGallery} from "@/app/games/GameGallery";
+import {GameGallery} from "./GameGallery";
 import { motion } from "framer-motion";
 import {useState} from "react";
 
@@ -20,11 +20,14 @@ export interface GameTheme {
     accentHoverText: string;
     panelBorderOpacity: string;
     panelBorderHover: string;
+    panelDividerBg: string;
     cardBorderOpacity: string;
+    cardCornerHoverBorder: string;
     textMuted: string;
     textSubtle: string;
     progressFrom: string;
     progressTo: string;
+    progressTrackBg: string;
     colorCompleted: string;
     colorInProgress: string;
     colorToDecide: string;
@@ -49,11 +52,14 @@ const defaultTheme: GameTheme = {
     accentHoverText: "text-black",
     panelBorderOpacity: "border-white/30",
     panelBorderHover: "hover:border-white/40",
+    panelDividerBg: "bg-white/30",
     cardBorderOpacity: "border-white/20",
+    cardCornerHoverBorder: "group-hover:border-white/40",
     textMuted: "text-white/70",
     textSubtle: "text-white/80",
     progressFrom: "from-white/70",
     progressTo: "to-white",
+    progressTrackBg: "bg-white/10",
     colorCompleted: "text-green-400",
     colorInProgress: "text-yellow-400",
     colorToDecide: "text-red-400",
@@ -91,13 +97,65 @@ export default function GameDetailPage() {
                 className="border-2 px-5 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 transition-all duration-300"
                 style={{
                     borderColor: theme.accentBorderHex,
-                        backgroundColor: hovered ? theme.accentBgHex : "transparent",
-                        color: hovered ? theme.accentHoverTextHex : "inherit",
+                    backgroundColor: hovered ? theme.accentBgHex : "transparent",
+                    color: hovered ? theme.accentHoverTextHex : undefined,
                 }}
             >
                 {children}
             </a>
-    );
+        );
+    }
+
+    function ThemedButton({ onClick, children, theme, className, style }: {
+        onClick: () => void;
+        children: React.ReactNode;
+        theme: GameTheme;
+        className?: string;
+        style?: React.CSSProperties;
+    }) {
+        const [hovered, setHovered] = useState(false);
+        return (
+            <button
+                onClick={onClick}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                className={`border-2 transition-all duration-300 ${className ?? ""}`}
+                style={{
+                    borderColor: theme.accentBorderHex,
+                    backgroundColor: hovered ? theme.accentBgHex : "transparent",
+                    color: hovered ? theme.accentHoverTextHex : undefined,
+                    ...style,
+                }}
+            >
+                {children}
+            </button>
+        );
+    }
+
+    function ThemedOutlineLink({ href, children, theme, className, style }: {
+        href: string;
+        children: React.ReactNode;
+        theme: GameTheme;
+        className?: string;
+        style?: React.CSSProperties;
+    }) {
+        const [hovered, setHovered] = useState(false);
+        return (
+            <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                className={`border-2 transition-all duration-300 ${className ?? ""}`}
+                style={{
+                    borderColor: hovered ? theme.accentBorderHex : undefined,
+                    ...style,
+                }}
+            >
+                {children}
+            </a>
+        );
     }
 
     const renderStatusIcon = (status: string) => {
@@ -119,21 +177,22 @@ export default function GameDetailPage() {
         return (
             <section
                 id="gameError"
-                className="snap-center scroll-mt-[160px] relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
+                className="scroll-mt-[160px] relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
             >
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
                 <div className="relative z-10 text-center">
                     <h1 className={`text-3xl sm:text-4xl mb-8 ${defaultTheme.fontTitleColor}`} style={{ fontFamily: defaultTheme.fontTitle }}>
                         {t.gamePage.notfound.game}
                     </h1>
-                    <button
+                    <ThemedButton
                         onClick={() => router.push(`/#games`)}
-                        className={`inline-flex items-center gap-2 border-2 ${defaultTheme.accentBorder} px-6 sm:px-8 py-3 hover:${defaultTheme.accentBg} hover:${defaultTheme.accentHoverText} transition-all duration-300`}
+                        theme={defaultTheme}
+                        className={`inline-flex items-center gap-2 px-6 sm:px-8 py-3 ${defaultTheme.fontBodyColor}`}
                         style={{ fontFamily: defaultTheme.fontBody }}
                     >
                         <ArrowLeft size={18} />
                         {t.gamePage.notfound.button}
-                    </button>
+                    </ThemedButton>
                 </div>
             </section>
         );
@@ -145,7 +204,7 @@ export default function GameDetailPage() {
         <div className={`${theme.bgColor} min-h-screen`}>
             <section
                 id="home_game"
-                className="snap-center relative min-h-screen overflow-hidden flex flex-col items-center justify-center pt-12 sm:pt-12 pb-12"
+                className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center pt-12 sm:pt-12 pb-12"
             >
                 <div
                     className="absolute inset-0 bg-cover bg-center"
@@ -213,7 +272,7 @@ export default function GameDetailPage() {
                         )}
                     </div>
                 </div>
-                {["top-4 sm:top-8 left-4 sm:left-8 border-t-2 border-l-2",
+                {["top-4 sm:top-8 left-4 sm:left-8 border-t-2 border-l-2", 
                     "top-4 sm:top-8 right-4 sm:right-8 border-t-2 border-r-2",
                     "bottom-4 sm:bottom-8 left-4 sm:left-8 border-b-2 border-l-2",
                     "bottom-4 sm:bottom-8 right-4 sm:right-8 border-b-2 border-r-2",
@@ -224,7 +283,7 @@ export default function GameDetailPage() {
 
             <section
                 id="vision"
-                className={`snap-start scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
+                className={`scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
             >
                 <div className="container mx-auto px-4 sm:px-8 lg:px-16">
                     <SectionHeading
@@ -253,7 +312,7 @@ export default function GameDetailPage() {
                                 fontBody={theme.fontBody}
                             />
                         </PanelBlock>
-                        <div className={`h-[2px] ${theme.panelBorderOpacity.replace("border-", "bg-")}`} />
+                        <div className={`h-[2px] ${theme.panelDividerBg}`} />
                         <PanelBlock
                             heading={t.gamePage.mechanics.market.title}
                             align="right"
@@ -270,7 +329,7 @@ export default function GameDetailPage() {
                                 fontBody={theme.fontBody}
                             />
                         </PanelBlock>
-                        <div className={`h-[2px] ${theme.panelBorderOpacity.replace("border-", "bg-")}`} />
+                        <div className={`h-[2px] ${theme.panelDividerBg}`} />
                         <PanelBlock
                             heading={t.gamePage.mechanics.technics.title}
                             align="left"
@@ -302,7 +361,7 @@ export default function GameDetailPage() {
 
             <section
                 id="roadmap"
-                className={`snap-start scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
+                className={`scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
             >
                 <div className="container mx-auto px-4 sm:px-8 lg:px-16">
                     <SectionHeading
@@ -324,7 +383,7 @@ export default function GameDetailPage() {
                         >
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
                                 <div className={`border-2 ${theme.cardBorderOpacity} p-5 sm:p-8 ${theme.panelBorderHover} transition-all duration-300 relative group`}>
-                                    <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 ${theme.cardBorderOpacity} group-hover:${theme.panelBorderHover.replace("hover:", "")} transition-all duration-300`} />
+                                    <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 ${theme.cardBorderOpacity} ${theme.cardCornerHoverBorder} transition-all duration-300`} />
                                     <h4 className={`text-lg sm:text-2xl mb-2 tracking-wide ${theme.textSubtle}`} style={{ fontFamily: theme.fontBody, fontWeight: "bold" }}>
                                         {t.gamePage.roadmap.vision.title}
                                     </h4>
@@ -333,7 +392,7 @@ export default function GameDetailPage() {
                                     </p>
                                 </div>
                                 <div className={`border-2 ${theme.cardBorderOpacity} p-5 sm:p-8 ${theme.panelBorderHover} transition-all duration-300 relative group`}>
-                                    <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 ${theme.cardBorderOpacity} group-hover:${theme.panelBorderHover.replace("hover:", "")} transition-all duration-300`} />
+                                    <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-r-2 ${theme.cardBorderOpacity} ${theme.cardCornerHoverBorder} transition-all duration-300`} />
                                     <div className="flex items-center gap-3 mb-4">
                                         <TrendingUp className={`w-5 h-5 sm:w-6 sm:h-6 ${theme.accentText}`}/>
                                         <h4 className={`text-lg sm:text-2xl tracking-wide ${theme.textSubtle}`} style={{ fontFamily: theme.fontBody, fontWeight: "bold" }}>
@@ -341,7 +400,7 @@ export default function GameDetailPage() {
                                         </h4>
                                     </div>
                                     <div className="space-y-4 sm:space-y-7">
-                                        <div className={`w-full ${theme.accentBg}/10 h-2 rounded-full overflow-hidden`}>
+                                        <div className={`w-full ${theme.progressTrackBg} h-2 rounded-full overflow-hidden`}>
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${game.developmentProgress}%` }}
@@ -357,7 +416,7 @@ export default function GameDetailPage() {
                                 </div>
                             </div>
                         </PanelBlock>
-                        <div className={`h-[2px] ${theme.panelBorderOpacity.replace("border-", "bg-")}`} />
+                        <div className={`h-[2px] ${theme.panelDividerBg}`} />
                         <PanelBlock
                             heading={t.gamePage.roadmap.roadmap.title}
                             align="center"
@@ -398,7 +457,7 @@ export default function GameDetailPage() {
 
             <section
                 id="investment"
-                className={`snap-start scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
+                className={`scroll-mt-[100px] relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
             >
                 <div className="container mx-auto px-4 sm:px-8 lg:px-16">
                     <div className="max-w-5xl mx-auto">
@@ -467,24 +526,24 @@ export default function GameDetailPage() {
                             {t.gamePage.contact.description}
                         </p>
                         <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center">
-                            <button
+                            <ThemedButton
                                 onClick={() => router.push("/#contact")}
-                                className={`w-full sm:w-auto border-2 ${theme.accentBorder} px-8 sm:px-12 py-3 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase hover:${theme.accentBg} hover:${theme.accentHoverText} transition-all ${theme.fontBodyColor}`}
+                                theme={theme}
+                                className={`w-full sm:w-auto px-8 sm:px-12 py-3 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase ${theme.fontBodyColor}`}
                                 style={{ fontFamily: theme.fontBody }}
                             >
                                 {t.gamePage.contact.button}
-                            </button>
+                            </ThemedButton>
                             {game.links.pressKit && (
-                                <a
+                                <ThemedOutlineLink
                                     href={game.links.pressKit}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`w-full sm:w-auto border-2 ${theme.panelBorderOpacity} px-8 sm:px-12 py-3 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase hover:${theme.accentBorder} transition-all text-center ${theme.textMuted}`}
+                                    theme={theme}
+                                    className={`w-full sm:w-auto ${theme.panelBorderOpacity} px-8 sm:px-12 py-3 sm:py-4 text-xs sm:text-sm tracking-[0.2em] uppercase text-center ${theme.textMuted}`}
                                     style={{ fontFamily: theme.fontBody }}
                                 >
                                     {t.gamePage.contact.pressKit}
-                                </a>
-                                )}
+                                </ThemedOutlineLink>
+                            )}
                         </div>
                     </div>
                 </div>

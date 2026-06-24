@@ -95,7 +95,7 @@ export function Hero() {
                     </span>
                 </motion.button>
 
-                <div className="mt-10 sm:mt-15">
+                <div className="mt-5 sm:mt-5">
                     <div className="inline-block">
                         <div className="w-24 h-24 sm:w-32 sm:h-32 border-2 border-white rounded-full flex items-center justify-center">
                             <div className="text-center">

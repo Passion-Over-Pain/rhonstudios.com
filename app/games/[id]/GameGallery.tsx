@@ -2,7 +2,7 @@
 import {useLanguage} from "@/app/language/LanguageProvider";
 import {useEffect, useState} from "react";
 import { X, ZoomIn, Image as ImageIcon } from "lucide-react";
-import type { GameTheme } from "@/app/[id]/page.tsx"
+import type { GameTheme } from "@/app/games/[id]/page.tsx"
 
 interface GalleryImage {
     url: string;
@@ -55,7 +55,7 @@ export function GameGallery({ images, gameTitle, theme }: GameGalleryProps) {
     return (
         <section
             id="gallery"
-            className={`snap-start relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
+            className={`relative ${theme.bgColor} ${theme.fontBodyColor} pt-16 sm:pt-32 overflow-hidden py-12 sm:py-16 border-y-2 ${theme.panelBorderOpacity}`}
         >
             <div className="container mx-auto px-4 sm:px-8 lg:px-16 max-w-full">
                 <div className="mx-auto">

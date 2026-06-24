@@ -10,6 +10,7 @@ import { Team } from "@/app/components/team";
 import {NewsLetter} from "@/app/components/newsLetter";
 import {OurVision} from "@/app/components/ourvision";
 import {usePathname} from "next/navigation";
+import {Join} from "@/app/components/join";
 export default function App() {
     const pathname = usePathname();
     const isHome = pathname === "/"
@@ -21,7 +22,8 @@ export default function App() {
                 <OurVision/>
                 {/*  <Legacy /> */}
                 <About/>
-                <Team/> 
+                <Team/>
+                <Join/>
                 <Contact/>
                 {/* <NewsLetter/> */}
             </div>

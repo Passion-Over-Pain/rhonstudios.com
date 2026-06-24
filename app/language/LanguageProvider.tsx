@@ -3,10 +3,19 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import en from "./en.json";
 import es from "./es.json";
+import gamesEn from "./games/en.json"
+import gamesEs from "./games/es.json"
+import projectsEn from "./join/en.json"
+import projectsEs from "./join/es.json"
 
 type Language = "en" | "es";
 
-type Translations = typeof en;
+const translations = {
+    en: {...en, game_list: gamesEs, join: projectsEn},
+    es: {...es, game_list: gamesEs, join: projectsEs},
+}
+
+type Translations = typeof translations.en;
 
 interface LanguageContextProps {
     language: Language;
@@ -17,16 +26,14 @@ interface LanguageContextProps {
 const LanguageContext = createContext<LanguageContextProps>({
     language: "en",
     setLanguage: () => {},
-    t: en
+    t: translations.en,
 });
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     const [language, setLanguage] = useState<Language>("es");
-
-    const translations = language === "en" ? en : es;
-
+    
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, t: translations }}>
+        <LanguageContext.Provider value={{ language, setLanguage, t: translations[language] }}>
             {children}
         </LanguageContext.Provider>
     );

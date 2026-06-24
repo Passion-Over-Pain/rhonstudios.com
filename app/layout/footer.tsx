@@ -2,54 +2,111 @@
 
 import {Facebook, Instagram, Twitter} from 'lucide-react';
 import {useLanguage} from "@/app/language/LanguageProvider";
+import {useParams, usePathname, useRouter} from "next/navigation";
+import {getGameById} from "@/app/DataBases/gamesData";
 
 export function Footer() {
+    const pathname = usePathname();
+    const params = useParams();
+    const router = useRouter();
     const currentYear = new Date().getFullYear();
     const { t } = useLanguage();
 
-    const menuItems = [
-        { id: "hero", label: t.menu.home },
-        { id: "highlight", label: t.menu.highlight },
-        { id: "games", label: t.menu.games },
-        { id: "about", label: t.menu.about },
-        { id: "contact", label: t.menu.contact },
-    ];
+    const gameId = params?.id as string | undefined;
+    const game = gameId ? getGameById(gameId) : null;
+
+    const isMainPage = pathname === "/";
+    const isJoinPage = pathname === "/join";
+    const isGamePage = !!gameId;
 
     const scrollTo = (id: string) => {
         const element = document.getElementById(id);
-        if (element) element.scrollIntoView({ behavior: "smooth" });
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        } else {
+            router.push(`/#${id}`);
+        }
     };
+
+    const homeLinks = [
+        { id: "hero",      label: t.menu.home },
+        { id: "highlight", label: t.menu.highlight },
+        { id: "games",     label: t.menu.games },
+        { id: "about",     label: t.menu.about },
+        { id: "contact",   label: t.menu.contact },
+    ];
+
+    const joinLinks = [
+        { id: "home_join",  label: t.join_menu.join },
+        { id: "conditions", label: t.join_menu.conditions ?? "Condiciones" },
+        { id: "roles",      label: t.join_menu.opportunities },
+    ];
+
+    const gameLinks = game
+        ? [
+            { id: "home_game",  label: game.title,           onClick: () => router.push("/#games") },
+            { id: "vision",     label: t.game_menu.vision,   onClick: () => scrollTo("vision") },
+            { id: "roadmap",    label: t.game_menu.roadmap,  onClick: () => scrollTo("roadmap") },
+            { id: "investment", label: t.game_menu.investment, onClick: () => scrollTo("investment") },
+            { id: "gallery",    label: t.game_menu.gallery,  onClick: () => scrollTo("gallery") },
+            { id: "contact",    label: t.game_menu.contact,  onClick: () => scrollTo("contact") },
+        ]
+        : homeLinks.map((l) => ({ ...l, onClick: () => scrollTo(l.id) }));
+
+    const links = isGamePage
+        ? gameLinks
+        : isJoinPage
+            ? joinLinks.map((l) => ({ ...l, onClick: () => scrollTo(l.id) }))
+            : homeLinks.map((l) => ({ ...l, onClick: () => scrollTo(l.id) }));
+
+    const linksTitle = isGamePage
+        ? (game?.title ?? t.footer.links)
+        : isJoinPage
+            ? (t.join_menu.join ?? t.footer.links)
+            : t.footer.links;
+
+    const footerLogo = isGamePage && game?.logo
+        ? game.logo
+        : "/Logos/RhonLabel.png";
+    const footerLogoAlt = isGamePage ? (game?.title ?? "Rhon Studios") : "Rhon Studios";
+
+    const showBackLink = isJoinPage || isGamePage;
 
     return (
         <footer
             id="footer"
-            className="relative snap-center bg-black text-white border-t-2 border-white py-10 sm:py-12"
+            className={`relative bg-black text-white border-t-2 border-white py-10 sm:py-12 ${isMainPage ? "snap-center" : ""}`}
         >
             <div className="container mx-auto px-6 sm:px-8 lg:px-16">
-                
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
-                    
-                    <div className="flex justify-center sm:justify-start items-center">
+                    <div className="flex flex-col items-center sm:items-start justify-center gap-4">
                         <img
-                            src="/Logos/RhonLabel.png"
-                            alt="Rhon Studios"
+                            src={footerLogo}
+                            alt={footerLogoAlt}
                             className="w-28 sm:w-35 h-auto"
                         />
                     </div>
-
-                    
                     <div className="text-center">
                         <h4
                             className="text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 sm:mb-6 border-b-2 border-white pb-2 inline-block"
                             style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
                         >
-                            {t.footer.links}
+                            {linksTitle}
                         </h4>
                         <ul className="space-y-2 sm:space-y-3">
-                            {menuItems.map((item) => (
+                            {showBackLink && (
+                                <button
+                                    onClick={() => router.push("/")}
+                                    className="text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
+                                    style={{ fontFamily: "Cinzel" }}
+                                >
+                                    {t.join_menu.home ?? "Rhon Studios"}
+                                </button>
+                            )}
+                            {links.map((item) => (
                                 <li key={item.id}>
                                     <button
-                                        onClick={() => scrollTo(item.id)}
+                                        onClick={item.onClick}
                                         className="text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
                                         style={{ fontFamily: "Cinzel" }}
                                     >
@@ -59,8 +116,6 @@ export function Footer() {
                             ))}
                         </ul>
                     </div>
-
-                    
                     <div className="text-center">
                         <h4
                             className="text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 sm:mb-6 border-b-2 border-white pb-2 inline-block"
@@ -99,9 +154,7 @@ export function Footer() {
                         </div>
                     </div>
                 </div>
-
-                <div className="w-full h-[2px] bg-white/30 mb-6 sm:mb-8"></div>
-
+                <div className="w-full h-[2px] bg-white/30 mb-6 sm:mb-8" />
                 <div className="text-center">
                     <p
                         className="text-[10px] sm:text-xs tracking-wide opacity-60"
@@ -112,5 +165,5 @@ export function Footer() {
                 </div>
             </div>
         </footer>
-    )
+    );
 }

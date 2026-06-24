@@ -33,26 +33,31 @@ export interface GameData {
         fontTitleColor: string;
         fontBodyColor: string;
         bgColor: string;
-        accentText: string;
         accentBorder: string;
+        accentText: string;
         accentBg: string;
         accentHoverText: string;
+        panelBorderOpacity: string;
+        panelBorderHover: string;
+        panelDividerBg: string;
+        cardBorderOpacity: string;
+        cardCornerHoverBorder: string;
+        textMuted: string;
+        textSubtle: string;
         progressFrom: string;
         progressTo: string;
+        progressTrackBg: string;
         colorCompleted: string;
         colorInProgress: string;
         colorToDecide: string;
-        heroFilter: string;
         heroOverlay: string;
-        panelBorderOpacity: string;
-        cardBorderOpacity: string;
-        panelBorderHover: string;
-        textMuted: string;
-        textSubtle: string;
+        heroFilter: string;
         investmentHighlightBorder: string;
         investmentHighlightBg: string;
+        accentBorderHex: string;
+        accentBgHex: string;
+        accentHoverTextHex: string;
     }
-    
 }
 
 export const gamesData: GameData[] = [
@@ -103,34 +108,39 @@ export const gamesData: GameData[] = [
             fontBody: "IM Fell English",
             fontTitleColor: "text-[#DCDBD2]",
             fontBodyColor: "text-[#DCDBD2]",
-            bgColor: "bg-[#0f0608]",
-            accentText: "",
+            bgColor: "bg-black",
             accentBorder: "border-[#BF6079]",
+            accentText: "text-[#BF6079]",
             accentBg: "bg-[#BF6079]",
-            accentHoverText: "text-[#DCDBD2]",
-            progressFrom: "from-[#774343]",
-            progressTo: "to-[#BF6079]",
-            colorCompleted: "text-green-400",
-            colorInProgress: "text-[#BF6079]",
-            colorToDecide: "text-[#B86060]",
-            heroFilter: "sepia(80%) brightness(0.25) contrast(1.1)",
-            heroOverlay: "from-[#55131A]/30 via-[#474746]/30 to-[#55131A]/30",
-            panelBorderOpacity: "border-[#774343]/40",
-            cardBorderOpacity: "border-[#774343]/25",
+            accentHoverText: "text-[#55131A]",
+            panelBorderOpacity: "border-[#774343]/50",
             panelBorderHover: "hover:border-[#BF6079]/60",
-            textMuted: "text-[#DCDBD2]/60",
+            panelDividerBg: "bg-[#774343]/50",
+            cardBorderOpacity: "border-[#774343]/35",
+            cardCornerHoverBorder: "group-hover:border-[#BF6079]/60",
+            textMuted: "text-[#DCDBD2]/70",
             textSubtle: "text-[#DCDBD2]/85",
+            progressFrom: "from-[#B86060]",
+            progressTo: "to-[#BF6079]",
+            progressTrackBg: "bg-[#774343]/20",
+            colorCompleted: "text-emerald-400",
+            colorInProgress: "text-amber-400",
+            colorToDecide: "text-rose-400",
+            heroOverlay: "from-black/40 via-transparent to-black",
+            heroFilter: "sepia(20%) brightness(0.45) saturate(1.1)",
             investmentHighlightBorder: "border-[#BF6079]",
-            investmentHighlightBg: "bg-[#55131A]/20"
+            investmentHighlightBg: "bg-[#BF6079]/5",
+            accentBorderHex: "#BF6079",
+            accentBgHex: "#BF6079",
+            accentHoverTextHex: "#55131A"
         }
     },
     {
         id: "afterlight",
         title: "Afterlight",
         font: "Cinzel Decorative",
-
-        developmentProgress: 0,
-
+        logo: "",
+        developmentProgress: 20,
         thumbnail: "https://images.unsplash.com/photo-1752335824586-420c728c21bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYXBvY2FseXB0aWMlMjBzdXJ2aXZhbCUyMGF0bW9zcGhlcmV8ZW58MXx8fHwxNzcxOTQxNjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         heroImage: "https://images.unsplash.com/photo-1752335824586-420c728c21bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYXBvY2FseXB0aWMlMjBzdXJ2aXZhbCUyMGF0bW9zcGhlcmV8ZW58MXx8fHwxNzcxOTQxNjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
 
@@ -142,37 +152,43 @@ export const gamesData: GameData[] = [
 
         media: {
             screenshots: [
-                "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800",
-                "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800",
-                "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=800",
-                "https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?w=800"
+                "",
+                "",
+                "",
+                ""
             ]
         },
         theme: {
             fontTitle: "Cinzel Decorative",
             fontBody: "EB Garamond",
-            fontTitleColor: "text-[#E8E0D0]",
-            fontBodyColor: "text-[#D4CFC8]",
-            bgColor: "bg-[#0f0608]",
-            accentBorder: "border-[#D4CFC8]",
-            accentText: "text-[#D4CFC8]",
-            accentBg: "bg-[#D4CFC8]",
-            accentHoverText: "text-[#0f0608]",
-            progressFrom: "from-[#4a4560]/60",
-            progressTo: "to-[#D4CFC8]",
-            colorCompleted: "text-[#a8c5a0]",
-            colorInProgress: "text-[#D4CFC8]",
-            colorToDecide: "text-[#8a7a9a]",
-            heroFilter: "brightness(0.25) saturate(0.3)",
-            heroOverlay: "from-[#0f0608]/90 via-[#0f0608]/40 to-[#0f0608]",
-            panelBorderOpacity: "border-[#D4CFC8]/20",
-            cardBorderOpacity: "border-[#D4CFC8]/15",
-            panelBorderHover: "hover:border-[#D4CFC8]/35",
-            textMuted: "text-[#D4CFC8]/50",
-            textSubtle: "text-[#D4CFC8]/75",
-            investmentHighlightBorder: "border-[#4a4560]/60",
-            investmentHighlightBg: "bg-[#4a4560]/10"
-        }
+            fontTitleColor: "text-[#F3E9D2]",
+            fontBodyColor: "text-[#EDE3CB]",
+            bgColor: "bg-[#0A0C12]",
+            accentBorder: "border-[#E3B873]",
+            accentText: "text-[#E3B873]",
+            accentBg: "bg-[#E3B873]",
+            accentHoverText: "text-[#0A0C12]",
+            panelBorderOpacity: "border-[#E3B873]/20",
+            panelBorderHover: "hover:border-[#E3B873]/40",
+            panelDividerBg: "bg-[#E3B873]/20",
+            cardBorderOpacity: "border-[#E3B873]/15",
+            cardCornerHoverBorder: "group-hover:border-[#E3B873]/40",
+            textMuted: "text-[#EDE3CB]/70",
+            textSubtle: "text-[#EDE3CB]/85",
+            progressFrom: "from-[#4A5A8A]",
+            progressTo: "to-[#E3B873]",
+            progressTrackBg: "bg-[#E3B873]/10",
+            colorCompleted: "text-emerald-400",
+            colorInProgress: "text-amber-400",
+            colorToDecide: "text-rose-400",
+            heroOverlay: "from-[#0A0C12]/40 via-transparent to-[#0A0C12]",
+            heroFilter: "grayscale(15%) brightness(0.5) saturate(0.9)",
+            investmentHighlightBorder: "border-[#E3B873]",
+            investmentHighlightBg: "bg-[#E3B873]/5",
+            accentBorderHex: "#E3B873",
+            accentBgHex: "#E3B873",
+            accentHoverTextHex: "#0A0C12",
+        },
     }
 ];
 

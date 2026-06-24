@@ -1,0 +1,123 @@
+{
+  "opportunities": {
+    "studio-concept-artist": {
+      "title": "Concept Artist",
+      "shortDescription": "We're looking for a concept artist for the studio at large. You'll work across all our active projects, defining characters, environments, and visual elements from the earliest stages.",
+      "requirements": [
+        "Portfolio with character and/or environment concept art",
+        "Ability to work in different styles depending on the project",
+        "Skill for translating vague ideas into clear visual references",
+        "Availability to collaborate continuously across multiple teams"
+      ],
+      "offer": [
+        "Visible credit on every project you contribute to",
+        "Real variety: one day Tonkori, the next Afterlight, the next something new",
+        "Direct influence on the studio's visual identity from the very start"
+      ]
+    },
+    "afterlight-artist": {
+      "title": "2D Artist for Afterlight",
+      "shortDescription": "We're looking for a 2D artist to help bring to life the contrast between light and shadow that defines Afterlight. You'll work hand in hand with design to build the world's visual identity.",
+      "requirements": [
+        "Portfolio with 2D illustration or pixel art",
+        "Sensitivity for atmosphere and light/contrast handling",
+        "Ability to work within style guides and maintain visual consistency",
+        "Availability to collaborate on an ongoing basis (not just occasionally)"
+      ],
+      "offer": [
+        "Visible credit as the project's artist",
+        "Creative freedom within the art direction",
+        "Being part of a small team with fast, direct decision-making"
+      ]
+    },
+    "afterlight-leveldesigner": {
+      "title": "Level / Puzzle Designer for Afterlight",
+      "shortDescription": "We need someone who thinks in terms of space, rhythm, and puzzle-solving to build the levels of a metroidvania where light and shadow change the rules of the game.",
+      "requirements": [
+        "Experience or portfolio in level design, ideally in platformers/metroidvanias",
+        "Ability to design puzzles with a progressive difficulty curve",
+        "Basic knowledge of prototyping tools (Tiled, the project's engine, etc.)",
+        "Analytical thinking to balance exploration and challenge"
+      ],
+      "offer": [
+        "Credit as the project's designer",
+        "Direct collaboration with programming and art from early stages",
+        "Opportunity to define mechanics, not just implement them"
+      ]
+    },
+    "afterlight-programmer": {
+      "title": "Support Programmer for Afterlight",
+      "shortDescription": "If you have experience in gameplay programming and want to contribute to a metroidvania in development, there's room for occasional or ongoing support depending on your availability.",
+      "requirements": [
+        "Knowledge of the engine used by the project",
+        "Experience with gameplay systems (movement, collisions, states)",
+        "Good communication skills for working in a small team"
+      ],
+      "offer": [
+        "Credit as a project collaborator",
+        "Flexible commitment based on your availability",
+        "Direct work with the core team"
+      ]
+    },
+    "other-artist": {
+      "title": "Artist for Small Projects",
+      "shortDescription": "We're looking for a versatile artist to join short-cycle small projects. Ideal for someone who wants to experiment with different styles and see their work shipped fast.",
+      "requirements": [
+        "Varied portfolio (a single style is not required)",
+        "Ability to adapt to short, varied projects",
+        "Comfort working with tight deadlines"
+      ],
+      "offer": [
+        "Visible credit on every launched project",
+        "Freedom to propose style and visual direction",
+        "Short cycles: you see your work finished and published quickly"
+      ]
+    },
+    "other-designer": {
+      "title": "Game Designer for Small Projects",
+      "shortDescription": "Join us to design compact mechanics and experiences in small projects built to ship fast, before scaling up to the studio's bigger titles.",
+      "requirements": [
+        "Interest in rapid prototyping and simple but polished mechanics",
+        "Ability to iterate with constant feedback",
+        "No prior published experience required, but commitment is a must"
+      ],
+      "offer": [
+        "Credit as designer on each project",
+        "Space to experiment without the pressure of a large project",
+        "Opportunity to grow alongside the studio toward bigger projects"
+      ]
+    },
+    "other-narrator": {
+      "title": "Narrator / Writer for Small Projects",
+      "shortDescription": "We're looking for someone who enjoys telling compact, emotionally resonant stories in short formats — ideal for experimenting with voice and narrative structure.",
+      "requirements": [
+        "Strong writing skills in Spanish (dialogues, in-game text)",
+        "Ability to tell complete stories in brief formats",
+        "Openness to feedback and working in a small team"
+      ],
+      "offer": [
+        "Credit as narrator/writer on the project",
+        "Creative freedom in tone and narrative structure",
+        "Fast publication: your story reaches players quickly"
+      ]
+    }
+  },
+  "projects": {
+    "tonkori": {
+      "name": "Tonkori",
+      "shortDescription": "Tonkori is a narrative 2D RPG where every decision leaves a mark. Your choices shape the story, your bonds with companions, and the way the world responds to you. No two playthroughs are alike — only the one you build."
+    },
+    "afterlight": {
+      "name": "Afterlight",
+      "shortDescription": "Afterlight is a metroidvania where light and shadow don't clash — they coexist. Explore a world that shifts depending on how you move between both."
+    },
+    "studio": {
+      "name": "Studio",
+      "shortDescription": "Cross-cutting roles that sustain the studio as a whole: communication, community, management, and everything that keeps the Rhon Studios ecosystem alive beyond the games."
+    },
+    "other": {
+      "name": "Others",
+      "shortDescription": "Smaller, experimental, or side projects where we test ideas, mechanics, and styles outside our main titles."
+    }
+  }
+}

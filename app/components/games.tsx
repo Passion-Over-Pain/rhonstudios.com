@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/app/language/LanguageProvider";
 import { useRouter } from "next/navigation";
-import { GameData, gamesData } from "@/app/games/gamesData";
+import { GameData, gamesData } from "@/app/DataBases/gamesData";
 
 export function Games(){
 
@@ -185,7 +185,7 @@ export function Games(){
                                         </div>
                                     </div>
                                     <button
-                                        onClick={() => router.push(`/${selectedGame.id}`)}
+                                        onClick={() => router.push(`/games/${selectedGame.id}`)}
                                         className="w-full sm:w-auto border-2 border-white px-8 sm:px-12 py-3 text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300"
                                         style={{ fontFamily: "Cinzel", fontWeight: 200 }}
                                     >

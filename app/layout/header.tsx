@@ -1,15 +1,17 @@
 ﻿"use client"
 import {useEffect, useRef, useState} from "react";
 import {AnimatePresence} from "framer-motion";
+import {ArrowLeft} from "lucide-react";
 import {useLanguage} from "@/app/language/LanguageProvider";
 import {useParams, usePathname, useRouter} from "next/navigation";
-import {getGameById} from "@/app/games/gamesData";
+import {getGameById} from "@/app/DataBases/gamesData";
 
 export function Header() {
     const pathname = usePathname();
-    const isIdPage = pathname && pathname.split("/").filter(Boolean).length === 1;
     const params = useParams();
     const gameId = params?.id as string;
+    const isIdPage = !!gameId;
+    const isJoinPage = pathname === "/join";
     const game = gameId ? getGameById(gameId) : null;
     const headerLogo = isIdPage && game?.logo
         ? game.logo
@@ -79,23 +81,29 @@ export function Header() {
     };
 
     const menuItems = [
-        { id: "hero", label: t.menu.home },
+        { id: "hero",      label: t.menu.home },
         { id: "highlight", label: t.menu.highlight },
-        { id: "games", label: t.menu.games },
-        { id: "about", label: t.menu.about },
-        { id: "contact", label: t.menu.contact },
+        { id: "games",     label: t.menu.games },
+        { id: "about",     label: t.menu.about },
+        { id: "contact",   label: t.menu.contact },
     ];
 
     const game_menuItems = game
         ? [
-            { id: "home_game", label: game.id },
-            { id: "vision", label: t.game_menu.vision },
-            { id: "roadmap", label: t.game_menu.roadmap },
+            { id: "home_game",  label: game.id },
+            { id: "vision",     label: t.game_menu.vision },
+            { id: "roadmap",    label: t.game_menu.roadmap },
             { id: "investment", label: t.game_menu.investment },
-            { id: "gallery", label: t.game_menu.gallery },
-            { id: "contact", label: t.game_menu.contact }
+            { id: "gallery",    label: t.game_menu.gallery },
+            { id: "contact",    label: t.game_menu.contact },
         ]
         : menuItems;
+
+    const joinMenuItems = [
+        { id: "home_join",  label: t.join_menu.join },
+        { id: "conditions", label: t.join_menu.conditions },
+        { id: "roles",      label: t.join_menu.opportunities },
+    ];
 
     const LangSwitcherMobile = () => (
         <div className="flex items-center border border-white rounded-sm overflow-hidden">
@@ -143,21 +151,25 @@ export function Header() {
             className={`relative w-10 h-10 ${border2 ? "border-2" : "border"} border-white rounded-sm flex flex-col items-center justify-center gap-1.5 hover:bg-white/10 transition-all duration-300`}
             aria-label="Toggle menu"
         >
-            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
     );
 
-    const MobileMenuOverlay = ({ items, onHome }: { items: typeof menuItems; onHome?: () => void }) => (
+    const MobileMenuOverlay = ({items, onHome, homeLabel,}: {
+        items: { id: string; label: string }[];
+        onHome?: () => void;
+        homeLabel?: string;
+    }) => (
         <div className="fixed inset-0 z-[200] bg-black/98 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
             <button
                 onClick={() => setIsMenuOpen(false)}
                 className="absolute top-5 right-5 w-10 h-10 border border-white rounded-sm flex flex-col items-center justify-center gap-1.5"
                 aria-label="Close menu"
             >
-                <span className="w-5 h-0.5 bg-white rotate-45 translate-y-[0px]"></span>
-                <span className="w-5 h-0.5 bg-white -rotate-45 -translate-y-[2px]"></span>
+                <span className="w-5 h-0.5 bg-white rotate-45 translate-y-[0px]" />
+                <span className="w-5 h-0.5 bg-white -rotate-45 -translate-y-[2px]" />
             </button>
             <div className="flex flex-col gap-4 mt-4">
                 {onHome && (
@@ -166,7 +178,7 @@ export function Header() {
                         className="group relative border-2 border-white/30 p-5 text-left hover:border-white hover:bg-white/5 transition-all duration-300"
                     >
                         <h3 className="text-lg tracking-wider uppercase text-white/80" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
-                            {t.game_menu.home}
+                            {homeLabel ?? t.game_menu.home}
                         </h3>
                     </button>
                 )}
@@ -176,8 +188,8 @@ export function Header() {
                         onClick={() => scrollTo(item.id)}
                         className="group relative border-2 border-white/30 p-5 text-left hover:border-white hover:bg-white/5 transition-all duration-300"
                     >
-                        <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                        <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
+                        <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300" />
+                        <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300" />
                         <h3 className="text-lg tracking-wider uppercase text-white/80" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
                             {item.label}
                         </h3>
@@ -190,60 +202,192 @@ export function Header() {
         </div>
     );
 
-    if (isIdPage) {
+    const ScrolledLogoBar = ({ logo, logoAlt, titleLeft, titleRight, titleFont }: {
+        logo: string;
+        logoAlt: string;
+        titleLeft?: string;
+        titleRight?: string;
+        titleFont?: string;
+    }) => (
+        <nav className="hidden lg:flex container mx-auto py-4 items-center justify-between relative">
+            <LangSwitcherDesktop />
+            {titleLeft && (
+                <div className="hidden xl:flex items-center gap-4 absolute left-[32%] -translate-x-full">
+                    <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInLeft" style={{ fontFamily: titleFont, textShadow: "0 4px 20px rgba(255,255,255,0.15)" }}>
+                        {titleLeft}
+                    </h1>
+                </div>
+            )}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+                <a href="#">
+                    <img src={logo} alt={logoAlt} className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
+                </a>
+            </div>
+            {titleRight && (
+                <div className="hidden xl:flex items-center gap-4 absolute right-[32%] translate-x-full">
+                    <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInRight" style={{ fontFamily: titleFont, textShadow: "0 4px 20px rgba(255,255,255,0.15)" }}>
+                        {titleRight}
+                    </h1>
+                </div>
+            )}
+            <div className="flex items-center gap-6 ml-auto">
+                <HamburgerBtn border2 />
+            </div>
+        </nav>
+    );
+
+    const DropdownBtn = ({ label, onClick }: { label: string; onClick: () => void }) => (
+        <button
+            onClick={onClick}
+            className="group relative border-2 border-white/30 p-6 text-left hover:border-white hover:bg-white/5 transition-all duration-300"
+        >
+            <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300" />
+            <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300" />
+            <h3 className="text-l tracking-wider uppercase text-white/30 group-hover:text-white/80 mb-1 transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
+                {label}
+            </h3>
+        </button>
+    );
+
+    if (isJoinPage) {
         return (
-            <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-                    isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"
-                }`}
-            >
-                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10"}`}>
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
+                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-4 px-4 sm:px-8 lg:px-16" : "py-4 lg:py-8 px-4 sm:px-8 lg:px-16"}`}>
                     {isScrolled ? (
                         <>
                             
                             <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img
-                                    src={headerLogo}
-                                    alt={game?.title ?? "Rhon Studios"}
-                                    className="h-12 w-auto"
-                                />
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                                 <div className="flex items-center gap-3">
                                     <LangSwitcherMobile />
                                     <HamburgerBtn />
                                 </div>
                             </div>
-                            <nav className="hidden lg:flex container mx-auto py-4 items-center justify-between relative">
-                                <LangSwitcherDesktop />
-                                <div className="hidden xl:flex items-center gap-4 absolute left-[32%] -translate-x-full">
-                                    <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInLeft" style={{ fontFamily: game?.theme.fontTitle, textShadow: "0 4px 20px rgba(255,255,255,0.15)" }}>{game?.title}</h1>
-                                </div>
-                                <div className="absolute left-1/2 transform -translate-x-1/2">
-                                    <a href="#">
-                                        <img
-                                            src={headerLogo}
-                                            alt={game?.title ?? "Rhon Studios"}
-                                            className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop"
-                                        />
-                                    </a>
-                                </div>
-                                <div className="hidden xl:flex items-center gap-4 absolute right-[32%] translate-x-full">
-                                    <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInRight" style={{ fontFamily: game?.theme.fontTitle, textShadow: "0 4px 20px rgba(255,255,255,0.15)" }}>Rhon Studios</h1>
-                                </div>
-                                <div className="flex items-center gap-6 ml-auto">
-                                    <HamburgerBtn border2 />
-                                </div>
-                            </nav>
+                            <ScrolledLogoBar
+                                logo="/logos/RhonStudiosCircleLogo.png"
+                                logoAlt="Rhon Studios"
+                                titleLeft="Rhon"
+                                titleRight="Studios"
+                                titleFont="Rye"
+                            />
                         </>
                     ) : (
                         <>
-                            <div
-                                className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}
-                            >
-                                <img
-                                    src={headerLogo}
-                                    alt={game?.title ?? "Rhon Studios"}
-                                    className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop"
-                                />
+                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                                <button
+                                    onClick={() => router.push("/")}
+                                    className="flex items-center gap-2 text-white"
+                                    style={{ fontFamily: "Cinzel" }}
+                                >
+                                    <ArrowLeft size={20} />
+                                </button>
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
+                                <div className="flex items-center gap-3">
+                                    <LangSwitcherMobile />
+                                    <HamburgerBtn />
+                                </div>
+                            </div>
+                            <div className="hidden lg:grid grid-cols-3 items-center">
+                                <div className="flex justify-start gap-8 xl:gap-12">
+                                    <button
+                                        onClick={() => router.push("/#about")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.join_menu.home}
+                                    </button>
+                                    <button
+                                        onClick={() => scrollTo("home_join")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.join_menu.join}
+                                    </button>
+                                </div>
+                                <div className="flex flex-col items-center justify-center gap-4">
+                                    <a href="/">
+                                        <img
+                                            src="/logos/IconHeader.png"
+                                            alt="Rhon Studios"
+                                            className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                                        />
+                                    </a>
+                                    <LangSwitcherDesktop />
+                                </div>
+                                <div className="flex justify-end gap-8 xl:gap-12">
+                                    <button
+                                        onClick={() => scrollTo("conditions")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.join_menu.conditions ?? "Condiciones"}
+                                    </button>
+                                    <button
+                                        onClick={() => scrollTo("roles")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.join_menu.opportunities}
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </nav>
+                <AnimatePresence>
+                    {isScrolled && isMenuOpen && (
+                        <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                            <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
+                                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
+                                    <DropdownBtn label={t.join_menu.home} onClick={() => router.push("/")} />
+                                    {joinMenuItems.map((item) => (
+                                        <DropdownBtn key={item.id} label={item.label} onClick={() => scrollTo(item.id)} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <div className="lg:hidden">
+                            <MobileMenuOverlay
+                                items={joinMenuItems}
+                                onHome={() => { router.push("/"); setIsMenuOpen(false); }}
+                                homeLabel={t.join_menu.home}
+                            />
+                        </div>
+                    )}
+                </AnimatePresence>
+            </header>
+        );
+    }
+
+    if (isIdPage) {
+        return (
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
+                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10"}`}>
+                    {isScrolled ? (
+                        <>
+                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                                <img src={headerLogo} alt={game?.title ?? "Rhon Studios"} className="h-12 w-auto" />
+                                <div className="flex items-center gap-3">
+                                    <LangSwitcherMobile />
+                                    <HamburgerBtn />
+                                </div>
+                            </div>
+                            <ScrolledLogoBar
+                                logo={headerLogo}
+                                logoAlt={game?.title ?? "Rhon Studios"}
+                                titleLeft={game?.title}
+                                titleRight="Rhon Studios"
+                                titleFont={game?.theme.fontTitle}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <div className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}>
+                                <img src={headerLogo} alt={game?.title ?? "Rhon Studios"} className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
                                 <div className="flex items-center gap-3">
                                     <LangSwitcherMobile />
                                     <HamburgerBtn />
@@ -252,7 +396,7 @@ export function Header() {
                             <div className="hidden lg:grid grid-cols-3 items-center">
                                 <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
                                     <li>
-                                        <button onClick={() => router.push(`/#games`)} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        <button onClick={() => router.push("/#games")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
                                             {t.game_menu.home}
                                         </button>
                                     </li>
@@ -268,11 +412,7 @@ export function Header() {
                                     </li>
                                 </ul>
                                 <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-                                    <img
-                                        src={headerLogoLarge}
-                                        alt={game?.title ?? "Rhon Studios"}
-                                        className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90"
-                                    />
+                                    <img src={headerLogoLarge} alt={game?.title ?? "Rhon Studios"} className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
                                     <LangSwitcherDesktop />
                                 </div>
                                 <ul className="flex gap-5 xl:gap-8 items-center text-white justify-end">
@@ -301,21 +441,9 @@ export function Header() {
                         <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
                             <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
                                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
-                                    <button onClick={() => router.push("/#games")} className="group relative border-2 border-white/30 p-6 text-left hover:border-white hover:bg-white/5 transition-all duration-300">
-                                        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                                        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                                        <h3 className="text-l tracking-wider uppercase text-white/30 group-hover:text-white/80 mb-1 transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
-                                            {t.game_menu.home}
-                                        </h3>
-                                    </button>
+                                    <DropdownBtn label={t.game_menu.home} onClick={() => router.push("/#games")} />
                                     {game_menuItems.map((item) => (
-                                        <button key={item.id} onClick={() => scrollTo(item.id)} className="group relative border-2 border-white/30 p-6 text-left hover:border-white hover:bg-white/5 transition-all duration-300">
-                                            <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                                            <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                                            <h3 className="text-l tracking-wider uppercase text-white/30 group-hover:text-white/80 mb-1 transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
-                                                {item.label}
-                                            </h3>
-                                        </button>
+                                        <DropdownBtn key={item.id} label={item.label} onClick={() => scrollTo(item.id)} />
                                     ))}
                                 </div>
                             </div>
@@ -325,24 +453,23 @@ export function Header() {
                 <AnimatePresence>
                     {isMenuOpen && (
                         <div className="lg:hidden">
-                            <MobileMenuOverlay items={game_menuItems} onHome={() => router.push("/#games")} />
+                            <MobileMenuOverlay
+                                items={game_menuItems}
+                                onHome={() => { router.push("/#games"); setIsMenuOpen(false); }}
+                                homeLabel={t.game_menu.home}
+                            />
                         </div>
                     )}
                 </AnimatePresence>
             </header>
         );
     }
-
+    
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-                isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"
-            }`}
-        >
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
             <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10 px-4 sm:px-8 lg:px-16"}`}>
                 {isScrolled ? (
                     <>
-                        
                         <div className="lg:hidden flex items-center justify-between px-4 py-2">
                             <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                             <div className="flex items-center gap-3">
@@ -351,32 +478,17 @@ export function Header() {
                             </div>
                         </div>
                         
-                        <nav className="hidden lg:flex container mx-auto py-4 items-center justify-between relative">
-                            <LangSwitcherDesktop />
-                            <div className="hidden xl:flex items-center gap-4 absolute left-[32%] -translate-x-full">
-                                <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInLeft" style={{ fontFamily: "Rye", textShadow: "0 4px 20px rgba(255,255,255,0.15)" }}>Rhon</h1>
-                            </div>
-                            <div className="absolute left-1/2 transform -translate-x-1/2">
-                                <a href="#">
-                                    <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
-                                </a>
-                            </div>
-                            <div className="hidden xl:flex items-center gap-4 absolute right-[32%] translate-x-full">
-                                <h1 className="text-white text-4xl lg:text-5xl tracking-widest opacity-0 animate-fadeInRight" style={{ fontFamily: "Rye" }}>Studios</h1>
-                            </div>
-                            <div className="flex items-center gap-6 ml-auto">
-                                <HamburgerBtn border2 />
-                            </div>
-                        </nav>
+                        <ScrolledLogoBar
+                            logo="/logos/RhonStudiosCircleLogo.png"
+                            logoAlt="Rhon Studios"
+                            titleLeft="Rhon"
+                            titleRight="Studios"
+                            titleFont="Rye"
+                        />
                     </>
                 ) : (
                     <>
-                        <div
-                            className={`lg:hidden flex items-center justify-between px-4 py-2
-                                transition-all duration-500
-                                ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}
-                            `}
-                        >
+                        <div className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}>
                             <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
                             <div className="flex items-center gap-3">
                                 <LangSwitcherMobile />
@@ -423,12 +535,12 @@ export function Header() {
                             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6">
                                 {menuItems.map((item) => (
                                     <button key={item.id} onClick={() => scrollTo(item.id)} className="group relative border-2 border-white/30 p-6 text-left hover:border-white hover:bg-white/5 transition-all duration-300">
-                                        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
-                                        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300"/>
+                                        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-white/40 group-hover:border-white transition-colors duration-300" />
+                                        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-white/40 group-hover:border-white transition-colors duration-300" />
                                         <h3 className="text-l tracking-wider uppercase text-white/30 group-hover:text-white/80 mb-1 transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 300 }}>
                                             {item.label}
                                         </h3>
-                                        <div className="h-[2px] bg-white/30 group-hover:w-full group-hover:bg-white transition-all duration-500"/>
+                                        <div className="h-[2px] bg-white/30 group-hover:w-full group-hover:bg-white transition-all duration-500" />
                                     </button>
                                 ))}
                             </div>

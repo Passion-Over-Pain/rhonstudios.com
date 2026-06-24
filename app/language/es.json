@@ -1,236 +1,4 @@
 {
-  "game_list": {
-    "tonkori":
-    {
-      "subtitle": "¿Prefieres salvar el mundo... o salvarte a ti?",
-      "description": "Tonkori es la gran estrella de Rhon, un juego que llevamos desarrollando desde 2024. Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-      "description2": "Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-      "status": "En Desarrollo",
-      "genre": "RPG Narrativo",
-      "year": "Próximamente",
-      "pitch": "Tus decisiones cambian el mundo y las relaciones con tus compañeros.",
-      "mechanics": [
-        {
-          "title": "Decision con peso real",
-          "description": "Cada elección, quién eres o cómo te comportas, redefine la historia, las relaciones y el mundo de Arceon que te rodea."
-        },
-        {
-          "title": "Compañeros con memoria",
-          "description": "Los compañeros recuerdan todo. Pueden convertirse en aliados, amantes o enemigos según cómo los trates."
-        },
-        { "title": "Sin respuestas correctas",
-          "description": "Narrativa en tres actos con libertad de orden. Toda pregunta tiene respuesta; el camino lo eliges tú."
-        }
-      ],
-      "market": [
-        {
-          "title": "Métricas",
-          "description": "16–35 · $28.7B USD · 12% · NA · EU · APAC"
-        },
-        {
-          "title": "Ventaja Competitiva",
-          "description": "Tonkori no compite con la acción rápida. Apunta al jugador que busca sumergirse en una historia que lo recuerde a él. La combinación de un sistema de decisiones con peso emocional real, compañeros dinámicos y narrativa elaborada lo diferencia de los RPGs genéricos del mercado indie."
-        },
-        {
-          "title": "Tags",
-          "description": "Decisiones con consecuencias · Sin finales predeterminados · Compañeros dinámicos · Desarrollado en español · Estudio indie apasionado"
-        }
-      ],
-      "technic": [
-        { "title": "Motor", "description": "Por definir -Iniciado en Godot; escalando a motor 3D potente o motor propio según avance el proyecto" },
-        { "title": "Plataformas", "description": "PC · PlayStation · Xbox Series" },
-        { "title": "Género ", "description": "RPG narrativo" },
-        { "title": "Jugadores", "description": "Un jugador" },
-        { "title":  "Estado", "description":  "Concepto/Pre-Producción (-8% completado)"},
-        { "title":  "Lanzamiento", "description":  "Fecha por definir"},
-        { "title":  "Idiomas", "description":  "Español (lengua nativa) + Inglés confirmado. Voice acting previsto en español como lengua principal"},
-        { "title":  "Monetización", "description":  "Pago único (premium) con/o sin Early Access + lanzamiento completo"},
-        { "title":  "Herramientas", "description":  "Affinity · Krita · Aesprite · Notion"}
-      ],
-      "development": {
-        "current_phase": "Concepto/Pre-Producción (-8% completado)",
-        "team_size": "Equipo de 2 personas",
-        "timeline": "Q4 2022 - Inicio del proyecto"
-      },
-      "vision": "Un RPG donde cada decisión importa, los compañeros recuerdan, y la historia que vives es únicamente tuya. No hay caminos correctos — solo consecuencias.",
-      "roadmap": [
-        {
-          "phase": "Concepto y diseño",
-          "status": "completed",
-          "items": [
-            "Definición del mundo de Arceon",
-            "Personajes principales",
-            "Mecánicas core",
-            "Narrativa base",
-            "estética del juego"
-          ]
-        },
-        {
-          "phase": "Pre-producción",
-          "status": "in-progress",
-          "items": [
-            "Documentación técnica",
-            "Arte conceptual",
-            "Selección definitiva de motor",
-            "Planificación de producción"
-          ]
-        },
-        {
-          "phase": "Prototipo técnico ",
-          "status": "planned",
-          "items": [
-            "Sistema de decisiones funcional",
-            "Primeros compañeros implementados",
-            "Prototipo de combate jugable"
-          ]
-        },
-        {
-          "phase": "Voice acting",
-          "status": "to-decide",
-          "items": [
-            "Añadir voice acting",
-            "Traducción al inglés"
-          ]
-        },
-        {
-          "phase": "Vertical slice",
-          "status": "planned",
-          "items": [
-            "Demo jugable del primer acto que demuestre la experiencia completa: narrativa, compañeros, combate y decisiones"
-          ]
-        },
-        {
-          "phase": "Early Access (posible)",
-          "status": "to-decide",
-          "items": [
-            "Evaluación de lanzar en acceso anticipado para recibir feedback de la comunidad antes del lanzamiento completo."
-          ]
-        },
-        {
-          "phase": "Lanzamiento completo",
-          "status": "to-decide",
-          "items": [
-            "Lanzamiento oficial y final en PC (Steam) y plataformas de consola."
-          ]
-        }
-      ],
-      "investment":
-      {
-        "monetization": "Pago único (premium) o Early Access seguido de lanzamiento completo. Decisión final tras evaluar la comunidad una vez el prototipo esté activo.",
-        "roi": " Mercado de RPG narrativos en crecimiento sostenido del 12% anual. Referentes como Hades o Disco Elysium demuestran el apetito por propuestas indie con identidad fuerte.",
-        "keys": [
-          "Concepto sólido con diferenciación clara en el mercado indie de RPGs narrativos.",
-          "Equipo pequeño y comprometido, con perfil complementario (narrativa + programación/arte)",
-          "Primer proyecto del estudio: mayor agilidad y sin deuda técnica acumulada.",
-          "Público objetivo activo y dispuesto a pagar por experiencias narrativas de calidad.",
-          "Desarrollado en español, lengua nativa de un mercado de jugadores masivo e infrarrepresentado."
-        ]
-      }
-    },
-    "afterlight":
-    {
-      "subtitle": "¿Encontraras la luz en la oscuridad?",
-      "description": "En un mundo post-apocalíptico, la luz es vida. Explora, construye y sobrevive en un entorno hostil donde cada decisión cuenta y la oscuridad acecha en cada esquina.",
-      "description2": "",
-      "status": "En Desarrollo",
-      "genre": "Metroidvania de plataformas",
-      "year": "2026 / 2027",
-      "pitch": "Un survival horror que revoluciona el género combinando mecánicas de gestión de luz con terror psicológico, apuntando al creciente mercado de juegos de supervivencia premium.",
-      "mechanics": [
-        {
-          "title": "Física de Luz Dinámica",
-          "description": "Sistema propietario de física de luz donde cada fuente de luz tiene propiedades únicas que afectan gameplay, combate y narrativa."
-        },
-        {
-          "title": "Ecosistema de Oscuridad",
-          "description": "Las criaturas evolucionan y se adaptan a las estrategias del jugador, creando una experiencia de horror emergente única en cada partida."
-        },
-        {
-          "title": "Base Building Asimétrico",
-          "description": "Construcción de refugios con sistemas eléctricos funcionales donde cada decisión arquitectónica tiene impacto en supervivencia."
-        }
-      ],
-      "market": [
-        {
-          "title": "Audiencia Objetivo",
-          "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
-        },
-        {
-          "title": "Tamaño del Mercado",
-          "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
-        },
-        {
-          "title": "Ventaja Competitiva",
-          "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
-        }
-      ],
-      "technic": [
-        { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
-        { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
-        { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
-        { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
-        { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
-        { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
-      ],
-      "development": {
-        "current_phase": "Pre-producción / Prototipado avanzado",
-        "team_size": "8 desarrolladores core + 5 especialistas",
-        "timeline": "Q1 2026 - Vertical slice | Q3 2026 - Alpha | Q2 2027 - Early Access | Q4 2027 - Full Launch"
-      },
-      "vision": "",
-      "roadmap": [
-        {
-          "phase": "Concepto y R&D",
-          "status": "completed",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Prototipo Técnico",
-          "status": "in-progress",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Vertical Slice",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Early Access",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Full Launch",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        }
-      ],
-      "investment":
-      {
-        "monetization": "Monetization Model",
-        "roi": "Return Potential",
-        "keys": [
-          "",
-          ""
-        ]
-      }
-    }
-  },
   "menu": {
     "home": "Inicio",
     "highlight": "Destacado",
@@ -245,6 +13,12 @@
     "investment": "Inversión",
     "roadmap": "Roadmap",
     "contact": "Contacto"
+  },
+  "join_menu": {
+    "join": "Únete a Nosotros",
+    "home": "Inicio",
+    "conditions": "Condiciones",
+    "opportunities": "Opportunities"
   },
   "hero": {
     "subtitle": "Desde 2025",
@@ -481,5 +255,57 @@
     "all": "Todos",
     "title": "Galería",
     "subtitle": "Arte & Capturas"
+  },
+  "error": {
+    "title": "Pagina no encontrada",
+    "button": "Volver al inicio"
+  },
+  "join_page": {
+    "top_title": "Colabora con nosotros",
+    "title": "Nuestras Oportunidades",
+    "subtitle": "Únete a nosotros",
+    "description": "En Rhon Studios creemos que los grandes proyectos nacen de grandes personas. Somos un estudio en crecimiento, sin ingresos por el momento, pero con IPs propias en desarrollo y una visión clara de futu\nEstas oportunidades son colaboraciones voluntarias — sin salario fijo — pero con condiciones reales y transparentes.",
+    "conditions": {
+      "top_title": "Lo que Ofrecemos",
+      "title": "Nuestras Condiciones",
+      "subtitle": "Transparencia total",
+      "items": [
+        { "title": "Crédito oficial", "description": "Aparecerás en los créditos de todos los proyectos en los que participes." },
+        { "title": "Participación en ingresos", "description": "Si el proyecto que co-desarrollas genera beneficios..." },
+        { "title": "Vía de contratación real", "description": "Cuando el estudio escale..." },
+        { "title": "Experiencia real en producción", "description": "Trabaja en videojuegos indie..." },
+        { "title": "Flexibilidad total", "description": "Remoto, sin horarios fijos..." },
+        { "title": "Carta de recomendación", "description": "Al finalizar la colaboración..." }
+      ]
+    },
+    "legal": {
+      "title": "Aviso Importante",
+      "description": "Todas las colaboraciones se formalizan mediante un acuerdo escrito que especifica el rol, las condiciones de participación en ingresos y los términos de la relación. Esto no constituye una relación laboral. Rhon Studios actúa con total transparencia."
+    },
+    "roles": {
+      "top_title": "Vacantes abiertas",
+      "title": "Roles Disponibles",
+      "subtitle": "Encuentra tu lugar"
+    },
+    "filters": {
+      "project_label": "Filtrar por proyecto:",
+      "area_label": "Filtrar por área:",
+      "all": "Todos",
+      "areas": ["Todos", "Arte", "Programación", "Sonido", "Narrativa", "Marketing", "Otros"]
+    },
+    "card": {
+      "urgent": "★ Urgente",
+      "open": "● Abierta",
+      "filled": "○ Cubierta",
+      "open_roles_one": "{{count}} rol abierto",
+      "open_roles_other": "{{count}} roles abiertos",
+      "no_roles": "Sin vacantes",
+      "requirements": "Lo que buscamos",
+      "offer": "Lo que ofrecemos",
+      "see_more": "Ver más ↓",
+      "see_less": "Ver menos ↑",
+      "apply": "Quiero colaborar →",
+      "empty_area": "Ningún rol en esta área para este proyecto."
+    }
   }
 }

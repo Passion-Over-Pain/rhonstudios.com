@@ -1,211 +1,4 @@
 {
-  "game_list": {
-    "tonkori": 
-    {
-      "subtitle": "¿Prefieres salvar el mundo... o salvarte a ti?",
-      "description": "Tonkori es la gran estrella de Rhon, un juego que llevamos desarrollando desde 2024. Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-      "description2": "Tus elecciones crean la historia, tus relaciones con los compañeros y la forma en la que el mundo reacciona a ti. No hay una historia igual, solo la que eliges.",
-      "status": "En Desarrollo",
-      "genre": "RPG Narrativo",
-      "year": "Próximamente",
-      "pitch": "Tus decisiones cambian el mundo y las relaciones con tus compañeros.",
-      "mechanics": [
-        {
-          "title": "Sistema de Decisiones Temporales",
-          "description": "Las decisiones del jugador afectan no solo el presente, sino también eventos pasados y futuros del mundo. Este sistema crea una narrativa no-lineal que aumenta significativamente la rejugabilidad."
-        },
-        {
-          "title": "Magia Adaptativa",
-          "description": "El sistema de magia evoluciona basándose en las acciones y elecciones del jugador, creando builds únicos que no pueden replicarse en múltiples partidas."
-        },
-        { "title": "Mundo Reactivo Persistente",
-          "description": "Cada acción del jugador tiene consecuencias permanentes en el mundo del juego, desde cambios en el clima hasta la evolución de civilizaciones enteras."
-        }
-      ],
-      "market": [
-        {
-          "title": "Audiencia Objetivo",
-          "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
-        },
-        {
-          "title": "Tamaño del Mercado",
-          "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
-        },
-        {
-          "title": "Ventaja Competitiva",
-          "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
-        }
-      ],
-      "technic": [
-        { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
-        { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
-        { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
-        { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
-        { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
-        { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
-      ],
-      "development": {
-        "current_phase": "Pre-producción avanzada / Producción temprana",
-        "team_size": "12 desarrolladores core + 8 colaboradores externos",
-        "timeline": "Q4 2025 - Alpha cerrada | Q2 2026 - Beta pública | Q4 2026 - Lanzamiento"
-      },
-      "vision": "",
-      "roadmap": [
-        {
-          "phase": "Concepto y Pre-producción",
-          "status": "completed",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Vertical Slice",
-          "status": "in-progress",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Producción Principal",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Beta y Marketing",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Lanzamiento",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        }
-      ],
-      "investment":
-      {
-        "monetization": "Monetization Model",
-        "roi": "Return Potential",
-        "keys": [
-          "",
-          ""
-        ]
-      }
-    },
-    "afterlight": 
-    {
-      "subtitle": "¿Encontraras la luz en la oscuridad?",
-      "description": "En un mundo post-apocalíptico, la luz es vida. Explora, construye y sobrevive en un entorno hostil donde cada decisión cuenta y la oscuridad acecha en cada esquina.",
-      "description2": "",
-      "status": "En Desarrollo",
-      "genre": "Metroidvania de plataformas",
-      "year": "2026 / 2027",
-      "pitch": "Un survival horror que revoluciona el género combinando mecánicas de gestión de luz con terror psicológico, apuntando al creciente mercado de juegos de supervivencia premium.",
-      "mechanics": [
-        {
-          "title": "Física de Luz Dinámica",
-          "description": "Sistema propietario de física de luz donde cada fuente de luz tiene propiedades únicas que afectan gameplay, combate y narrativa."
-        },
-        {
-          "title": "Ecosistema de Oscuridad",
-          "description": "Las criaturas evolucionan y se adaptan a las estrategias del jugador, creando una experiencia de horror emergente única en cada partida."
-        },
-        {
-          "title": "Base Building Asimétrico",
-          "description": "Construcción de refugios con sistemas eléctricos funcionales donde cada decisión arquitectónica tiene impacto en supervivencia."
-        }
-      ],
-      "market": [
-        {
-          "title": "Audiencia Objetivo",
-          "description": "Jugadores hardcore de RPG entre 18-35 años, con enfoque en mercados de NA, EU y APAC"
-        },
-        {
-          "title": "Tamaño del Mercado",
-          "description": "El mercado global de RPG se valúa en $28.7B USD con crecimiento proyectado del 12% anual"
-        },
-        {
-          "title": "Ventaja Competitiva",
-          "description": "Combinación única de mecánicas narrativas con tecnología de punta, respaldado por equipo con experiencia AAA"
-        }
-      ],
-      "technic": [
-        { "title": "Motor", "description": "Unreal Engine 5 con Nanite y Lumen" },
-        { "title": "Plataformas", "description": "PC, PlayStation 5, Xbox Series X|S" },
-        { "title": "Multiplayer", "description": "Co-op asíncrono para 2-4 jugadores" },
-        { "title": "Duración", "description": "40-60 horas de historia principal, 100+ horas con contenido completo" },
-        { "title": "Idiomas", "description": "Lanzamiento en 12 idiomas con voces en 5" },
-        { "title": "Accesibilidad", "description": "Conformidad completa con WCAG 2.1 nivel AA" }
-      ],
-      "development": {
-        "current_phase": "Pre-producción / Prototipado avanzado",
-        "team_size": "8 desarrolladores core + 5 especialistas",
-        "timeline": "Q1 2026 - Vertical slice | Q3 2026 - Alpha | Q2 2027 - Early Access | Q4 2027 - Full Launch"
-      },
-      "vision": "",
-      "roadmap": [
-        {
-          "phase": "Concepto y R&D",
-          "status": "completed",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Prototipo Técnico",
-          "status": "in-progress",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Vertical Slice",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Early Access",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        },
-        {
-          "phase": "Full Launch",
-          "status": "planned",
-          "items": [
-            "ASDSA",
-            "skadhaskl"
-          ]
-        }
-      ],
-      "investment":
-      {
-        "monetization": "Monetization Model",
-        "roi": "Return Potential",
-        "keys": [
-          "",
-          ""
-        ]
-      }
-    }
-  },
   "menu": {
     "home": "Home",
     "highlight": "Highlight",
@@ -220,6 +13,12 @@
     "investment": "Investment",
     "roadmap": "Roadmap",
     "contact": "Contact"
+  },
+  "join_menu": {
+    "join": "Nuestras Oportunidades",
+    "home": "Inicio",
+    "conditions": "Condiciones",
+    "opportunities": "Opportunities"
   },
   "hero": {
     "subtitle": "Since 2025",
@@ -457,5 +256,57 @@
     "all": "All",
     "title": "Gallery",
     "subtitle": "Art & Captures"
+  },
+  "error": {
+    "title": "Page not found",
+    "button": "Go Back"
+  },
+  "join_page": {
+    "top_title": "Colabora con nosotros",
+    "title": "Nuestras Oportunidades",
+    "subtitle": "Únete a nosotros",
+    "description": "En Rhon Studios creemos que los grandes proyectos nacen de grandes personas...",
+    "conditions": {
+      "top_title": "Lo que Ofrecemos",
+      "title": "Nuestras Condiciones",
+      "subtitle": "Transparencia total",
+      "items": [
+        { "title": "Crédito oficial", "description": "Aparecerás en los créditos de todos los proyectos en los que participes." },
+        { "title": "Participación en ingresos", "description": "Si el proyecto que co-desarrollas genera beneficios..." },
+        { "title": "Vía de contratación real", "description": "Cuando el estudio escale..." },
+        { "title": "Experiencia real en producción", "description": "Trabaja en videojuegos indie..." },
+        { "title": "Flexibilidad total", "description": "Remoto, sin horarios fijos..." },
+        { "title": "Carta de recomendación", "description": "Al finalizar la colaboración..." }
+      ]
+    },
+    "legal": {
+      "title": "Aviso Importante",
+      "description": "Todas las colaboraciones se formalizan mediante un acuerdo escrito..."
+    },
+    "roles": {
+      "top_title": "Vacantes abiertas",
+      "title": "Roles Disponibles",
+      "subtitle": "Encuentra tu lugar"
+    },
+    "filters": {
+      "project_label": "Filtrar por proyecto:",
+      "area_label": "Filtrar por área:",
+      "all": "Todos",
+      "areas": ["Todos", "Arte", "Programación", "Sonido", "Narrativa", "Marketing", "Otros"]
+    },
+    "card": {
+      "urgent": "★ Urgente",
+      "open": "● Abierta",
+      "filled": "○ Cubierta",
+      "open_roles_one": "{{count}} rol abierto",
+      "open_roles_other": "{{count}} roles abiertos",
+      "no_roles": "Sin vacantes",
+      "requirements": "Lo que buscamos",
+      "offer": "Lo que ofrecemos",
+      "see_more": "Ver más ↓",
+      "see_less": "Ver menos ↑",
+      "apply": "Quiero colaborar →",
+      "empty_area": "Ningún rol en esta área para este proyecto."
+    }
   }
 }

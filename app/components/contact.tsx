@@ -4,11 +4,11 @@ import {AnimatePresence, motion} from "framer-motion";
 import {Facebook, Github, Heart, Instagram, Linkedin, Mail, Twitter} from 'lucide-react'
 import React, {useState, useEffect} from "react";
 import {useLanguage} from "@/app/language/LanguageProvider";
+import { sendEmail } from "@/libs/send-email";
 
 export function Contact(){
 
     const { t } = useLanguage();
-    const GOOGLE_API = process.env.GOOGLE_API;
 
     const [formData, setFormData] = useState({
         Name: "",
@@ -17,25 +17,20 @@ export function Contact(){
         Message: ""
     });
 
-    const [formSubmitted, setFormSubmitted] = useState(false);
     const [isCompany, setIsCompany] = useState<boolean>(false);
     const [status, setStatus] = useState<"idle" | "invalid" | "sending" | "sent" | "alreadySent" | "alreadySentV2" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         if (status === "sent") {
-            const timer = setTimeout(() => {
-                setStatus("alreadySent");
-            }, 3000);
+            const timer = setTimeout(() => setStatus("alreadySent"), 3000);
             return () => clearTimeout(timer);
         }
     }, [status]);
 
     useEffect(() => {
         if (!errorMessage) return;
-        const timer = setTimeout(() => {
-            setErrorMessage("");
-        }, 3000);
+        const timer = setTimeout(() => setErrorMessage(""), 3000);
         return () => clearTimeout(timer);
     }, [errorMessage]);
 
@@ -56,32 +51,45 @@ export function Contact(){
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!GOOGLE_API) {
-            setStatus("error");
-            setErrorMessage("Missing GOOGLE_API environment variable");
-            return;
-        }
+
         const validationError = validateForm();
         if (validationError) {
             setStatus("invalid");
             setErrorMessage(validationError);
             return;
         }
+
         setErrorMessage("");
         setStatus("sending");
+
+        const mailText = [
+            `Nombre: ${formData.Name}`,
+            `Email: ${formData.Email}`,
+            isCompany ? `Empresa: ${formData.Company}` : null,
+            `Mensaje: ${formData.Message}`,
+        ].filter(Boolean).join("\n");
+
         try {
-            await fetch(GOOGLE_API, {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData)
+            const res = await sendEmail({
+                email: formData.Email,
+                subject: isCompany
+                    ? `[WP_CF_E] - ${formData.Company}`
+                    : `[WP_CF_P] - ${formData.Name}`,
+                text: mailText,
             });
-            setFormData({ Name: "", Email: "", Company: "", Message: "" });
-            setIsCompany(false);
-            setStatus("sent");
+
+            if (res?.messageId) {
+                setFormData({ Name: "", Email: "", Company: "", Message: "" });
+                setIsCompany(false);
+                setStatus("sent");
+            } else {
+                setStatus("error");
+                setErrorMessage("Something went wrong, please try again");
+            }
         } catch (error) {
-            console.error("Fetch failed:", error);
-            setFormSubmitted(false);
+            console.error("Send failed:", error);
             setStatus("error");
+            setErrorMessage("Something went wrong, please try again");
         }
     };
 
