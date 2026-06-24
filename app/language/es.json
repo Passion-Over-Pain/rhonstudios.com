@@ -283,12 +283,30 @@
       "title": "Nuestras Condiciones",
       "subtitle": "Transparencia total",
       "items": [
-        { "title": "Crédito oficial", "description": "Aparecerás en los créditos de todos los proyectos en los que participes." },
-        { "title": "Participación en ingresos", "description": "Si el proyecto que co-desarrollas genera beneficios..." },
-        { "title": "Vía de contratación real", "description": "Cuando el estudio escale..." },
-        { "title": "Experiencia real en producción", "description": "Trabaja en videojuegos indie..." },
-        { "title": "Flexibilidad total", "description": "Remoto, sin horarios fijos..." },
-        { "title": "Carta de recomendación", "description": "Al finalizar la colaboración..." }
+        {
+          "title": "Crédito oficial",
+          "description": "Aparecerás acreditado oficialmente en todos los videojuegos y proyectos en los que participes, reconociendo tu trabajo y contribución al desarrollo."
+        },
+        {
+          "title": "Participación en ingresos",
+          "description": "Si el proyecto que co-desarrollas genera beneficios tras su lanzamiento, recibirás una participación proporcional previamente acordada según tu implicación y aportación."
+        },
+        {
+          "title": "Vía de contratación real",
+          "description": "Nuestro objetivo es formar un equipo estable. Cuando el estudio crezca y disponga de financiación suficiente, los colaboradores destacados tendrán prioridad en futuras contrataciones remuneradas."
+        },
+        {
+          "title": "Experiencia real en producción",
+          "description": "Trabajarás en videojuegos indie reales, participando en procesos profesionales de diseño, programación, arte, pruebas y publicación, adquiriendo experiencia práctica valiosa para tu portfolio."
+        },
+        {
+          "title": "Flexibilidad total",
+          "description": "Colaboración 100% remota, sin horarios fijos y compatible con estudios, trabajo u otros proyectos. Organizamos las tareas en función de la disponibilidad de cada miembro."
+        },
+        {
+          "title": "Carta de recomendación",
+          "description": "Al finalizar tu colaboración, podrás solicitar una carta de recomendación personalizada que refleje tus habilidades, responsabilidades y aportaciones al proyecto."
+        }
       ]
     },
     "legal": {
