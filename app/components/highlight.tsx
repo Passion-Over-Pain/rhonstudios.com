@@ -8,7 +8,7 @@ import {useRouter} from "next/navigation";
 
 export function Highlight() {
 
-    const game = gamesData.find((g) => g.id === "tonkori");
+    const game = gamesData.find((g) => g.id === "afterlight");
     if (!game) return null;
 
     const router = useRouter();

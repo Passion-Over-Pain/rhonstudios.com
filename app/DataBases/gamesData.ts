@@ -139,7 +139,7 @@ export const gamesData: GameData[] = [
         id: "afterlight",
         title: "Afterlight",
         font: "Cinzel Decorative",
-        logo: "",
+        logo: "/logos/logo-light.png",
         developmentProgress: 20,
         thumbnail: "https://images.unsplash.com/photo-1752335824586-420c728c21bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYXBvY2FseXB0aWMlMjBzdXJ2aXZhbCUyMGF0bW9zcGhlcmV8ZW58MXx8fHwxNzcxOTQxNjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
         heroImage: "https://images.unsplash.com/photo-1752335824586-420c728c21bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwYXBvY2FseXB0aWMlMjBzdXJ2aXZhbCUyMGF0bW9zcGhlcmV8ZW58MXx8fHwxNzcxOTQxNjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -156,7 +156,9 @@ export const gamesData: GameData[] = [
                 "",
                 "",
                 ""
-            ]
+            ],
+            maskImage: "/logos/logo-dark.png",
+            WebkitMaskImage: "/logos/logo-light.png",
         },
         theme: {
             fontTitle: "Cinzel Decorative",
