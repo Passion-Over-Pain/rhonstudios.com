@@ -140,14 +140,6 @@ export const opportunitiesData: Opportunity[] = [
 
     // --- THE OBSERVER ---
     {
-        id: "observer-artist",
-        projectId: "theobserver",
-        area: "art",
-        status: "open",
-        createdAt: "2026-06-27",
-        featured: true,
-    },
-    {
         id: "observer-programmer",
         projectId: "theobserver",
         area: "programming",
