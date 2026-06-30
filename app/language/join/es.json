@@ -161,23 +161,6 @@
         "Trabajo directo con el equipo principal"
       ]
     },
-    "observer-artist": {
-      "title": "Artista para juego narrativo de observación",
-      "shortDescription": "Buscamos un artista para ayudar a definir la identidad visual de The Observer, un juego de misterio centrado en la narración ambiental y el detalle sutil.",
-      "area": "Arte",
-      "requirements": [
-        "Fuerte portafolio en ilustración 2D o entornos estilizados",
-        "Capacidad para crear visuales atmosféricos y narrativos",
-        "Atención al detalle para la narración ambiental",
-        "Comodidad trabajando dentro de un tono narrativo y dirección visual establecidos"
-      ],
-      "offer": [
-        "Crédito como colaborador artístico principal",
-        "Oportunidad de definir y refinar la atmósfera visual del juego",
-        "Colaboración flexible según disponibilidad",
-        "Comunicación directa con el equipo de desarrollo"
-      ]
-    },
     "observer-programmer": {
       "title": "Programador para juego narrativo de puzles / observación",
       "shortDescription": "Buscamos un programador de gameplay para apoyar el desarrollo de sistemas en The Observer, enfocado en interacción, pistas y lógica narrativa.",
@@ -210,6 +193,24 @@
         "Aporte creativo en la historia y el mundo",
         "Colaboración flexible según disponibilidad",
         "Trabajo cercano con los equipos de diseño y arte"
+      ]
+    },
+    "observer-female-voice-actor": {
+      "title": "Female Voice Actor for Narrative Mystery Game",
+      "shortDescription": "We're looking for a female voice actor to bring one or more characters in The Observer to life through immersive, emotionally grounded performances.",
+      "area": "Voice Acting",
+      "requirements": [
+        "Clear and expressive voice with strong acting ability",
+        "Ability to convey subtle emotions and atmospheric performances",
+        "Access to a decent-quality microphone and a quiet recording environment",
+        "Ability to record and deliver clean audio files remotely",
+        "Good communication and reliability when working with a small team"
+      ],
+      "offer": [
+        "Credit as a voice cast member",
+        "Flexible recording schedule based on availability",
+        "Direct collaboration with the narrative and audio teams",
+        "Opportunity to contribute to a story-driven psychological mystery game"
       ]
     }
   },
