@@ -113,33 +113,7 @@
   "team": {
     "top_title": "Meet the founders",
     "title": "Our Team",
-    "subtitle": "Led by industry veterans with a shared passion for innovative storytelling",
-    "team": [
-      {
-        "id": 1,
-        "name": "Rashri Amorós",
-        "img": "",
-        "role": "",
-        "bioShort": "",
-        "bio": "",
-        "linkedin": "https://www.linkedin.com/in/rashriamoros/",
-        "github": "https://github.com/rashxx-exe",
-        "twitter": "https://x.com/arcisax",
-        "email": "rashriamoros@gmail.com"
-      },
-      {
-        "id": 2,
-        "name": "Camilo Jumelle",
-        "img": "",
-        "role": "",
-        "bioShort": "",
-        "bio": "",
-        "linkedin": "https://www.linkedin.com/in/jumelle-camilo/",
-        "github": "https://github.com/jumelleCL",
-        "twitter": "https://x.com/Kaios_LK",
-        "email": "jumellecamilo@gmail.com"
-      }
-    ]
+    "subtitle": "Led by industry veterans with a shared passion for innovative storytelling"
   },
   "join_part": {
     "top_title": "Collaborate With Us",

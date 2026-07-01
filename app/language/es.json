@@ -113,33 +113,7 @@
   "team": {
     "top_title": "Conoce a los fundadores",
     "title": "Nuestro Equipo",
-    "subtitle": "Dirigido por nuevas caras de la industria con una pasión compartida por la narración emocionante.",
-    "team": [
-      {
-        "id": 1,
-        "name": "Rashri Amorós",
-        "img": "",
-        "role": "C.E.O y Diseñadora Principal",
-        "bioShort": "No solo es diseñar, es construir identidades",
-        "bio": "Soy una diseñadora apasionada por dar forma visual a las ideas y convertirlas en experiencias que conectan emocionalmente con las personas. Me especializo en crear mundos con carácter propio, donde cada detalle estético tiene un propósito narrativo. En Rhon Studios, mi objetivo es que cada píxel cuente una historia y que cada juego se sienta como un universo que vale la pena habitar.",
-        "linkedin": "https://www.linkedin.com/in/rashriamoros/",
-        "github": "https://github.com/rashxx-exe",
-        "twitter": "https://x.com/arcisax",
-        "email": "rashriamoros@gmail.com"
-      },
-      {
-        "id": 2,
-        "name": "Camilo Jumelle",
-        "img": "",
-        "role": "C.E.O y Programador Líder",
-        "bioShort": "No solo desarrollo, creo soluciones",
-        "bio": "Soy un desarrollador web apasionado por crear experiencias digitales innovadoras, fluidas y centradas en el usuario. Disfruto enfrentar desafíos, optimizar el rendimiento y aprender constantemente para estar al día en el mundo tecnológico en constante evolución. Mi objetivo es desarrollar soluciones escalables, eficientes e impactantes que mejoren la interacción del usuario y contribuyan al éxito de cada proyecto.",
-        "linkedin": "https://www.linkedin.com/in/jumelle-camilo/",
-        "github": "https://github.com/jumelleCL",
-        "twitter": "https://x.com/Kaios_LK",
-        "email": "jumellecamilo@gmail.com"
-      }
-    ]
+    "subtitle": "Dirigido por nuevas caras de la industria con una pasión compartida por la narración emocionante."
   },
   "join_part": {
     "top_title": "Colabora con Nosotros",

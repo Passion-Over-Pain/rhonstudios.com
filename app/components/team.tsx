@@ -19,7 +19,7 @@ type Team = {
 
 export function Team() {
     const { t } = useLanguage();
-    const teams: Team[] = t.team.team;
+    const teams: Team[] = t.ourteam["main-team"];
     const [expandedId, setExpandedId] = useState<number | null>(null);
 
     return (

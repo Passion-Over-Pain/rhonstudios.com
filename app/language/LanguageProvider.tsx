@@ -7,12 +7,14 @@ import gamesEn from "./games/en.json"
 import gamesEs from "./games/es.json"
 import projectsEn from "./join/en.json"
 import projectsEs from "./join/es.json"
+import ourteamEn from "./ourteam/en.json"
+import ourteamEs from "./ourteam/es.json"
 
 type Language = "en" | "es";
 
 const translations = {
-    en: {...en, game_list: gamesEn, join: projectsEn},
-    es: {...es, game_list: gamesEs, join: projectsEs},
+    en: {...en, game_list: gamesEn, join: projectsEn, ourteam: ourteamEn},
+    es: {...es, game_list: gamesEs, join: projectsEs, ourteam: ourteamEs},
 }
 
 type Translations = typeof translations.en;
