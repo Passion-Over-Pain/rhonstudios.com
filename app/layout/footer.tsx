@@ -75,7 +75,7 @@ export function Footer() {
     return (
         <footer
             id="footer"
-            className={`relative bg-black text-white border-t-2 border-white py-10 sm:py-12 ${isMainPage ? "snap-center" : ""}`}
+            className={`relative bg-black text-white border-t-2 border-white py-10 sm:py-12`}
         >
             <div className="container mx-auto px-6 sm:px-8 lg:px-16">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
