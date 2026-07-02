@@ -1,43 +1,136 @@
 ﻿import {useLanguage} from "@/app/language/LanguageProvider";
+import {devBlogPosts} from "@/app/DataBases/devblogsData";
+import { motion } from "framer-motion";
+import {ArrowRight} from "lucide-react";
+import {useRouter} from "next/navigation";
 
 export function DevBlog() {
     const {t} = useLanguage();
-    const tt = t.team
+    const tt = t.devblog
+
+    const featured = devBlogPosts.filter((p) => p.featured).slice(0, 3);
+    const router = useRouter();
 
     return (
         <section
             id="devblog"
-            className="scroll-mt-[5px] relative bg-black text-white pt-16 sm:pt-32 overflow-hidden"
+            className="scroll-mt-[5px] relative bg-black text-white pt-6- sm:pt-32 overflow-hidden"
             style={{minHeight: '20vh'}}
         >
-            <div className="container mx-auto px-4 sm:p-8 lg:px-16">
-                <div className="max-w-3xl mx-auto">
-                    <div className="border-t-2 border-white/20 pt-10 sm:pt-12">
-                        <div className="text-center mb-6 sm:mb-8">
-                            <div className="inline-block border-2 border-white px-6 sm:px-10 py-2 sm:py-3 mb-6 sm:mb-8">
-                                <p
-                                    className="text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase"
-                                    style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
-                                >
-                                    {tt.top_title}
-                                </p>
-                            </div>
-                            <h3
-                                className="text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6 tracking-wider"
-                                style={{ fontFamily: "Rye" }}
-                            >
-                                {tt.title}
-                            </h3>
-                            <p
-                                className="text-sm sm:text-base lg:text-lg tracking-wide text-white/70 max-w-2xl mx-auto"
-                                style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
-                            >
-                                {tt.subtitle}
-                            </p>
-                        </div>
+            <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-10 sm:mb-16">
+                    <div className="inline-block border-2 border-white px-6 sm:px-10 py-2 sm:py-3 mb-6 sm:mb-8">
+                        <p
+                            className="text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase"
+                            style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
+                        >
+                            {tt.top_title}
+                        </p>
                     </div>
+                    <h3
+                        className="text-3xl sm:text-4xl lg:text-5xl mb-4 sm:mb-6 tracking-wider"
+                        style={{ fontFamily: "Rye" }}
+                    >
+                        {tt.title}
+                    </h3>
+                    <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6 sm:mb-8">
+                        <div className="w-12 sm:w-24 h-[2px] bg-white"></div>
+                        <p
+                            className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase"
+                            style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                        >
+                            {tt.subtitle} 
+                        </p>
+                        <div className="w-12 sm:w-24 h-[2px] bg-white"></div>
+                    </div>
+                    <p
+                        className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white/70 leading-relaxed tracking-wide"
+                        style={{ fontFamily: "Cinzel"}}
+                    >
+                        {tt.description}
+                    </p>
                 </div>
+                <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    {featured.map((post, index) => {
+                        const devT = t.devblogs[post.id]
+                        return( 
+                            <motion.div
+                                key={post.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.15 }}
+                                viewport={{ once: true }}
+                                className="border border-white/30 p-6 hover:border-white/65 transition-all duration-300 group flex flex-col"
+                            >
+                                <div className="flex items-center justify-between mb-4">
+                                        <span
+                                            className="text-xs tracking-[0.2em] uppercase border border-white/30 px-3 py-1 text-white/55"
+                                            style={{ fontFamily: "Cinzel" }}
+                                        >
+                                            {post.project}
+                                        </span>
+                                    <span
+                                        className="text-xs text-white/30"
+                                        style={{ fontFamily: "Cinzel" }}
+                                    >
+                                            {post.readingTime} min
+                                        </span>
+                                </div>
+                                <h3
+                                    className="text-lg tracking-wide mb-3 leading-snug flex-1 group-hover:text-white/90 transition"
+                                    style={{ fontFamily: "Cinzel", fontWeight: 400 }}
+                                >
+                                    {devT.title}
+                                </h3>
+                                <p
+                                    className="text-sm text-white/45 leading-relaxed mb-4 line-clamp-3"
+                                    style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                                >
+                                    {devT.excerpt}
+                                </p>
+                                <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                                        <span
+                                            className="text-xs text-white/30"
+                                            style={{ fontFamily: "Cinzel" }}
+                                        >
+                                            {new Date(post.publishedAt).toLocaleDateString("es-ES", {
+                                                day: "numeric",
+                                                month: "short",
+                                                year: "numeric",
+                                            })}
+                                        </span>
+                                    <button
+                                        onClick={() => router.push(`/devblogs/${post.slug}`)}
+                                        className="text-xs tracking-[0.2em] uppercase text-white/40 group-hover:text-white transition"
+                                        style={{ fontFamily: "Cinzel" }}
+                                    >
+                                        {tt.button}
+                                    </button>
+                                </div>
+                            </motion.div>
+                        )
+                    })}
+                </div>
+                <div className="flex justify-center mb-16">
+                    <motion.a
+                        href="/devblogs"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-3 border-2 border-white px-8 sm:px-10 py-3 sm:py-4 text-xs sm:text-sm tracking-[0.25em] uppercase text-white hover:bg-white hover:text-black transition-all duration-300 group"
+                        style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
+                    >
+                        {tt.view_all}
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </motion.a>
+                </div>
+
             </div>
+            <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-white/20"></div>
+            <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-white/20"></div>
+            <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-white/20"></div>
+            <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-white/20"></div>
         </section>
     )
 }

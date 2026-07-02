@@ -26,6 +26,10 @@
     "conditions": "Condiciones",
     "opportunities": "Opportunities"
   },
+  "devblog_menu": {
+    "home": "Inicio",
+    "devblogs": "DevBlogs"
+  },
   "hero": {
     "subtitle": "Desde 2025",
     "description":
@@ -74,6 +78,14 @@
       { "id": 2, "num": "2026", "text": "Debut Comercial" },
       { "id": 3, "num": "100%", "text": "Propiedad de los fundadores" }
     ]
+  },
+  "devblog": {
+    "top_title": "Diario de Desarrollo",
+    "title": "DevBlog",
+    "subtitle": "Detrás de Escena",
+    "description": "No construimos en silencio. Seguimos el proceso en abierto: las decisiones, los fracasos, los avances y la visión que nos mueve.",
+    "button": "Leer Más",
+    "view_all": "Ver todos los devlogs"
   },
   "about": {
     "top_title": "Nuestra Historia",

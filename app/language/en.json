@@ -26,6 +26,10 @@
     "conditions": "Condiciones",
     "opportunities": "Opportunities"
   },
+  "devblog_menu": {
+    "home": "Inicio",
+    "devblogs": "Dev Blogs"
+  },
   "hero": {
     "subtitle": "Since 2025",
     "description":
@@ -74,6 +78,14 @@
       { "id": 2, "num": "2026", "text": "Commercial Debut" },
       { "id": 3, "num": "100%", "text": "Founder-Owned" }
     ]
+  },
+  "devblog": {
+    "top_title": "Development Journal",
+    "title": "DevBlog",
+    "subtitle": "Behind the Scenes",
+    "description": "We don't build in silence. We share the entire journey openly—the decisions, the setbacks, the progress, and the vision that drives us.",
+    "button": "Read More",
+    "view_all": "Ver todos los devlogs"
   },
   "about": {
     "top_title": "Our Story",

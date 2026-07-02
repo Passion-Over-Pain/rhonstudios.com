@@ -17,6 +17,7 @@ export function Footer() {
 
     const isMainPage = pathname === "/";
     const isJoinPage = pathname === "/join";
+    const isDevBlogPage = pathname === "/devblogs" || pathname.startsWith("/devblogs/");
     const isGamePage = !!gameId;
 
     const scrollTo = (id: string) => {
@@ -89,6 +90,27 @@ export function Footer() {
                 onClick: () => scrollTo(l.id),
                 subs: l.subs?.map((s) => ({ ...s, onClick: () => scrollTo(s.id) })),
             }));
+    
+    const goToDevblogs = () => {
+        if (pathname === "/devblogs") {
+            scrollTo("devblogs_index");
+        } else {
+            router.push("/devblogs#devblogs_index");
+        }
+    };
+
+    const devBlogLinks: FooterLink[] = [
+        {
+            id: "home",
+            label: t.devblog_menu.home,
+            onClick: () => router.push("/#home"),
+        },
+        {
+            id: "devblogs",
+            label: t.devblog_menu.devblogs,
+            onClick: goToDevblogs,
+        },
+    ];
 
     const linksTitle = isGamePage
         ? (game?.title ?? t.footer.links)

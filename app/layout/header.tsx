@@ -16,13 +16,7 @@ interface NavGroupProps {
     fontFamily?: string;
 }
 
-function NavGroup({
-                      primary,
-                      onPrimary,
-                      subs = [],
-                      scrollTo,
-                      fontFamily = "Cinzel",
-                  }: NavGroupProps) {
+function NavGroup({primary, onPrimary, subs = [], scrollTo, fontFamily = "Cinzel",}: NavGroupProps) {
     return (
         <div className="flex flex-col items-center text-center">
             <button
@@ -70,6 +64,7 @@ export function Header() {
     const gameId = params?.id as string;
     const isIdPage = !!gameId;
     const isJoinPage = pathname === "/join";
+    const isDevPage = pathname === "/devblogs";
     const game = gameId ? getGameById(gameId) : null;
     const headerLogo = isIdPage && game?.logo
         ? game.logo
@@ -170,6 +165,10 @@ export function Header() {
         { id: "conditions", label: t.join_menu.conditions },
         { id: "roles",      label: t.join_menu.opportunities },
     ];
+    
+    const devblogItems = [
+        { id: "devblog_idex", label: t.devblog_menu.devblogs}
+    ]
 
     const LangSwitcherMobile = () => (
         <div className="flex items-center border border-white rounded-sm overflow-hidden">
@@ -523,6 +522,106 @@ export function Header() {
                                 items={game_menuItems}
                                 onHome={() => { router.push("/#games"); setIsMenuOpen(false); }}
                                 homeLabel={t.game_menu.home}
+                            />
+                        </div>
+                    )}
+                </AnimatePresence>
+            </header>
+        );
+    }
+
+    if (isDevPage) {
+        return (
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
+                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-4 px-4 sm:px-8 lg:px-16" : "py-4 lg:py-8 px-4 sm:px-8 lg:px-16"}`}>
+                    {isScrolled ? (
+                        <>
+
+                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
+                                <div className="flex items-center gap-3">
+                                    <LangSwitcherMobile />
+                                    <HamburgerBtn />
+                                </div>
+                            </div>
+                            <ScrolledLogoBar
+                                logo="/logos/RhonStudiosCircleLogo.png"
+                                logoAlt="Rhon Studios"
+                                titleLeft="Rhon"
+                                titleRight="Studios"
+                                titleFont="Rye"
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                                <button
+                                    onClick={() => router.push("/")}
+                                    className="flex items-center gap-2 text-white"
+                                    style={{ fontFamily: "Cinzel" }}
+                                >
+                                    <ArrowLeft size={20} />
+                                </button>
+                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
+                                <div className="flex items-center gap-3">
+                                    <LangSwitcherMobile />
+                                    <HamburgerBtn />
+                                </div>
+                            </div>
+                            <div className="hidden lg:grid grid-cols-3 items-center">
+                                <div className="flex justify-end gap-8 xl:gap-12">
+                                    <button
+                                        onClick={() => router.push("/#about")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.devblog_menu.home}
+                                    </button>
+                                </div>
+                                <div className="flex flex-col items-center justify-center gap-4">
+                                    <a href="/">
+                                        <img
+                                            src="/logos/IconHeader.png"
+                                            alt="Rhon Studios"
+                                            className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                                        />
+                                    </a>
+                                    <LangSwitcherDesktop />
+                                </div>
+                                <div className="flex justify-start gap-8 xl:gap-12">
+                                    <button
+                                        onClick={() => scrollTo("devblog_index")}
+                                        style={{ fontFamily: "Cinzel" }}
+                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                    >
+                                        {t.devblog_menu.devblogs}
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </nav>
+                <AnimatePresence>
+                    {isScrolled && isMenuOpen && (
+                        <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                            <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
+                                <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
+                                    <DropdownBtn label={t.join_menu.home} onClick={() => router.push("/")} />
+                                    {devblogItems.map((item) => (
+                                        <DropdownBtn key={item.id} label={item.label} onClick={() => scrollTo(item.id)} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <div className="lg:hidden">
+                            <MobileMenuOverlay
+                                items={devblogItems}
+                                onHome={() => { router.push("/"); setIsMenuOpen(false); }}
+                                homeLabel={t.join_menu.home}
                             />
                         </div>
                     )}
