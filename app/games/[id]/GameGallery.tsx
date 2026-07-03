@@ -2,7 +2,7 @@
 import {useLanguage} from "@/app/language/LanguageProvider";
 import {useEffect, useState} from "react";
 import { X, ZoomIn, Image as ImageIcon } from "lucide-react";
-import type { GameTheme } from "@/app/games/[id]/page.tsx"
+import type { GameTheme } from "@/app/games/[id]/GamePageClient"
 
 interface GalleryImage {
     url: string;

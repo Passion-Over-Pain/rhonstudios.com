@@ -8,11 +8,9 @@ import { notFound } from "next/navigation";
 import { GameSchema, BreadcrumbSchema } from "@/app/seo/GameShema";
 import { GamePageClient } from "./GamePageClient";
 
-// ─── IDs válidos ─────────────────────────────
 const VALID_IDS = ["afterlight", "tinycare", "theobserver", "tonkori"] as const;
 type GameId = (typeof VALID_IDS)[number];
 
-// ─── SEO por juego ───────────────────────────
 const GAME_SEO: Record<GameId, {
     title: string;
     description: string;
