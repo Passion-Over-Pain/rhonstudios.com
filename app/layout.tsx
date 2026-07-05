@@ -10,6 +10,7 @@ import {
 
 import "./styles/theme.css";
 import "./styles/tailwind.css";
+import {Analytics} from "@vercel/analytics/next";
 
 const rye= Rye({ subsets: ["latin"], weight: ["400"], variable: "--font-rye" });
 const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-cinzel" });
@@ -171,11 +172,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <meta name="color-scheme" content="dark" />
         </head>
         <body className={fontVars}>
-        <LanguageProvider>
-            <Header />
-            {children}
-            <Footer />
-        </LanguageProvider>
+            <LanguageProvider>
+                <Header />
+                {children}
+                <Footer />
+            </LanguageProvider>
+            <Analytics/>
         </body>
         </html>
     );
