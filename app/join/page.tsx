@@ -71,7 +71,7 @@ export default function Join() {
                         </div>
                     </div>
                     <h1
-                        className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] mb-4 sm:mb-6 tracking-wider leading-none"
+                        className="text-4xl sm:text-7xl md:text-8xl lg:text-[9rem] mb-4 sm:mb-6 tracking-wider leading-tight break-words"
                         style={{ fontFamily: "Rye", fontWeight: 200 }}
                     >
                         {tt.title}

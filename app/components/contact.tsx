@@ -352,7 +352,7 @@ export function Contact(){
                                         >
                                             {t.contact.follow}
                                         </h4>
-                                        <div className="flex gap-3 sm:gap-4 justify-center sm:justify-between tracking-wide sm:px-5">
+                                        <div className="grid grid-cols-3 gap-3 sm:flex sm:gap-4 justify-items-center sm:justify-between tracking-wide sm:px-5">
                                             <a
                                                 href="https://discord.gg/7T8n8VYRkw"
                                                 target="_blank"

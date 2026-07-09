@@ -65,7 +65,7 @@ export default function DevBlogPage() {
                         {devT.excerpt}
                     </p>
                     <div className="w-full h-[2px] bg-white/15 mb-10 sm:mb-12" />
-                    <div className="text-white/75 text-xl lg:text-xl sm:text-base text-justify leading-relaxed space-y-6" style={{ fontFamily: "Cormorant" }}>
+                    <div className="text-white/75 text-base sm:text-lg lg:text-xl text-justify leading-relaxed space-y-6" style={{ fontFamily: "Cormorant" }}>
                         <ReactMarkdown>
                             {devT.content}
                         </ReactMarkdown>

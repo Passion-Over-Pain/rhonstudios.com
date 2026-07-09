@@ -25,6 +25,7 @@ const jua= Jua({ weight: ["400"], variable: "--font-jua" });
 const nunito = Nunito({ weight: ["400"], variable: "--font-nunito" });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://rhonstudios.com"),
     title: {
         default: "Rhon Studios | Estudio de Videojuegos Indie",
         template: "%s | Rhon Studios",
@@ -99,6 +100,7 @@ export const metadata: Metadata = {
         apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
     },
 };
+
 
 const organizationSchema = {
     "@context": "https://schema.org",

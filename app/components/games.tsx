@@ -52,7 +52,7 @@ export function Games(){
                             <div
                                 onClick={() => setSelectedGame(game)}
                                 key={game.id}
-                                className="relative border-2 border-white p-5 sm:p-6 md:p-8 overflow-hidden group h-auto md:h-[350px] flex flex-col justify-center cursor-pointer hover:bg-white/5 transition-all duration-300"
+                                className="relative border-2 border-white p-5 sm:p-6 md:p-8 overflow-hidden group h-[260px] md:h-[350px] flex flex-col items-center justify-center text-center sm:items-start sm:text-left cursor-pointer hover:bg-white/5 transition-all duration-300"
                             >
                                 <div
                                     className="absolute inset-0 bg-cover bg-center opacity-40"
@@ -61,9 +61,9 @@ export function Games(){
                                         filter: "greyscale(100%)"
                                     }}
                                 />
-                                <div className="relative z-10 pl-4 sm:pl-10">
+                                <div className="relative z-10 flex flex-col items-center sm:items-start sm:pl-10">
                                     <h3
-                                        className="text-3xl sm:text-4xl md:text-5xl tracking-wide mb-3"
+                                        className="text-3xl sm:text-4xl md:text-5xl mt-3 sm:mb-8 tracking-wide mb-3"
                                         style={{ fontFamily: game.font, fontWeight: "bold" }}
                                     >
                                         {game.title}
