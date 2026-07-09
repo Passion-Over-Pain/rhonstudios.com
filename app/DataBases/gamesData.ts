@@ -19,6 +19,8 @@ export interface GameData {
         url: string;
         title: string;
         category: "screenshot" | "concept-art" | "gameplay" | "characters" | "environment";
+        type?: "image" | "video";
+        poster?: string;
     }>;
     links: {
         steam?: string;
@@ -26,7 +28,7 @@ export interface GameData {
         github?: string;
         pressKit?: string;
     };
-    
+
     theme: {
         fontTitle: string;
         fontBody: string;
@@ -78,12 +80,34 @@ export const gamesData: GameData[] = [
             screenshots: [
 
             ],
-            video: "",
+            video: "/tonkori/House Video.mp4",
             maskImage: "/logos/TonkoriLogo1.png",
             WebkitMaskImage: "/logos/TonkoriLogo2.png",
         },
-        gallery: [
-
+        gallery : [
+            {
+                url: "/tonkori/Tonkori_Dagger3DModdel.png",
+                title: "Weapon | Dagger",
+                category: "screenshot",
+                type: "image",
+            },
+            {
+                url: "/tonkori/Tonkori_HouseGif.gif",
+                title: "House",
+                category: "environment",
+            },
+            {
+                url: "/tonkori/Tonkori_Sword3DModdel.png",
+                title: "Weapon | Sword",
+                category: "screenshot",
+                type: "image",
+            },
+            {
+                url: "/tonkori/Tonkori_Stone.png",
+                title:"Kalivek Stone",
+                category: "screenshot",
+                type: "image",
+            }
         ],
         theme: {
             fontTitle: "Skranji",
