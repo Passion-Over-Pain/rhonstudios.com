@@ -170,21 +170,23 @@ export default function CollaboratorDetail() {
             <div className="container mx-auto px-8 lg:px-16 py-16 max-w-10xl">
                 <div className="grid lg:grid-cols-3 gap-12">
                     <div className="lg:col-span-2 space-y-12">
-                        <motion.blockquote
-                            initial={{ opacity: 0, x: -16 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="border-l-2 pl-6"
-                            style={{ borderColor: projectTheme?.accentBorder ?? "white" }}
-                        >
-                            <p
-                                className="text-xl text-white/85 leading-relaxed italic"
-                                style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                        {collabT.tagline && (
+                            <motion.blockquote
+                                initial={{ opacity: 0, x: -16 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="border-l-2 pl-6"
+                                style={{ borderColor: projectTheme?.accentBorder ?? "white" }}
                             >
-                                "{collabT.tagline}"
-                            </p>
-                        </motion.blockquote>
+                                <p
+                                    className="text-xl text-white/85 leading-relaxed italic"
+                                    style={{ fontFamily: "Cinzel", fontWeight: 200 }}
+                                >
+                                    "{collabT.tagline}"
+                                </p>
+                            </motion.blockquote>
+                        )}
                         <motion.div
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}

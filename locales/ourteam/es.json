@@ -42,6 +42,15 @@
         "Gestión de Contratos",
         "Coordinación de Recursos Humanos"
       ]
+    },
+    "marielodiard": {
+      "role": "Arte",
+      "subrole": "Artista 2D",
+      "tagline": "",
+      "bio": "Ilustradora publicada en el mundo editorial con pasión por contar historias por medio de personajes y ambientes. Música los sábados.\n",
+      "contributions": [
+
+      ]
     }
   }
 }

@@ -228,7 +228,6 @@ export function Team() {
                             {t.team.collaborators.subtitle}
                         </p>
                     </div>
-
                     {collaborators.some(c => c.visible) ? (
                         <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4">
                             {collaborators
