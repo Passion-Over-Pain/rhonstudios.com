@@ -137,7 +137,8 @@
       "title": "Colaboradores",
       "subtitle": "Personas con talento que han elegido construir algo real junto a nosotros.",
       "placeholder": "Tu lugar aquí",
-      "empty": "Todavía no hay colaboradores. ¿Te animas a ser el primero?"
+      "empty": "Todavía no hay colaboradores. ¿Te animas a ser el primero?",
+      "see": "Ver →"
     }
   },
   "community": {

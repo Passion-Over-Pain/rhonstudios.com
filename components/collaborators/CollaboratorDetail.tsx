@@ -79,7 +79,7 @@ export default function CollaboratorDetail() {
     const projectTheme = getProjectTheme(collab.area);
 
     return(
-        <div className="bg-black text-white min-h-screen">
+        <div className=" text-white min-h-screen" style={{ backgroundColor: projectTheme?.bgColor ?? "black" }}>
             <section className="relative min-h-[60vh] flex items-end overflow-hidden">
                 {collab.coverImage ? (
                     <div
@@ -101,7 +101,7 @@ export default function CollaboratorDetail() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6 }}
                             className="shrink-0 w-32 h-32 border-2 overflow-hidden bg-white/[0.04] flex items-center justify-center"
-                            style={{ borderColor: projectTheme?.accentBorder ?? "rgba(255,255,255,0.4)" }}
+                            style={{ borderColor: projectTheme?.accentBorder ?? "white" }}
                         >
                             {collab.photo ? (
                                 <img src={collab.photo} alt={collab.name} className="w-full h-full object-cover grayscale" />
@@ -127,8 +127,8 @@ export default function CollaboratorDetail() {
                                     className="text-xs tracking-[0.25em] uppercase px-3 py-1"
                                     style={{
                                         fontFamily: "Cinzel",
-                                        border: `1px solid ${projectTheme?.panelBorderOpacity ?? "rgba(255,255,255,0.25)"}`,
-                                        color: projectTheme?.accentText ?? "rgba(255,255,255,0.55)",
+                                        border: `1px solid ${projectTheme?.panelBorderOpacity ?? "white"}`,
+                                        color: projectTheme?.accentText ?? "white",
                                     }}
                                 >
                                     {collab.area}
@@ -176,7 +176,7 @@ export default function CollaboratorDetail() {
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                             className="border-l-2 pl-6"
-                            style={{ borderColor: projectTheme?.accentBorder ?? "rgba(255,255,255,0.3)" }}
+                            style={{ borderColor: projectTheme?.accentBorder ?? "white" }}
                         >
                             <p
                                 className="text-xl text-white/85 leading-relaxed italic"
@@ -378,7 +378,7 @@ export default function CollaboratorDetail() {
                                         >
                                             <span
                                                 className="shrink-0 mt-0.5"
-                                                style={{ fontFamily: "Cinzel", color: projectTheme?.accentText ?? "rgba(255,255,255,0.4)" }}
+                                                style={{ fontFamily: "Cinzel", color: projectTheme?.accentText ?? "white" }}
                                             >
                                                 ✦
                                             </span>

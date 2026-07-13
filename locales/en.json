@@ -137,7 +137,8 @@
       "title": "Collaborators",
       "subtitle": "Talented people who have chosen to build something real together with us.",
       "placeholder": "Your place here",
-      "empty": "There are no collaborators yet. Want to be the first?"
+      "empty": "There are no collaborators yet. Want to be the first?",
+      "see": "See →"
     }
   },
   "community": {

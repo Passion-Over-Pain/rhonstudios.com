@@ -1,4 +1,6 @@
-﻿export type GameId = "tonkori" | "afterlight" | "theobserver" | "tinycare";
+﻿import type { CollaboratorId } from "@/libs/database/teamData";
+
+export type GameId = "tonkori" | "afterlight" | "theobserver" | "tinycare";
 export interface GameData {
     id: GameId;
     title: string;
@@ -21,6 +23,7 @@ export interface GameData {
         category: "screenshot" | "concept-art" | "gameplay" | "characters" | "environment";
         type?: "image" | "video";
         poster?: string;
+        collaboratorId?: CollaboratorId;
     }>;
     links: {
         steam?: string;
@@ -106,6 +109,12 @@ export const gamesData: GameData[] = [
                 url: "/tonkori/Tonkori_Stone.png",
                 title:"Kalivek Stone",
                 category: "screenshot",
+                type: "image",
+            },
+            {
+                url: "/tonkori/Tonkori_House2.png",
+                title:"House",
+                category: "environment",
                 type: "image",
             }
         ],

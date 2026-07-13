@@ -1,8 +1,9 @@
 ﻿"use client"
 import {useLanguage} from "@/libs/utils/LanguageProvider";
 import {useEffect, useState} from "react";
-import { X, ZoomIn, Image as ImageIcon, Film } from "lucide-react";
+import { X, ZoomIn, Image as ImageIcon, Film, ExternalLink } from "lucide-react";
 import type { GameTheme } from "@/components/games/GamePageClient"
+import { collaborators, type CollaboratorId } from "@/libs/database/teamData";
 
 interface GalleryImage {
     url: string;
@@ -10,6 +11,7 @@ interface GalleryImage {
     category: "screenshot" | "concept-art" | "gameplay" | "characters" | "environment";
     type?: "image" | "video";
     poster?: string;
+    collaboratorId?: CollaboratorId;
 }
 
 interface GameGalleryProps {
@@ -59,6 +61,53 @@ function CloseButton({ onClick, theme }: { onClick: () => void; theme: GameTheme
         >
             <X className="w-5 h-5 sm:w-8 sm:h-8" />
         </button>
+    );
+}
+
+function CollaboratorCredit({ collaboratorId, theme, variant = "card" }: {
+    collaboratorId?: CollaboratorId;
+    theme: GameTheme;
+    variant?: "card" | "modal";
+}) {
+    if (!collaboratorId) return null;
+    const collaborator = collaborators.find(c => c.id === collaboratorId);
+    if (!collaborator) return null;
+
+    const href = `https://rhonstudios.com/collaborators/${collaboratorId}`;
+
+    if (variant === "card") {
+        return (
+            <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 border bg-black/80 backdrop-blur-sm px-2 sm:px-3 py-0.5 sm:py-1 flex items-center gap-1.5 hover:bg-black/95 transition-colors duration-300 z-10"
+                style={{ borderColor: theme.panelBorderOpacity }}
+            >
+                <span
+                    className="text-[9px] sm:text-xs tracking-wider uppercase"
+                    style={{ fontFamily: theme.fontBody, color: theme.textMuted }}
+                >
+                    {collaborator.name}
+                </span>
+                <ExternalLink className="w-3 h-3" style={{ color: theme.textMuted }} />
+            </a>
+        );
+    }
+
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-2 sm:mt-3 text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:opacity-80"
+            style={{ fontFamily: theme.fontBody, color: theme.fontBodyColor }}
+        >
+            Hecho por: {collaborator.name}
+            <span className="underline underline-offset-2">Ver más</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+        </a>
     );
 }
 
@@ -183,6 +232,10 @@ export function GameGallery({ images, gameTitle, theme }: GameGalleryProps) {
                                             {categoryLabels[image.category]}
                                         </span>
                                     </div>
+
+                                    {}
+                                    <CollaboratorCredit collaboratorId={image.collaboratorId} theme={theme} variant="card" />
+
                                     <div
                                         className={`absolute inset-0 bg-black/80 transition-opacity duration-500 flex flex-col items-center justify-center gap-3 sm:gap-4 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
                                     >
@@ -199,7 +252,7 @@ export function GameGallery({ images, gameTitle, theme }: GameGalleryProps) {
                                         style={{ borderColor: theme.cardCornerHoverBorder }}
                                     />
                                     <div
-                                        className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-5 h-5 sm:w-6 sm:h-6 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-5 h-5 sm:w-6 sm:h-6 border-b-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                                         style={{ borderColor: theme.cardCornerHoverBorder }}
                                     />
                                 </div>
@@ -263,6 +316,9 @@ export function GameGallery({ images, gameTitle, theme }: GameGalleryProps) {
                             >
                                 {gameTitle}
                             </p>
+                            <div className="flex justify-center">
+                                <CollaboratorCredit collaboratorId={selectedImages.collaboratorId} theme={theme} variant="modal" />
+                            </div>
                         </div>
                     </div>
                 </div>

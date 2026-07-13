@@ -5,6 +5,8 @@
 
 export type CollaboratorId =
     "test"
+    | "angelramirez"
+    | "sage"
     ;
 
 export interface Person {
@@ -115,5 +117,47 @@ export const collaborators: Collaborator[] = [
                 caption: "Tonkori | SoundCloud",
             },
         ],
+    },
+    {
+        id: "angelramirez",
+        visible: true,
+        role: "Dev",
+        area: "Afterlight",
+        coverImage: "",
+        media: [
+            {
+                type: "image",
+                url: "/afterlight/collaborators/angel_estados.png"
+            }
+        ],
+        links: {
+            web: "https://edoce.us/",
+            github: "https://github.com/Eledoce",
+            linkedin: "https://www.linkedin.com/in/miguel-ángel-barrientos-ramírez-775bb8248/",
+            instagram: "https://www.instagram.com/edoce.css/",
+        },
+        status: "active",
+        name: "Ángel Ramírez"
+    },
+    {
+        id: "sage",
+        visible: true,
+        role: "CHRO",
+        area: "Rhon Studios",
+        coverImage: "",
+        media: [],
+        links: {
+            portfolio: undefined,
+            web: undefined,
+            github: undefined,
+            linkedin: undefined,
+            twitter: undefined,
+            instagram: undefined,
+            youtube: undefined,
+            buymeacoffee: undefined,
+            email: undefined
+        },
+        status: "active",
+        name: "Sage"
     }
 ];

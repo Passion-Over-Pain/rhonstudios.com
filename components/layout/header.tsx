@@ -57,6 +57,14 @@ function NavGroup({primary, onPrimary, subs = [], scrollTo, fontFamily = "Cinzel
     );
 }
 
+const HeaderBackground = ({ isScrolled }: { isScrolled: boolean }) => (
+    <div
+        aria-hidden
+        className={`absolute inset-0 pointer-events-none transition-all duration-500 ease-out ${
+            isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"
+        }`}
+    />
+);
 
 export function Header() {
     const pathname = usePathname();
@@ -172,7 +180,7 @@ export function Header() {
         { id: "conditions", label: t.join_menu.conditions },
         { id: "roles",      label: t.join_menu.opportunities },
     ];
-    
+
     const devblogItems = [
         { id: "devblog_idex", label: t.devblog_menu.devblogs}
     ]
@@ -321,94 +329,100 @@ export function Header() {
         </button>
     );
 
+    const MobileBar = ({
+                           logo = "/logos/RhonStudiosCircleLogo.png",
+                           alt = "Rhon Studios",
+                           onBack,
+                       }: {
+        logo?: string;
+        alt?: string;
+        onBack?: () => void;
+    }) => (
+        <div className="lg:hidden flex items-center justify-between px-4 py-2">
+            {onBack ? (
+                <button
+                    onClick={onBack}
+                    className="flex items-center gap-2 text-white"
+                    style={{ fontFamily: "Cinzel" }}
+                >
+                    <ArrowLeft size={20} />
+                </button>
+            ) : (
+                <div className="w-5" />
+            )}
+            <img src={logo} alt={alt} className="h-12 w-auto" />
+            <div className="flex items-center gap-3">
+                <LangSwitcherMobile />
+                <HamburgerBtn />
+            </div>
+        </div>
+    );
+
     if (isJoinPage) {
         return (
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
-                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-4 px-4 sm:px-8 lg:px-16" : "py-4 lg:py-8 px-4 sm:px-8 lg:px-16"}`}>
+            <header className="fixed top-0 left-0 right-0 z-50">
+                <HeaderBackground isScrolled={isScrolled} />
+                <nav className={`relative container mx-auto px-4 sm:px-8 lg:px-16 transition-all duration-500 ${isScrolled ? "py-2 lg:py-4" : "py-4 lg:py-8"}`}>
+                    <MobileBar onBack={() => router.push("/")} />
+
                     {isScrolled ? (
-                        <>
-                            
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
-                            </div>
-                            <ScrolledLogoBar
-                                logo="/logos/RhonStudiosCircleLogo.png"
-                                logoAlt="Rhon Studios"
-                                titleLeft="Rhon"
-                                titleRight="Studios"
-                                titleFont="Rye"
-                            />
-                        </>
+                        <ScrolledLogoBar
+                            logo="/logos/RhonStudiosCircleLogo.png"
+                            logoAlt="Rhon Studios"
+                            titleLeft="Rhon"
+                            titleRight="Studios"
+                            titleFont="Rye"
+                        />
                     ) : (
-                        <>
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                        <div className="hidden lg:grid grid-cols-3 items-center">
+                            <div className="flex justify-start gap-8 xl:gap-12">
                                 <button
-                                    onClick={() => router.push("/")}
-                                    className="flex items-center gap-2 text-white"
+                                    onClick={() => router.push("/#about")}
                                     style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
                                 >
-                                    <ArrowLeft size={20} />
+                                    {t.join_menu.home}
                                 </button>
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
+                                <button
+                                    onClick={() => scrollTo("home_join")}
+                                    style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                >
+                                    {t.join_menu.join}
+                                </button>
                             </div>
-                            <div className="hidden lg:grid grid-cols-3 items-center">
-                                <div className="flex justify-start gap-8 xl:gap-12">
-                                    <button
-                                        onClick={() => router.push("/#about")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.join_menu.home}
-                                    </button>
-                                    <button
-                                        onClick={() => scrollTo("home_join")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.join_menu.join}
-                                    </button>
-                                </div>
-                                <div className="flex flex-col items-center justify-center gap-4">
-                                    <a href="/">
-                                        <img
-                                            src="/logos/IconHeader.png"
-                                            alt="Rhon Studios"
-                                            className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
-                                        />
-                                    </a>
-                                    <LangSwitcherDesktop />
-                                </div>
-                                <div className="flex justify-end gap-8 xl:gap-12">
-                                    <button
-                                        onClick={() => scrollTo("conditions")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.join_menu.conditions ?? "Condiciones"}
-                                    </button>
-                                    <button
-                                        onClick={() => scrollTo("roles")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.join_menu.opportunities}
-                                    </button>
-                                </div>
+                            <div className="flex flex-col items-center justify-center gap-4">
+                                <a href="/">
+                                    <img
+                                        src="/logos/IconHeader.png"
+                                        alt="Rhon Studios"
+                                        className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                                    />
+                                </a>
+                                <LangSwitcherDesktop />
                             </div>
-                        </>
+                            <div className="flex justify-end gap-8 xl:gap-12">
+                                <button
+                                    onClick={() => scrollTo("conditions")}
+                                    style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                >
+                                    {t.join_menu.conditions ?? "Condiciones"}
+                                </button>
+                                <button
+                                    onClick={() => scrollTo("roles")}
+                                    style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                >
+                                    {t.join_menu.opportunities}
+                                </button>
+                            </div>
+                        </div>
                     )}
                 </nav>
                 <AnimatePresence>
                     {isScrolled && isMenuOpen && (
-                        <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                        <div ref={menuRef} className="hidden lg:block relative overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
                             <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
                                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
                                     <DropdownBtn label={t.join_menu.home} onClick={() => router.push("/")} />
@@ -437,80 +451,65 @@ export function Header() {
 
     if (isIdPage) {
         return (
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
-                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10"}`}>
+            <header className="fixed top-0 left-0 right-0 z-50">
+                <HeaderBackground isScrolled={isScrolled} />
+                <nav className={`relative container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10"}`}>
+                    <MobileBar logo={headerLogo} alt={game?.title ?? "Rhon Studios"} />
+
                     {isScrolled ? (
-                        <>
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img src={headerLogo} alt={game?.title ?? "Rhon Studios"} className="h-12 w-auto" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
-                            </div>
-                            <ScrolledLogoBar
-                                logo={headerLogo}
-                                logoAlt={game?.title ?? "Rhon Studios"}
-                                titleLeft={game?.title}
-                                titleRight="Rhon Studios"
-                                titleFont={game?.theme.fontTitle}
-                            />
-                        </>
+                        <ScrolledLogoBar
+                            logo={headerLogo}
+                            logoAlt={game?.title ?? "Rhon Studios"}
+                            titleLeft={game?.title}
+                            titleRight="Rhon Studios"
+                            titleFont={game?.theme.fontTitle}
+                        />
                     ) : (
-                        <>
-                            <div className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}>
-                                <img src={headerLogo} alt={game?.title ?? "Rhon Studios"} className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
+                        <div className="hidden lg:grid grid-cols-3 items-center">
+                            <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
+                                <li>
+                                    <button onClick={() => router.push("/#games")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.home}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollTo("vision")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.vision}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollTo("roadmap")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.roadmap}
+                                    </button>
+                                </li>
+                            </ul>
+                            <div className="flex flex-col items-center justify-center -mt-4 gap-4">
+                                <img src={headerLogoLarge} alt={game?.title ?? "Rhon Studios"} className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
+                                <LangSwitcherDesktop />
                             </div>
-                            <div className="hidden lg:grid grid-cols-3 items-center">
-                                <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
-                                    <li>
-                                        <button onClick={() => router.push("/#games")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.home}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => scrollTo("vision")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.vision}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => scrollTo("roadmap")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.roadmap}
-                                        </button>
-                                    </li>
-                                </ul>
-                                <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-                                    <img src={headerLogoLarge} alt={game?.title ?? "Rhon Studios"} className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
-                                    <LangSwitcherDesktop />
-                                </div>
-                                <ul className="flex gap-5 xl:gap-8 items-center text-white justify-end">
-                                    <li>
-                                        <button onClick={() => scrollTo("investment")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.investment}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => scrollTo("gallery")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.gallery}
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button onClick={() => scrollTo("contact")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
-                                            {t.game_menu.contact}
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </>
+                            <ul className="flex gap-5 xl:gap-8 items-center text-white justify-end">
+                                <li>
+                                    <button onClick={() => scrollTo("investment")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.investment}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollTo("gallery")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.gallery}
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollTo("contact")} style={{ fontFamily: game?.theme.fontTitle }} className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase hover:opacity-60 transition">
+                                        {t.game_menu.contact}
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     )}
                 </nav>
                 <AnimatePresence>
                     {isScrolled && isMenuOpen && (
-                        <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                        <div ref={menuRef} className="hidden lg:block relative overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
                             <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
                                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
                                     <DropdownBtn label={t.game_menu.home} onClick={() => router.push("/#games")} />
@@ -539,8 +538,9 @@ export function Header() {
 
     if (isCollabPage) {
         return (
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
-                <nav className="container mx-auto py-4 lg:py-6 px-4 sm:px-8 lg:px-16 flex items-center justify-between">
+            <header className="fixed top-0 left-0 right-0 z-50">
+                <HeaderBackground isScrolled={isScrolled} />
+                <nav className="relative container mx-auto py-4 lg:py-6 px-4 sm:px-8 lg:px-16 flex items-center justify-between">
                     <button
                         onClick={() => router.push("/#team")}
                         className="flex items-center gap-2 text-white/70 hover:text-white transition"
@@ -564,78 +564,55 @@ export function Header() {
 
     if (isDevPage) {
         return (
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
-                <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-4 px-4 sm:px-8 lg:px-16" : "py-4 lg:py-8 px-4 sm:px-8 lg:px-16"}`}>
-                    {isScrolled ? (
-                        <>
+            <header className="fixed top-0 left-0 right-0 z-50">
+                <HeaderBackground isScrolled={isScrolled} />
+                <nav className={`relative container mx-auto px-4 sm:px-8 lg:px-16 transition-all duration-500 ${isScrolled ? "py-2 lg:py-4" : "py-4 lg:py-8"}`}>
+                    <MobileBar onBack={() => router.push("/")} />
 
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
-                            </div>
-                            <ScrolledLogoBar
-                                logo="/logos/RhonStudiosCircleLogo.png"
-                                logoAlt="Rhon Studios"
-                                titleLeft="Rhon"
-                                titleRight="Studios"
-                                titleFont="Rye"
-                            />
-                        </>
+                    {isScrolled ? (
+                        <ScrolledLogoBar
+                            logo="/logos/RhonStudiosCircleLogo.png"
+                            logoAlt="Rhon Studios"
+                            titleLeft="Rhon"
+                            titleRight="Studios"
+                            titleFont="Rye"
+                        />
                     ) : (
-                        <>
-                            <div className="lg:hidden flex items-center justify-between px-4 py-2">
+                        <div className="hidden lg:grid grid-cols-3 items-center">
+                            <div className="flex justify-end gap-8 xl:gap-12">
                                 <button
-                                    onClick={() => router.push("/")}
-                                    className="flex items-center gap-2 text-white"
+                                    onClick={() => router.push("/#about")}
                                     style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
                                 >
-                                    <ArrowLeft size={20} />
+                                    {t.devblog_menu.home}
                                 </button>
-                                <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                                <div className="flex items-center gap-3">
-                                    <LangSwitcherMobile />
-                                    <HamburgerBtn />
-                                </div>
                             </div>
-                            <div className="hidden lg:grid grid-cols-3 items-center">
-                                <div className="flex justify-end gap-8 xl:gap-12">
-                                    <button
-                                        onClick={() => router.push("/#about")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.devblog_menu.home}
-                                    </button>
-                                </div>
-                                <div className="flex flex-col items-center justify-center gap-4">
-                                    <a href="/">
-                                        <img
-                                            src="/logos/IconHeader.png"
-                                            alt="Rhon Studios"
-                                            className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
-                                        />
-                                    </a>
-                                    <LangSwitcherDesktop />
-                                </div>
-                                <div className="flex justify-start gap-8 xl:gap-12">
-                                    <button
-                                        onClick={() => scrollTo("devblog_index")}
-                                        style={{ fontFamily: "Cinzel" }}
-                                        className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
-                                    >
-                                        {t.devblog_menu.devblogs}
-                                    </button>
-                                </div>
+                            <div className="flex flex-col items-center justify-center gap-4">
+                                <a href="/">
+                                    <img
+                                        src="/logos/IconHeader.png"
+                                        alt="Rhon Studios"
+                                        className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                                    />
+                                </a>
+                                <LangSwitcherDesktop />
                             </div>
-                        </>
+                            <div className="flex justify-start gap-8 xl:gap-12">
+                                <button
+                                    onClick={() => scrollTo("devblog_index")}
+                                    style={{ fontFamily: "Cinzel" }}
+                                    className="text-base lg:text-[22px] xl:text-[25px] tracking-wider uppercase text-white hover:opacity-60 transition"
+                                >
+                                    {t.devblog_menu.devblogs}
+                                </button>
+                            </div>
+                        </div>
                     )}
                 </nav>
                 <AnimatePresence>
                     {isScrolled && isMenuOpen && (
-                        <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                        <div ref={menuRef} className="hidden lg:block relative overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
                             <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
                                 <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 lg:gap-6">
                                     <DropdownBtn label={t.join_menu.home} onClick={() => router.push("/")} />
@@ -697,91 +674,79 @@ export function Header() {
             )}
         </div>
     );
-    
+
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${isScrolled ? "bg-black/95 backdrop-blur-sm shadow-2xl" : "bg-transparent"}`}>
-            <nav className={`container mx-auto transition-all duration-500 ${isScrolled ? "py-2 lg:py-6" : "py-4 lg:py-10 px-4 sm:px-8 lg:px-16"}`}>
+        <header className="fixed top-0 left-0 right-0 z-50">
+            <HeaderBackground isScrolled={isScrolled} />
+            <nav className="relative container mx-auto px-4 sm:px-8 lg:px-16 py-4 lg:py-10 transition-all duration-500">
+                <div className="lg:hidden flex items-center justify-between">
+                    <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
+                    <div className="flex items-center gap-3">
+                        <LangSwitcherMobile />
+                        <HamburgerBtn />
+                    </div>
+                </div>
                 {isScrolled ? (
-                    <>
-                        <div className="lg:hidden flex items-center justify-between px-4 py-2">
-                            <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                            <div className="flex items-center gap-3">
-                                <LangSwitcherMobile />
-                                <HamburgerBtn />
-                            </div>
-                        </div>
-                        
-                        <ScrolledLogoBar
-                            logo="/logos/RhonStudiosCircleLogo.png"
-                            logoAlt="Rhon Studios"
-                            titleLeft="Rhon"
-                            titleRight="Studios"
-                            titleFont="Rye"
-                        />
-                    </>
+                    <ScrolledLogoBar
+                        logo="/logos/RhonStudiosCircleLogo.png"
+                        logoAlt="Rhon Studios"
+                        titleLeft="Rhon"
+                        titleRight="Studios"
+                        titleFont="Rye"
+                    />
                 ) : (
-                    <>
-                        <div className={`lg:hidden flex items-center justify-between px-4 py-2 transition-all duration-500 ${isInHero ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100 pointer-events-auto translate-y-0"}`}>
-                            <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
-                            <div className="flex items-center gap-3">
-                                <LangSwitcherMobile />
-                                <HamburgerBtn />
-                            </div>
+                    <div className="hidden lg:grid grid-cols-3 items-center">
+                        <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
+                            <NavGroup
+                                primary={t.menu.highlight}
+                                onPrimary={() => scrollTo("highlight")}
+                                subs={[]}
+                                align="left"
+                                scrollTo={scrollTo}
+                            />
+                            <NavGroup
+                                primary={t.menu.games}
+                                onPrimary={() => scrollTo("games")}
+                                subs={[
+                                    { label: t.menu.ourvision, type: "scroll", id: "ourvision" },
+                                    { label: t.menu.devblog, type: "scroll", id: "devblog" },
+                                ]}
+                                align="left"
+                                scrollTo={scrollTo}
+                            />
+                        </ul>
+                        <div className="flex flex-col items-center justify-center -mt-4 gap-4">
+                            <img src="/logos/IconHeader.png" alt="Rhon Studios Header" className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
+                            <LangSwitcherDesktop />
                         </div>
-                        <div className="hidden lg:grid grid-cols-3 items-center">
-                            <ul className="flex gap-8 xl:gap-12 items-center text-white justify-start">
-                                <NavGroup
-                                    primary={t.menu.highlight}
-                                    onPrimary={() => scrollTo("highlight")}
-                                    subs={[
-                                    ]}
-                                    align="left"
-                                    scrollTo={scrollTo}
-                                />
-                                <NavGroup
-                                    primary={t.menu.games}
-                                    onPrimary={() => scrollTo("games")}
-                                    subs={[
-                                        { label: t.menu.ourvision, type: "scroll", id: "ourvision" },
-                                        { label: t.menu.devblog, type: "scroll", id: "devblog" },
-                                    ]}
-                                    align="left"
-                                    scrollTo={scrollTo}
-                                />
-                            </ul>
-                            <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-                                <img src="/logos/IconHeader.png" alt="Rhon Studios Header" className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90" />
-                                <LangSwitcherDesktop />
-                            </div>
-                            <ul className="flex gap-8 xl:gap-12 items-center text-white justify-end">
-                                <NavGroup
-                                    primary={t.menu.about}
-                                    onPrimary={() => scrollTo("about")}
-                                    subs={[
-                                        { label: t.menu.team, type: "scroll", id: "team" },
-                                        { label: t.menu.community, type: "scroll", id: "community" },
-                                    ]}
-                                    align="right"
-                                    scrollTo={scrollTo}
-                                />
-                                <NavGroup
-                                    primary={t.menu.contact}
-                                    onPrimary={() => scrollTo("contact")}
-                                    subs={[
-                                        { label: t.menu.join, type: "scroll", id: "join" },
-                                        { label: t.menu.faq, type: "scroll", id: "faq" },
-                                    ]}
-                                    align="left"
-                                    scrollTo={scrollTo}
-                                />
-                            </ul>
-                        </div>
-                    </>
+                        <ul className="flex gap-8 xl:gap-12 items-center text-white justify-end">
+                            <NavGroup
+                                primary={t.menu.about}
+                                onPrimary={() => scrollTo("about")}
+                                subs={[
+                                    { label: t.menu.team, type: "scroll", id: "team" },
+                                    { label: t.menu.community, type: "scroll", id: "community" },
+                                ]}
+                                align="right"
+                                scrollTo={scrollTo}
+                            />
+                            <NavGroup
+                                primary={t.menu.contact}
+                                onPrimary={() => scrollTo("contact")}
+                                subs={[
+                                    { label: t.menu.join, type: "scroll", id: "join" },
+                                    { label: t.menu.faq, type: "scroll", id: "faq" },
+                                ]}
+                                align="left"
+                                scrollTo={scrollTo}
+                            />
+                        </ul>
+                    </div>
                 )}
             </nav>
             <AnimatePresence>
                 {isScrolled && isMenuOpen && (
-                    <div ref={menuRef} className="hidden lg:block overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
+                    <div ref={menuRef} className="hidden lg:block relative overflow-hidden bg-black/98 backdrop-blur-sm border-t-2 border-white/20">
                         <div className="container mx-auto px-4 lg:px-16 py-6 lg:py-8">
                             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                                 {menuItems.map((item) => (

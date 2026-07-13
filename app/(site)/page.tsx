@@ -18,7 +18,6 @@ import {DevBlog} from "@/components/home/devblog";
 
 export default function App() {
     const pathname = usePathname();
-    const isHome = pathname === "/"
     return (
             <div className="bg-black">
                 <Hero />
@@ -33,7 +32,7 @@ export default function App() {
                 <Join/>
                 <Contact/>
                 <FAQ/>
-                <NewsLetter/> 
+                {/*<NewsLetter/> */}
             </div>
     );
 }

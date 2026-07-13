@@ -6,7 +6,12 @@ import {useState} from "react";
 import { motion } from "framer-motion";
 import { team, collaborators } from "@/libs/database/teamData";
 import Link from "next/link";
+import {gamesData} from "@/libs/database/gamesData";
 
+function getProjectTheme(area: string) {
+    const game = gamesData.find(g => g.title.toLowerCase() === area.toLowerCase());
+    return game?.theme ?? null;
+}
 
 export function Team() {
     const { t } = useLanguage();
@@ -224,43 +229,55 @@ export function Team() {
                         </p>
                     </div>
 
-                    {collaborators.length > 0 ? (
+                    {collaborators.some(c => c.visible) ? (
                         <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4">
-                            {collaborators.map((c, i) => {
-                                const tColl = t.ourteam.collaborators[c.id];
-                                return (
-                                    <Link href={`/collaborators/${c.id}`} key={c.id}>
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 16 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.4, delay: i * 0.08 }}
-                                            viewport={{ once: true }}
-                                            className="group relative border-2 border-white/20 p-5 hover:border-white hover:bg-white/5 transition-all duration-300 cursor-pointer h-full"
-                                        >
-                                            <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-white/30 group-hover:border-white transition-colors duration-300" />
-                                            <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/30 group-hover:border-white transition-colors duration-300" />
-
-                                            <div className="w-10 h-10 border border-white/20 flex items-center justify-center mb-4 group-hover:border-white/50 transition-colors">
-                                                <span className="text-white/30 group-hover:text-white/70 text-sm transition-colors" style={{ fontFamily: "Rye" }}>
-                                                    {c.name.charAt(0)}
-                                                </span>
-                                            </div>
-                                            <p className="text-base tracking-wide mb-1 text-white/80 group-hover:text-white transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 400 }}>
-                                                {c.name}
-                                            </p>
-                                            <p className="text-xs text-white/40 leading-relaxed mb-2" style={{ fontFamily: "Cinzel", fontWeight: 200 }}>
-                                                {tColl.role}
-                                            </p>
-                                            <div className="flex items-center justify-between mt-3">
-                                                <span className="text-xs tracking-wider border border-white/20 px-2 py-0.5 text-white/30" style={{ fontFamily: "Cinzel" }}>
-                                                    {c.area}
-                                                </span>
-                                                <span className="text-[10px] tracking-wider text-white/25 group-hover:text-white/60 transition-colors uppercase" style={{ fontFamily: "Cinzel" }}>
-                                                    Ver →
-                                                </span>
-                                            </div>
-                                        </motion.div>
-                                    </Link>
+                            {collaborators
+                                .filter(c => c.visible)
+                                .map((c, i) => {
+                                    const tColl = t.ourteam.collaborators[c.id];
+                                    const projectTheme = getProjectTheme(c.area);
+                                    return (
+                                        <Link href={`/collaborators/${c.id}`} key={c.id}>
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 16 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.4, delay: i * 0.08 }}
+                                                viewport={{ once: true }}
+                                                className="group relative border-2 p-5 hover:bg-white/5 transition-all duration-300 cursor-pointer h-full"
+                                                style={{ borderColor: projectTheme?.accentBorder ?? "white" }}
+                                            >
+                                                <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-white/30 group-hover:border-white transition-colors duration-300" />
+                                                <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-white/30 group-hover:border-white transition-colors duration-300" />
+                                                <div 
+                                                    className="w-10 h-10 border  flex items-center justify-center mb-4 group-hover:border-white/50 transition-colors"
+                                                    style={{ borderColor: projectTheme?.panelBorderHover ?? "rgba(255, 255, 255, 0.2)" }}
+                                                >
+                                                    <span className="text-white/30 group-hover:text-white/70 text-sm transition-colors" style={{ fontFamily: "Rye" }}>
+                                                        {c.name.charAt(0)}
+                                                    </span>
+                                                </div>
+                                                <p className="text-base tracking-wide mb-1 text-white/80 group-hover:text-white transition-colors" style={{ fontFamily: "Cinzel", fontWeight: 400 }}>
+                                                    {c.name}
+                                                </p>
+                                                <p className="text-xs text-white/40 leading-relaxed mb-2" style={{ fontFamily: "Cinzel", fontWeight: 200 }}>
+                                                    {tColl.role}
+                                                </p>
+                                                <div className="flex items-center justify-between mt-3">
+                                                    <span className="text-xs tracking-wider border border-white/20 px-2 py-0.5 text-white/30" 
+                                                          style={{ 
+                                                              fontFamily: "Cinzel",
+                                                              borderColor: projectTheme?.panelBorderHover ?? "rgba(255, 255, 255, 0.2)", 
+                                                              color: projectTheme?.accentText ?? "white",
+                                                        }}
+                                                    >
+                                                        {c.area}
+                                                    </span>
+                                                    <span className="text-[10px] tracking-wider text-white/25 group-hover:text-white/60 transition-colors uppercase" style={{ fontFamily: "Cinzel" }}>
+                                                        Ver →
+                                                    </span>
+                                                </div>
+                                            </motion.div>
+                                        </Link>
                                 )
                             })}
                             <motion.div
