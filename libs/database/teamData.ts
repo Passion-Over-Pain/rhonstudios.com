@@ -6,7 +6,6 @@
 export type CollaboratorId =
     "test"
     | "angelramirez"
-    | "sage"
     | "marielodiard"
     | "sayyidali"
     ;
