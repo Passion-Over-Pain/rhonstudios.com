@@ -28,17 +28,6 @@
         "State Machine",
         "Player Attacks"
       ]
-    }, 
-    "sage": {
-      "role": "Human Resources",
-      "subrole": "Human Resources Director",
-      "tagline": "Building the team behind the game.",
-      "bio": "Responsible for recruiting team members, managing contracts, and overseeing the project's human resources processes. Focused on creating an organized and collaborative environment that allows the team to work effectively throughout development.",
-      "contributions": [
-        "Team Recruitment",
-        "Contract Management",
-        "Human Resources Coordination"
-      ]
     },
     "marielodiard": {
       "role": "Artist",
