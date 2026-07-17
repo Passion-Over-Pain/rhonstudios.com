@@ -4,18 +4,10 @@ import {useEffect, useState} from "react";
 import { X, ZoomIn, Image as ImageIcon, Film, ExternalLink } from "lucide-react";
 import type { GameTheme } from "@/components/games/GamePageClient"
 import { collaborators, type CollaboratorId } from "@/libs/database/teamData";
-
-interface GalleryImage {
-    url: string;
-    title: string;
-    category: "screenshot" | "concept-art" | "gameplay" | "characters" | "environment";
-    type?: "image" | "video";
-    poster?: string;
-    collaboratorId?: CollaboratorId;
-}
+import type { MediaItem } from "@/libs/database/mediaData";
 
 interface GameGalleryProps {
-    images: GalleryImage[];
+    images: MediaItem[];
     gameTitle: string;
     theme: GameTheme;
 }
@@ -119,11 +111,11 @@ export function GameGallery({ images, gameTitle, theme }: GameGalleryProps) {
         "characters": t.gameGallery.characters,
         "environment": t.gameGallery.environment
     }
-    const [selectedImages, setSelectedImages] = useState<GalleryImage | null>(null);
+    const [selectedImages, setSelectedImages] = useState<MediaItem | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [filter, setFilter] = useState<string | "all">("all");
 
-    const categories: Array<"all" | GalleryImage["category"]> = ["all", ...Array.from(new Set(images.map(img => img.category)))];
+    const categories: Array<"all" | MediaItem["category"]> = ["all", ...Array.from(new Set(images.map(img => img.category)))];
     const filteredImages = filter === "all"
         ? images
         : images.filter(img => img.category === filter);
