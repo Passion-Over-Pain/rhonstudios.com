@@ -15,24 +15,18 @@
       "subrole": "2D Environment Artist",
       "tagline": "",
       "bio": "",
-      "contributions": []
+      "contributions": [
+
+      ]
     },
     "angelramirez": {
       "role": "Programador",
       "subrole": "Programador en Godot",
       "tagline": "Ingeniero de sistemas que construye herramientas y videojuegos donde la ingeniería y el diseño se complementan.",
       "bio": "Ingeniero en Sistemas especializado en observabilidad, Actualmente trabajo diseñando soluciones de monitoreo con Grafana y OpenTelemetry, mientras exploro el desarrollo de videojuegos con Godot como proyecto personal. Me interesa crear herramientas y experiencias donde la ingeniería y el diseño se complementen.",
-      "contributions": ["Maquina de estados", "Ataques del jugador"]
-    },
-    "sage": {
-      "role": "Recursos Humanos",
-      "subrole": "Directora de Recursos Humanos",
-      "tagline": "Construyendo el equipo detrás del juego.",
-      "bio": "Responsable de la selección de nuevos integrantes, la gestión de contratos y la coordinación de los procesos de recursos humanos del proyecto. Su labor garantiza un entorno organizado y colaborativo para que el equipo pueda centrarse en el desarrollo del juego.",
       "contributions": [
-        "Selección de Personal",
-        "Gestión de Contratos",
-        "Coordinación de Recursos Humanos"
+        "Maquina de estados",
+        "Ataques del jugador"
       ]
     },
     "marielodiard": {
@@ -40,7 +34,19 @@
       "subrole": "Artista 2D",
       "tagline": "",
       "bio": "Ilustradora publicada en el mundo editorial con pasión por contar historias por medio de personajes y ambientes. Música los sábados.\n",
-      "contributions": []
+      "contributions": [
+
+      ]
+    },
+    "sayyidali": {
+      "role": "Arte",
+      "subrole": "Artista 3D",
+      "tagline": "Combinando creatividad y programación",
+      "bio": "Trabajo en todo el proceso de desarrollo, desde el modelado, texturizado y animación en Blender hasta el montaje, la integración y la programación en motores de videojuegos. Me apasiona especialmente modelar arquitectura, pueblos y ciudades, diseñar niveles y programar sistemas que hagan que los mundos se sientan vivos e interactivos.",
+      "contributions": [
+        "Modelado de objetos 3D",
+        "Modelado de edificios 3D"
+      ]
     }
   }
 }

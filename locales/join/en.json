@@ -36,6 +36,26 @@
         "Personalized letter of recommendation upon finishing your collaboration"
       ]
     },
+    "studio-music-support": {
+      "title": "Music Production & Orchestration Support",
+      "shortDescription": "Help create, orchestrate, mix, and master music for Studio projects, primarily Afterlight.",
+      "area": "Audio",
+      "requirements": [
+        "Experience with music production and orchestral arrangements.",
+        "Comfortable collaborating from rough piano sketches or simple demos.",
+        "Able to mix and master tracks to a polished quality.",
+        "Familiar with cinematic, emotional, and ambient soundtracks.",
+        "Open to feedback and iterative development."
+      ],
+      "offer": [
+        "Work on the soundtrack for Afterlight and future Studio projects.",
+        "Creative freedom to expand simple piano ideas into full compositions.",
+        "Close collaboration throughout the creative process.",
+        "Opportunity to help define the musical identity of multiple games.",
+        "Credit for your contributions in released projects."
+      ]
+    },
+    
     "tonkori-concept-artist": {
       "title": "Concept Artist",
       "shortDescription": "We're looking for a concept artist for the Tonkori project. You'll work in our project, defining characters, environments, and visual elements from the earliest stages.",

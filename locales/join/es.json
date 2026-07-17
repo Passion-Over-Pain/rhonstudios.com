@@ -36,6 +36,26 @@
         "Carta de recomendación personalizada al finalizar la colaboración"
       ]
     },
+    "studio-music-support": {
+      "title": "Apoyo en Producción Musical y Orquestación",
+      "shortDescription": "Ayuda a crear, orquestar, mezclar y masterizar la música para los proyectos de Studio, principalmente Afterlight.",
+      "area": "Audio",
+      "requirements": [
+        "Experiencia en producción musical y arreglos orquestales.",
+        "Comodidad trabajando a partir de bocetos de piano o demos sencillas.",
+        "Capacidad para mezclar y masterizar canciones con un acabado profesional.",
+        "Familiaridad con bandas sonoras cinematográficas, emocionales y ambientales.",
+        "Buena comunicación y disposición para trabajar de forma colaborativa."
+      ],
+      "offer": [
+        "Participar en la banda sonora de Afterlight y futuros proyectos de Studio.",
+        "Libertad creativa para transformar ideas sencillas de piano en composiciones completas.",
+        "Colaboración cercana durante todo el proceso creativo.",
+        "La oportunidad de ayudar a definir la identidad musical de varios videojuegos.",
+        "Reconocimiento por tus contribuciones en los proyectos publicados."
+      ]
+    },
+    
     "tonkori-concept-artist": {
       "title": "Concept Artist",
       "shortDescription": "Buscamos un concept artist para Tonkori. Trabajarás en Tonkori definiendo personajes, entornos y elementos visuales desde la fase más temprana.",
