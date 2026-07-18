@@ -4,7 +4,7 @@ import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { getGameById } from "@/libs/database/gamesData";
 import { getSocials } from "@/libs/database/socialsData";
-import React from "react";
+import Image from "next/image";
 
 const footerSocials = getSocials([
   "discord",
@@ -24,7 +24,7 @@ export function Footer() {
 
   const gameId = params?.id as string | undefined;
 
-  const isMainPage = pathname === "/";
+  // TODO: const isMainPage = pathname === "/"; Check if we need home page footer diff functionality
   const isJoinPage = pathname === "/join";
   const isDevBlogPage = pathname === "/devblogs" || pathname.startsWith("/devblogs/");
   const isCollabPage = pathname.startsWith("/collaborators");
@@ -162,7 +162,14 @@ export function Footer() {
       <div className="container mx-auto px-6 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
           <div className="flex flex-col items-center sm:items-start justify-center gap-4">
-            <img src={footerLogo} alt={footerLogoAlt} className="w-28 sm:w-35 h-auto" />
+            <Image
+              src={footerLogo}
+              alt={footerLogoAlt}
+              width={140}
+              height={140}
+              sizes="(max-width: 640px) 112px, 140px"
+              className="w-28 sm:w-35 h-auto"
+            />
           </div>
           <div className="text-center">
             <h4
@@ -220,7 +227,7 @@ export function Footer() {
               {t.footer.follow}
             </h4>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8 place-items-center mx-auto max-w-[220px]">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8 place-items-center mx-auto max-w-55">
               {footerSocials.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -239,7 +246,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[2px] bg-white/30 mb-6 sm:mb-8" />
+        <div className="w-full h-0.5 bg-white/30 mb-6 sm:mb-8" />
         <div className="text-center">
           <p
             className="text-[10px] sm:text-xs tracking-wide opacity-60"

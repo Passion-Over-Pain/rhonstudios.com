@@ -1,10 +1,11 @@
 ﻿"use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { useRouter } from "next/navigation";
 import { GameData, gamesData } from "@/libs/database/gamesData";
+import Image from "next/image";
 
 export function Games() {
   const router = useRouter();
@@ -45,7 +46,7 @@ export function Games() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-12">
-          {gamesData.map((game, index) => {
+          {gamesData.map((game) => {
             const gameT = t.game_list[game.id];
             return (
               <div
@@ -110,10 +111,12 @@ export function Games() {
                       className="group relative aspect-video bg-black border-2 border-white/20 flex items-center justify-center overflow-hidden"
                     >
                       {selectedGame.heroImage ? (
-                        <img
+                        <Image
                           src={selectedGame.heroImage}
                           alt={selectedGame.title}
-                          className="opacity-60 w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="opacity-60 object-cover"
                         />
                       ) : (
                         <div className="text-center">

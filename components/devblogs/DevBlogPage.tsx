@@ -22,14 +22,14 @@ function getAuthor(post: DevBlogPost) {
 
 export default function DevBlogPage() {
   const { slug } = useParams();
+  const router = useRouter();
+  const { t } = useLanguage();
 
   const post = getDevBlogBySlug(slug as string);
   if (!post) {
     return <div>Post not found</div>;
   }
   const author = getAuthor(post);
-  const router = useRouter();
-  const { t } = useLanguage();
   const devT = t.devblogs[post.id];
 
   return (

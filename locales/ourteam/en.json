@@ -15,38 +15,28 @@
       "subrole": "2D Environment Artist",
       "tagline": "",
       "bio": "",
-      "contributions": [
-       
-      ]
+      "contributions": []
     },
     "angelramirez": {
       "role": "Programmer",
       "subrole": "Godot Programmer",
       "tagline": "Systems engineer building tools and video games where engineering and design work together.",
       "bio": "Systems Engineer specializing in observability. I currently design monitoring solutions using Grafana and OpenTelemetry while exploring game development with Godot as a personal project. I'm passionate about creating tools and experiences where engineering and design complement each other.",
-      "contributions": [
-        "State Machine",
-        "Player Attacks"
-      ]
+      "contributions": ["State Machine", "Player Attacks"]
     },
     "marielodiard": {
       "role": "Artist",
       "subrole": "2D Artist",
       "tagline": "",
       "bio": "",
-      "contributions": [
-
-      ]
+      "contributions": []
     },
     "sayyidali": {
       "role": "Art",
       "subrole": "3D Artist",
       "tagline": "Combining creativity and coding",
       "bio": "I work on the full development pipeline, from modelling, texturing, and animating in Blender to assembling, wiring and programming in game engines. I especially love modelling architecture, towns, cities, putting together levels, and programming systems that make worlds feel alive and interactive. ",
-      "contributions": [
-        "3D Object Modeling",
-        "3D Buildings Modeling"
-      ]
+      "contributions": ["3D Object Modeling", "3D Buildings Modeling"]
     }
   }
 }

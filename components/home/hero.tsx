@@ -18,6 +18,7 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  //TODO: Add scroll detection to change the hero section's appearance when scrolling down
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-mt-[160px] relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
+      className="scroll-mt-40 relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
     >
       <div className="absolute inset-0 bg-black"></div>
       <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-16 text-center">

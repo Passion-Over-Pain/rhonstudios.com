@@ -1,7 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { getDevBlogBySlug, devBlogPosts } from "@/libs/database/devblogsData";
 import DevBlogPageClient from "@/components/devblogs/DevBlogPage";
-import { BreadcrumbSchema } from "@/libs/seo/GameShema";
 
 interface Props {
   params: { slug: string };

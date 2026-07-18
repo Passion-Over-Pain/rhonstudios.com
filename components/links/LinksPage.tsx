@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { SOCIALS, SOCIAL_VARIANT_STYLES } from "@/libs/database/socialsData";
+import Image from "next/image";
 
 export default function LinksPage() {
   const { t } = useLanguage();
@@ -32,9 +33,12 @@ export default function LinksPage() {
         className="text-center mb-8"
       >
         <a href="https://rhonstudios.com">
-          <img
+          <Image
             src="/logos/RhonStudiosCircleLogo.png"
             alt="Rhon Studios"
+            width={64}
+            height={64}
+            sizes="64px"
             className="w-16 h-16 mx-auto mb-3 opacity-90"
           />
         </a>

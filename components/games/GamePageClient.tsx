@@ -18,7 +18,7 @@ import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { GameGallery } from "./GameGallery";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import {getGameGallery} from "@/libs/database/mediaData";
+import { getGameGallery } from "@/libs/database/mediaData";
 
 export interface GameTheme {
   fontTitle: string;
@@ -880,9 +880,9 @@ export function GamePageClient({ id }: { id: string }) {
           </div>
         </div>
       </section>
-        {getGameGallery(game.id).length > 0 && (
-            <GameGallery images={getGameGallery(game.id)} gameTitle={game.title} theme={theme} />
-        )}
+      {getGameGallery(game.id).length > 0 && (
+        <GameGallery images={getGameGallery(game.id)} gameTitle={game.title} theme={theme} />
+      )}
 
       <section
         id="contact"

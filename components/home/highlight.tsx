@@ -8,12 +8,9 @@ import { useRouter } from "next/navigation";
 
 export function Highlight() {
   const game = gamesData.find((g) => g.id === "afterlight");
-  if (!game) return null;
-
   const router = useRouter();
   const maskRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-
   useEffect(() => {
     const el = maskRef.current;
     if (!el) return;
@@ -45,10 +42,12 @@ export function Highlight() {
     };
   }, []);
 
+  if (!game) return null;
+
   return (
     <section
       id="highlight"
-      className="scroll-mt-[120px] relative bg-black text-white overflow-hidden flex items-center justify-center"
+      className="scroll-mt-30 relative bg-black text-white overflow-hidden flex items-center justify-center"
       style={{ height: "calc(100vh - 106px)" }}
     >
       <div

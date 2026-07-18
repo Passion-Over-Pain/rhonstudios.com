@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { team, collaborators } from "@/libs/database/teamData";
 import Link from "next/link";
 import { gamesData } from "@/libs/database/gamesData";
+import Image from "next/image";
 
 function getProjectTheme(area: string) {
   const game = gamesData.find((g) => g.title.toLowerCase() === area.toLowerCase());
@@ -20,7 +21,7 @@ export function Team() {
   return (
     <section
       id="team"
-      className="scroll-mt-[250px] relative bg-black text-white pb-16 sm:pb-32"
+      className="scroll-mt-62.5 relative bg-black text-white pb-16 sm:pb-32"
       style={{ minHeight: "20vh" }}
     >
       <div className="container mx-auto px-4 sm:p-8 lg:px-16">
@@ -54,7 +55,7 @@ export function Team() {
                 return (
                   <div
                     key={member.id}
-                    className={`relative border-2 border-white/60 p-6 hover:border-white transition-all duration-500 flex flex-col h-[500px] w-[300px]
+                    className={`relative border-2 border-white/60 p-6 hover:border-white transition-all duration-500 flex flex-col h-125 w-75
                                             ${
                                               index % 2 === 0
                                                 ? "group-hover:-translate-x-full"
@@ -64,10 +65,12 @@ export function Team() {
                   >
                     <div className="aspect-square bg-white/5 border-2 border-white/20 mb-6 relative overflow-hidden group-hover:border-white/40 transition-all duration-300">
                       {member.img ? (
-                        <img
+                        <Image
                           src={member.img}
                           alt={member.name}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          fill
+                          sizes="(max-width: 1024px) 0px, 300px"
+                          className="object-cover"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -95,7 +98,7 @@ export function Team() {
                       {member.role}
                     </p>
                     <p
-                      className="text-sm leading-relaxed tracking-wide text-white/80 mb-2 flex-grow"
+                      className="text-sm leading-relaxed tracking-wide text-white/80 mb-2 grow"
                       style={{ fontFamily: "Cinzel", fontWeight: 200 }}
                     >
                       {tMember.bioShort}
@@ -132,7 +135,7 @@ export function Team() {
                     </div>
 
                     <div
-                      className={`absolute w-[320px] min-h-[100px] h-auto p-6 bg-black/80 backdrop-blur-md border-2 border-white/30
+                      className={`absolute w-[320px] min-h-25 h-auto p-6 bg-black/80 backdrop-blur-md border-2 border-white/30
                                                         opacity-0 pointer-events-none
                                                         group-hover:opacity-100 transition-opacity duration-500 ease-out
                                                 ${
@@ -143,7 +146,7 @@ export function Team() {
                                             `}
                     >
                       <p
-                        className="text-sm leading-relaxed tracking-wide text-white/80 mb-6 flex-grow"
+                        className="text-sm leading-relaxed tracking-wide text-white/80 mb-6 grow"
                         style={{ fontFamily: "Cinzel" }}
                       >
                         {tMember.bio}
@@ -164,12 +167,14 @@ export function Team() {
                     style={{ minHeight: "100px" }}
                   >
                     <div className="flex gap-4 items-start">
-                      <div className="w-20 h-20 flex-shrink-0 border-2 border-white/20 relative overflow-hidden bg-white/5">
+                      <div className="w-20 h-20 shrink-0 border-2 border-white/20 relative overflow-hidden bg-white/5">
                         {member.img ? (
-                          <img
+                          <Image
                             src={member.img}
                             alt={member.name}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            fill
+                            sizes="80px"
+                            className="object-cover"
                           />
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -205,7 +210,7 @@ export function Team() {
 
                       <button
                         onClick={() => setExpandedId(isExpanded ? null : member.id)}
-                        className="flex-shrink-0 w-8 h-8 border border-white/40 flex items-center justify-center text-white/60 hover:text-white hover:border-white transition-all duration-300 mt-1"
+                        className="shrink-0 w-8 h-8 border border-white/40 flex items-center justify-center text-white/60 hover:text-white hover:border-white transition-all duration-300 mt-1"
                         aria-label={isExpanded ? "Cerrar" : "Ver más"}
                       >
                         <span

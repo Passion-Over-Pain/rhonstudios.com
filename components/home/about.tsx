@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/libs/utils/LanguageProvider";
 
 export function About() {
@@ -8,7 +7,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-[5px] relative bg-black text-white pt-16 sm:pt-32 overflow-hidden"
+      className="scroll-mt relative bg-black text-white pt-16 sm:pt-32 overflow-hidden"
       style={{ minHeight: "20vh" }}
     >
       <div className="container mx-auto px-6 sm:px-8 lg:px-16">
@@ -29,14 +28,14 @@ export function About() {
               {t.about.title}
             </h2>
             <div className="flex items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-16">
-              <div className="w-12 sm:w-24 h-[2px] bg-white" />
+              <div className="w-12 sm:w-24 h-0.5 bg-white" />
               <p
                 className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase"
                 style={{ fontFamily: "Cinzel" }}
               >
                 Rhon Studios
               </p>
-              <div className="w-12 sm:w-24 h-[2px] bg-white" />
+              <div className="w-12 sm:w-24 h-0.5 bg-white" />
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 mt-7">

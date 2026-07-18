@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { getGameById } from "@/libs/database/gamesData";
+import Image from "next/image";
 
 type SubItem = { label: string; type: "scroll"; id: string };
 interface NavGroupProps {
@@ -93,10 +94,6 @@ export function Header() {
 
   const isLinksPage = pathname === "/links";
 
-  if (isLinksPage) {
-    return null;
-  }
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -143,6 +140,10 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  if (isLinksPage) {
+    return null;
+  }
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -226,7 +227,7 @@ export function Header() {
       >
         <p className="text-white text-center text-sm">EN</p>
         <span
-          className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-[2px] bg-white transition-all duration-300 ${language === "en" ? "w-8" : "w-0"}`}
+          className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 bg-white transition-all duration-300 ${language === "en" ? "w-8" : "w-0"}`}
         />
       </button>
       <div className="w-px h-6 bg-white/40" />
@@ -237,7 +238,7 @@ export function Header() {
       >
         <p className="text-white text-center text-sm">ES</p>
         <span
-          className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-[2px] bg-white transition-all duration-300 ${language === "es" ? "w-8" : "w-0"}`}
+          className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-0.5 bg-white transition-all duration-300 ${language === "es" ? "w-8" : "w-0"}`}
         />
       </button>
     </div>
@@ -270,14 +271,14 @@ export function Header() {
     onHome?: () => void;
     homeLabel?: string;
   }) => (
-    <div className="fixed inset-0 z-[200] bg-black/98 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
+    <div className="fixed inset-0 z-200 bg-black/98 flex flex-col pt-24 pb-10 px-6 overflow-y-auto">
       <button
         onClick={() => setIsMenuOpen(false)}
         className="absolute top-5 right-5 w-10 h-10 border border-white rounded-sm flex flex-col items-center justify-center gap-1.5"
         aria-label="Close menu"
       >
-        <span className="w-5 h-0.5 bg-white rotate-45 translate-y-[0px]" />
-        <span className="w-5 h-0.5 bg-white -rotate-45 -translate-y-[2px]" />
+        <span className="w-5 h-0.5 bg-white rotate-45 translate-y-0" />
+        <span className="w-5 h-0.5 bg-white -rotate-45 -translate-y-0.5" />
       </button>
       <div className="flex flex-col gap-4 mt-4">
         {onHome && (
@@ -343,10 +344,13 @@ export function Header() {
       )}
       <div className="absolute left-1/2 transform -translate-x-1/2">
         <a href="#">
-          <img
+          <Image
             src={logo}
             alt={logoAlt}
-            className="h-[90px] transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop"
+            width={180}
+            height={90}
+            sizes="(max-width: 640px) 140px, 180px"
+            className="h-22.5 transition-all duration-500 ease-out scale-90 opacity-0 animate-logoPop"
           />
         </a>
       </div>
@@ -403,7 +407,7 @@ export function Header() {
       ) : (
         <div className="w-5" />
       )}
-      <img src={logo} alt={alt} className="h-12 w-auto" />
+      <Image src={logo} alt={alt} width={48} height={48} sizes="48px" className="h-12 w-auto" />
       <div className="flex items-center gap-3">
         <LangSwitcherMobile />
         <HamburgerBtn />
@@ -448,10 +452,13 @@ export function Header() {
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
                 <a href="/">
-                  <img
+                  <Image
                     src="/logos/IconHeader.png"
                     alt="Rhon Studios"
-                    className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                    width={220}
+                    height={110}
+                    sizes="(max-width: 1024px) 180px, 220px"
+                    className="block w-auto h-22.5 lg:h-27.5 shrink-0 transition-all duration-500 ease-out scale-90"
                   />
                 </a>
                 <LangSwitcherDesktop />
@@ -563,10 +570,13 @@ export function Header() {
                 </li>
               </ul>
               <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-                <img
+                <Image
                   src={headerLogoLarge}
                   alt={game?.title ?? "Rhon Studios"}
-                  className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90"
+                  width={310}
+                  height={155}
+                  sizes="(max-width: 1024px) 180px, (max-width: 1280px) 260px, 310px"
+                  className="block w-auto h-22.5 lg:h-32.5 xl:h-38.75 shrink-0 transition-all duration-500 ease-out scale-90"
                 />
                 <LangSwitcherDesktop />
               </div>
@@ -656,9 +666,12 @@ export function Header() {
           </button>
 
           <a href="/" className="absolute left-1/2 -translate-x-1/2">
-            <img
+            <Image
               src="/logos/RhonStudiosCircleLogo.png"
               alt="Rhon Studios"
+              width={56}
+              height={56}
+              sizes="(max-width: 1024px) 44px, 56px"
               className="h-11 lg:h-14 w-auto"
             />
           </a>
@@ -699,10 +712,13 @@ export function Header() {
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
                 <a href="/">
-                  <img
+                  <Image
                     src="/logos/IconHeader.png"
                     alt="Rhon Studios"
-                    className="block w-auto h-[90px] lg:h-[110px] shrink-0 transition-all duration-500 ease-out scale-90"
+                    width={220}
+                    height={110}
+                    sizes="(max-width: 1024px) 180px, 220px"
+                    className="block w-auto h-22.5 lg:h-27.5 shrink-0 transition-all duration-500 ease-out scale-90"
                   />
                 </a>
                 <LangSwitcherDesktop />
@@ -803,7 +819,14 @@ export function Header() {
       <HeaderBackground isScrolled={isScrolled} />
       <nav className="relative container mx-auto px-4 sm:px-8 lg:px-16 py-4 lg:py-10 transition-all duration-500">
         <div className="lg:hidden flex items-center justify-between">
-          <img src="/logos/RhonStudiosCircleLogo.png" alt="Rhon Studios" className="h-12 w-auto" />
+          <Image
+            src="/logos/RhonStudiosCircleLogo.png"
+            alt="Rhon Studios"
+            width={48}
+            height={48}
+            sizes="48px"
+            className="h-12 w-auto"
+          />
           <div className="flex items-center gap-3">
             <LangSwitcherMobile />
             <HamburgerBtn />
@@ -839,10 +862,13 @@ export function Header() {
               />
             </ul>
             <div className="flex flex-col items-center justify-center -mt-4 gap-4">
-              <img
+              <Image
                 src="/logos/IconHeader.png"
                 alt="Rhon Studios Header"
-                className="block w-auto h-[90px] lg:h-[130px] xl:h-[155px] shrink-0 transition-all duration-500 ease-out scale-90"
+                width={620}
+                height={260}
+                sizes="(min-width: 1280px) 310px, (min-width: 1024px) 260px, 180px"
+                className="block w-auto h-22.5 lg:h-32.5 xl:h-38.75 shrink-0 transition-all duration-500 ease-out scale-90"
               />
               <LangSwitcherDesktop />
             </div>
