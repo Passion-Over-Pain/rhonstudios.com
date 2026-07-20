@@ -90,7 +90,7 @@ export function Footer() {
 
   const joinLinks: { id: string; label: string }[] = [
     { id: "home_join", label: t.join_menu.join },
-    { id: "conditions", label: t.join_menu.conditions ?? "Condiciones" },
+    { id: "conditions", label: t.join_menu.conditions },
     { id: "roles", label: t.join_menu.opportunities },
   ];
 
@@ -106,6 +106,7 @@ export function Footer() {
     : homeLinks.map((l) => ({
         ...l,
         onClick: () => scrollTo(l.id),
+        className: "cursor-pointer",
         subs: l.subs?.map((s) => ({ ...s, onClick: () => scrollTo(s.id) })),
       }));
 
@@ -144,7 +145,7 @@ export function Footer() {
     : isCollabPage
       ? t.menu.team
       : isJoinPage
-        ? (t.join_menu.join ?? t.footer.links)
+        ? (t.join_menu.title ?? t.footer.links)
         : isDevBlogPage
           ? t.devblog_menu.devblogs
           : t.footer.links;
@@ -182,7 +183,7 @@ export function Footer() {
               {showBackLink && (
                 <button
                   onClick={() => router.push("/")}
-                  className="text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
+                  className="cursor-pointer text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
                   style={{ fontFamily: "Cinzel" }}
                 >
                   {t.join_menu.home ?? "Rhon Studios"}
@@ -192,7 +193,7 @@ export function Footer() {
                 <li key={item.id}>
                   <button
                     onClick={item.onClick}
-                    className="text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
+                    className="cursor-pointer text-xs sm:text-sm tracking-wide hover:opacity-60 transition"
                     style={{ fontFamily: "Cinzel" }}
                   >
                     {item.label}

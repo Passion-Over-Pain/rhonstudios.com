@@ -11,9 +11,9 @@ export default function NotFound() {
   return (
     <section
       id="Error"
-      className="scroll-mt-[160px] relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
+      className="scroll-mt-40 relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/50 via-transparent to-black" />
       <div className="relative z-10 text-center">
         <h1 className={`text-3xl sm:text-4xl mb-8 text-white`} style={{ fontFamily: "Rye" }}>
           {t.error.title}

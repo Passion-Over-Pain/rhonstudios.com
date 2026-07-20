@@ -4,7 +4,9 @@ import CollaboratorDetailClient from "@/components/collaborators/CollaboratorDet
 import { BreadcrumbSchema } from "@/libs/seo/GameShema";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{
+    id: string;
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -12,9 +14,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const collab = collaborators.find((c) => c.id === params.id && c.visible);
-  if (!collab) return { title: "Colaborador no encontrado | Rhon Studios" };
-
+  const { id } = await params;
+  const collab = collaborators.find((c) => c.id === id && c.visible);
+  if (!collab) {
+    return {
+      title: "Colaborador no encontrado | Rhon Studios",
+    };
+  }
   const title = `${collab.name} | Colaboradores de Rhon Studios`;
   const description = `${collab.name} — ${collab.role ?? "colaborador"} en Rhon Studios. Conoce su rol, contribuciones y enlaces.`;
 
@@ -41,8 +47,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function Page({ params }: Props) {
-  const collab = collaborators.find((c) => c.id === params.id);
+export default async function Page({ params }: Props) {
+  const { id } = await params;
+
+  const collab = collaborators.find((c) => c.id === id);
+
   return (
     <>
       {collab && (
@@ -50,7 +59,10 @@ export default function Page({ params }: Props) {
           items={[
             { name: "Inicio", url: "https://rhonstudios.com" },
             { name: "Equipo", url: "https://rhonstudios.com/#team" },
-            { name: collab.name, url: `https://rhonstudios.com/collaborators/${collab.id}` },
+            {
+              name: collab.name,
+              url: `https://rhonstudios.com/collaborators/${collab.id}`,
+            },
           ]}
         />
       )}

@@ -109,7 +109,7 @@ export const SOCIALS: Record<SocialId, SocialLink> = {
   coffee: {
     id: "coffee",
     icon: Coffee,
-    name: "Buy Me a Coffee",
+    name: "Buy Us a Coffee",
     url: "https://buymeacoffee.com/rhonstudios",
     variant: "coffee",
   },

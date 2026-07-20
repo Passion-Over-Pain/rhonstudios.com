@@ -32,6 +32,7 @@ export function ApplicationModal({
   const rolesForProject = opportunitiesData.filter(
     (o) => o.projectId === selectedProject && o.status === "open"
   );
+  const hasRoles = rolesForProject.length > 0;
   const [status, setStatus] = useState<
     "idle" | "invalid" | "sending" | "sent" | "alreadySent" | "alreadySentV2" | "error"
   >("idle");
@@ -136,7 +137,7 @@ export function ApplicationModal({
               className="block text-xs tracking-wider uppercase"
               style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
             >
-              Email
+              {t.contact.email}
             </label>
             <input
               type="email"
@@ -154,7 +155,7 @@ export function ApplicationModal({
               className="block text-xs tracking-wider uppercase"
               style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
             >
-              Proyecto
+              {t.contact.project}
             </label>
             <select
               name="project"
@@ -180,7 +181,7 @@ export function ApplicationModal({
               className="block text-xs tracking-wider uppercase"
               style={{ fontFamily: "Cinzel", fontWeight: "bold" }}
             >
-              Rol de interés
+              {t.contact.role}
             </label>
 
             <select
@@ -188,23 +189,21 @@ export function ApplicationModal({
               value={formData.Role}
               onChange={handleProjectChange}
               required
-              className="w-full bg-transparent border-2 border-white px-4 py-2 focus:outline-none focus:bg-white focus:text-black transition-all duration-300 text-sm sm:text-base"
+              className="cursor-pointer w-full bg-transparent border-2 border-white px-4 py-2 focus:outline-none focus:bg-white focus:text-black transition-all duration-300 text-sm sm:text-base"
               style={{ fontFamily: "Cormorant Garamond" }}
             >
-              <option value="">Selecciona un rol</option>
-              {rolesForProject.map((opp) => {
-                const oppT = t.join.opportunities[opp.id as keyof typeof t.join.opportunities];
-                return (
-                  <option key={opp.id} value={oppT.title}>
-                    {oppT.title}
-                  </option>
-                );
-              })}
-              {rolesForProject.length === 0 && (
-                <option disabled value="">
-                  No hay roles abiertos en este proyecto
-                </option>
-              )}
+              <option value="">{hasRoles ? t.contact.select : t.contact.no_roles}</option>
+
+              {hasRoles &&
+                rolesForProject.map((opp) => {
+                  const oppT = t.join.opportunities[opp.id as keyof typeof t.join.opportunities];
+
+                  return (
+                    <option key={opp.id} value={oppT.title}>
+                      {oppT.title}
+                    </option>
+                  );
+                })}
             </select>
           </div>
           <div className="space-y-2 sm:space-y-3">
@@ -262,8 +261,7 @@ export function ApplicationModal({
                 fontFamily: "Cormorant Garamond",
               }}
             >
-              He leído y acepto las condiciones de colaboración voluntaria descritas en esta página.
-              Entiendo que esto no constituye una relación laboral.
+              {t.contact.terms_and_conditions}
             </label>
           </div>
           <button
@@ -271,7 +269,7 @@ export function ApplicationModal({
             onClick={() => {
               if (status === "alreadySent") setStatus("alreadySentV2");
             }}
-            className="w-full py-3 sm:py-4 border-2 border-white text-xs sm:text-sm tracking-wider uppercase bg-black hover:bg-white hover:text-black transition-all duration-300"
+            className="cursor-pointer w-full py-3 sm:py-4 border-2 border-white text-xs sm:text-sm tracking-wider uppercase bg-black hover:bg-white hover:text-black transition-all duration-300"
             style={{ fontFamily: "Cormorant Garamond" }}
             disabled={
               status === "sending" ||

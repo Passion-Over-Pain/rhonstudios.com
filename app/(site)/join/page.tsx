@@ -4,7 +4,7 @@ import { useLanguage } from "@/libs/utils/LanguageProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, Briefcase, Clock, FileText, Monitor, TrendingUp } from "lucide-react";
 import { opportunitiesData, projectsData } from "@/libs/database/oportunitiesData";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ApplicationModal } from "@/components/join/ApplicationModal";
 interface ModalState {
   projectID: string;
@@ -228,7 +228,7 @@ export default function Join() {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => handleProjectFilter("all")}
-                  className={`text-[9px] sm:text-xs tracking-[0.15em] uppercase px-4 py-2 border-2 transition-all duration-200 ${
+                  className={`cursor-pointer text-[9px] sm:text-xs tracking-[0.15em] uppercase px-4 py-2 border-2 transition-all duration-200 ${
                     projectFilter === "all"
                       ? "border-white bg-white text-black"
                       : "border-white/25 text-white/45 hover:border-white/55 hover:text-white"
@@ -241,7 +241,7 @@ export default function Join() {
                   <button
                     key={p.id}
                     onClick={() => handleProjectFilter(p.id)}
-                    className={`text-[9px] sm:text-xs tracking-[0.15em] uppercase px-4 py-2 border-2 transition-all duration-200 ${
+                    className={`cursor-pointer text-[9px] sm:text-xs tracking-[0.15em] uppercase px-4 py-2 border-2 transition-all duration-200 ${
                       projectFilter === p.id
                         ? "border-white bg-white text-black"
                         : "border-white/25 text-white/45 hover:border-white/55 hover:text-white"
@@ -274,7 +274,7 @@ export default function Join() {
                           ? "border-white bg-white text-black"
                           : !hasRoles
                             ? "border-white/10 text-white/20 cursor-not-allowed line-through"
-                            : "border-white/25 text-white/45 hover:border-white/55 hover:text-white"
+                            : "cursor-pointer border-white/25 text-white/45 hover:border-white/55 hover:text-white"
                       }`}
                       style={{ fontFamily: "Cinzel" }}
                     >
@@ -315,7 +315,7 @@ export default function Join() {
                               className="text-[9px] sm:text-xs tracking-[0.15em] uppercase px-3 py-1 bg-white text-black"
                               style={{ fontFamily: "Cinzel" }}
                             >
-                              ★ Urgente
+                              ★{tt.card.urgent}
                             </span>
                           )}
                           <span
@@ -343,7 +343,7 @@ export default function Join() {
                           }`}
                           style={{ fontFamily: "Cinzel" }}
                         >
-                          {opp.status === "open" ? "● Abierta" : "○ Cubierta"}
+                          {opp.status === "open" ? tt.card.open : tt.card.filled}
                         </span>
                       </div>
                       <h4
@@ -373,7 +373,7 @@ export default function Join() {
                                   className="text-[9px] sm:text-xs tracking-[0.2em] uppercase text-white/40 mb-3"
                                   style={{ fontFamily: "Cinzel" }}
                                 >
-                                  Lo que buscamos
+                                  {tt.card.requirements}
                                 </p>
                                 <ul className="space-y-2">
                                   {oppT.requirements.map((r, i) => (
@@ -393,7 +393,7 @@ export default function Join() {
                                   className="text-[9px] sm:text-xs tracking-[0.2em] uppercase text-white/40 mb-3"
                                   style={{ fontFamily: "Cinzel" }}
                                 >
-                                  Lo que ofrecemos
+                                  {tt.card.offer}
                                 </p>
                                 <ul className="space-y-2">
                                   {oppT.offer.map((o, i) => (
@@ -415,20 +415,20 @@ export default function Join() {
                       <div className="flex items-center gap-4 mt-4 pt-4 border-t-2 border-white/10">
                         <button
                           onClick={() => setExpandedRole(isExpanded ? null : cardKey)}
-                          className="text-[9px] sm:text-xs tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors duration-300"
+                          className="cursor-pointer text-[9px] sm:text-xs tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors duration-300"
                           style={{ fontFamily: "Cinzel" }}
                         >
-                          {isExpanded ? "Ver menos ↑" : "Ver más ↓"}
+                          {isExpanded ? tt.card.see_less : tt.card.see_more}
                         </button>
                         {opp.status === "open" && (
                           <button
                             onClick={() =>
                               setModal({ projectID: project.id, roleTitle: oppT.title })
                             }
-                            className="ml-auto border-2 border-white/50 px-6 py-2 text-[9px] sm:text-xs tracking-[0.2em] uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300"
+                            className="cursor-pointer ml-auto border-2 border-white/50 px-6 py-2 text-[9px] sm:text-xs tracking-[0.2em] uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300"
                             style={{ fontFamily: "Cinzel", fontWeight: 300 }}
                           >
-                            Quiero colaborar →
+                            {tt.card.apply} →
                           </button>
                         )}
                       </div>

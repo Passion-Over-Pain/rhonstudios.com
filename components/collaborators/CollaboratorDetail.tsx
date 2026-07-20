@@ -162,7 +162,7 @@ export default function CollaboratorDetail() {
                         : "bg-white/30"
                     }`}
                   />
-                  {isActive ? "Activo" : "Alumni"}
+                  {isActive ? `${t.team.collaborators.active}` : `${t.team.collaborators.inactive}`}
                 </span>
               </div>
               <h1
@@ -404,8 +404,8 @@ export default function CollaboratorDetail() {
               </button>
               <div className="w-8 h-px bg-white/20 mx-auto my-3" />
               <button
-                onClick={() => router.push(`/#team`)}
-                className="text-[10px] tracking-[0.2em] uppercase text-white/40 hover:text-white/75 transition-colors"
+                onClick={() => router.push(`/join`)}
+                className="cursor-pointer text-[10px] tracking-[0.2em] uppercase text-white/40 hover:text-white/75 transition-colors"
                 style={{ fontFamily: "Cinzel" }}
               >
                 {tt.collaborate.see} →

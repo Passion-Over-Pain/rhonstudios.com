@@ -69,10 +69,8 @@ export const collaborators: Collaborator[] = [
     role: "Arte",
     status: "active",
     visible: false,
-    photo:
-      "https://cdna.artstation.com/p/assets/images/images/035/732/490/large/derrick-zha-woqi.jpg?1615755484",
-    coverImage:
-      "https://cdnb.artstation.com/p/assets/images/images/100/708/569/large/thomas-chamberlain-keen-beast-within.jpg?1783794181",
+    photo: "/collaborators/juan/photo.jpg",
+    coverImage: "/collaborators/juan/coverImage.jpg",
     links: {
       twitter: "https://github.com",
       youtube: "https://github.com",
@@ -105,10 +103,8 @@ export const collaborators: Collaborator[] = [
     visible: true,
     role: "Arte",
     area: "Afterlight",
-    photo:
-      "https://static.wixstatic.com/media/96388c_d57842d0d55a4daeb75d3bc53e8bbee9~mv2.png/v1/fill/w_176,h_176,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LogoNEgroTrans.png",
-    coverImage:
-      "https://static.wixstatic.com/media/96388c_5b67aad5c57c43d4b5c50a1763999bee~mv2.jpg/v1/fill/w_2160,h_1001,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/96388c_5b67aad5c57c43d4b5c50a1763999bee~mv2.jpg",
+    photo: "/collaborators/mariel/photo.jpg",
+    coverImage: "/collaborators/mariel/coverImage.jpg",
     links: {
       portfolio: "https://linktr.ee/mariel.odiard",
       web: "https://marielodiard.wixsite.com/mariel-odiard",
@@ -148,8 +144,8 @@ export const collaborators: Collaborator[] = [
     visible: true,
     role: "Dev",
     area: "Rhon Studios",
-    coverImage:
-      "https://digital-atlas1.vercel.app/_next/image?url=%2Fimages%2Fhero-image.jpg&w=3840&q=75",
+    photo: "/collaborators/tino/photo.jpg",
+    coverImage: "/collaborators/tino/coverImage.jpg",
     links: {
       portfolio: "https://digital-atlas1.vercel.app/",
       web: undefined,

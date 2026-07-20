@@ -21,9 +21,10 @@
     "contact": "Contact"
   },
   "join_menu": {
-    "join": "Nuestras Oportunidades",
+    "title": "Quick Links",
+    "join": "Join Us",
     "home": "Home",
-    "conditions": "Condiciones",
+    "conditions": "Terms and Conditions",
     "opportunities": "Opportunities"
   },
   "devblog_menu": {
@@ -127,7 +128,9 @@
       "subtitle": "Talented people who have chosen to build something real together with us.",
       "placeholder": "Your place here",
       "empty": "There are no collaborators yet. Want to be the first?",
-      "see": "See →"
+      "see": "See →",
+      "active": "Active",
+      "inactive": "Inactive"
     }
   },
   "community": {
@@ -164,6 +167,7 @@
     },
     "coffee": {
       "title": "Support us with a coffee",
+      "subTitle": "Buy coffee",
       "description": "Every coffee goes directly into development, tools, assets, and late nights"
     }
   },
@@ -184,11 +188,17 @@
     "title": "Contact",
     "type_contact": "Particual / Bussines",
     "name": "Name",
-    "company": "Companu",
+    "email": "Email",
+    "project": "Project",
+    "role": "Role of Interest",
+    "select": "Select a role",
+    "no_roles": "There are no open roles for this project",
+    "company": "Company",
     "message": {
       "title": "Message",
       "placeholder": "We love you, you are the best."
     },
+    "terms_and_conditions": "I have read and accept the terms of voluntary collaboration described on this page. I understand that this does not constitute an employment relationship.",
     "button": {
       "idle": "Send Message",
       "invalid": "Invalid Message",
@@ -222,8 +232,8 @@
   },
   "faq_section": {
     "top_title": "FAQ",
-    "title": "Preguntas Frecuentes",
-    "subtitle": "Todo lo que necesitas saber sobre Rhon Studios, nuestros proyectos y cómo trabajamos"
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Rhon Studios, our projects, and how we work"
   },
   "footer": {
     "links": "Quick Links",
@@ -375,7 +385,7 @@
     "back": "Go Back",
     "links": {
       "web": "Web Page",
-      "buymeacoffee": "Buy me a Coffee"
+      "buymeacoffee": "Buy us a Coffee"
     },
     "about": "About",
     "work": "My work",
@@ -387,7 +397,7 @@
   },
   "links": {
     "links": {
-      "coffee": "Buy Me a Coffee",
+      "coffee": "Buy Us a Coffee",
       "games": "Our Games",
       "opps": "Opportunities",
       "contact": "Contact",

@@ -21,10 +21,11 @@
     "contact": "Contacto"
   },
   "join_menu": {
+    "title": "Enlaces Rápidos",
     "join": "Únete a Nosotros",
     "home": "Inicio",
     "conditions": "Condiciones",
-    "opportunities": "Opportunities"
+    "opportunities": "Oportunidades"
   },
   "devblog_menu": {
     "home": "Inicio",
@@ -127,7 +128,9 @@
       "subtitle": "Personas con talento que han elegido construir algo real junto a nosotros.",
       "placeholder": "Tu lugar aquí",
       "empty": "Todavía no hay colaboradores. ¿Te animas a ser el primero?",
-      "see": "Ver →"
+      "see": "Ver →",
+      "active": "Activo",
+      "inactive": "Almuni"
     }
   },
   "community": {
@@ -164,6 +167,7 @@
     },
     "coffee": {
       "title": "Invítanos un café",
+      "subTitle": "Comprar un café",
       "description": "Cada café va directo al desarrollo, herramientas, assets y noches largas"
     }
   },
@@ -184,11 +188,17 @@
     "title": "Contacto",
     "type_contact": "Particular / Empresa",
     "name": "Nombre",
+    "email": "Correo Electrónico",
+    "project": "Proyecto",
+    "role": "Rol de interés",
+    "select": "Selecciona un rol",
+    "no_roles": "No hay roles abiertos en este proyecto",
     "company": "Empresa",
     "message": {
       "title": "Mensaje",
       "placeholder": "Hola os amo sois los mejores jiji."
     },
+    "terms_and_conditions": "He leído y acepto las condiciones de colaboración voluntaria descritas en esta página. Entiendo que esto no constituye una relación laboral.",
     "button": {
       "idle": "ENVIAR MENSAJE",
       "invalid": "Mensaje invalido, rellena todos los campos",

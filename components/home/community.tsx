@@ -167,7 +167,7 @@ export function Community() {
                   className="text-xs tracking-[0.2em] uppercase text-white/35 group-hover:text-white/70 transition-colors shrink-0"
                   style={{ fontFamily: "Cinzel" }}
                 >
-                  Buy Me a Coffee →
+                  {tt.coffee.subTitle} →
                 </span>
               </a>
             </div>
